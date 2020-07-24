@@ -8,3 +8,6 @@ export_presets.cfg
 
 # Blender backup files
 *.blend1
+
+# macOS stuff
+.DS_Store
