@@ -24,7 +24,7 @@ material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="OmniLight" type="OmniLight" parent="visuals"]
+[node name="light" type="OmniLight" parent="visuals"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.520119 )
 light_color = Color( 1, 0.941176, 0.780392, 1 )
 shadow_enabled = true
