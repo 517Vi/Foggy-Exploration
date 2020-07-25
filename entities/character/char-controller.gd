@@ -1,20 +1,43 @@
+# warning-ignore-all:return_value_discarded
 extends KinematicBody
 
 export var SPEED = 4
 export var ORBIT_SPEED = 1
 export var LIGHT_MAX_TIME = 20
-export var light_time = 20
 
+export var light_time: float = LIGHT_MAX_TIME
+export var last_lamp_post: NodePath
 
 func _process(delta):
 	# Decay lantern light
 	light_time -= delta
-	$visuals/light.light_energy = light_time/LIGHT_MAX_TIME
+	var light_ratio = light_time/LIGHT_MAX_TIME
+#	$visuals/light.light_energy = light_time/LIGHT_MAX_TIME
+	$visuals/light.omni_range = 9 * light_ratio + 1
+	$fog.process_material.set_shader_param("innerRadius", 2.5 * light_ratio + 1)
+	$fog.process_material.set_shader_param("outerRadius", 5 * light_ratio + 2)
 	if light_time <= 0:
-		get_tree().quit()
-	# DEBUG: Refill lantern if key pressed
+		if last_lamp_post:
+			# Respawn
+			translation = get_node(last_lamp_post).get_node("respawn_point")\
+				.global_transform.origin
+			light_time = LIGHT_MAX_TIME
+			# Snap to floor
+			move_and_collide(Vector3(0, -3, 0))
+			# Drop exposure for fade-in
+			$camera.environment.tonemap_exposure = 0
+		else:
+			# Quit to title if no checkpoint
+			get_tree().change_scene("res://scenes/title_screen/TitleScreen.tscn")
+	# Ramp exposure back up for respawn
+	$camera.environment.tonemap_exposure = lerp(
+		$camera.environment.tonemap_exposure, 1, 0.01)
+	
+	# Debug controls for testing
 	if Input.is_action_just_pressed("debug_refill_lantern"):
 		light_time = LIGHT_MAX_TIME
+	if Input.is_action_just_pressed("debug_respawn"):
+		light_time = 0
 
 func _physics_process(delta):
 	## Camera movement ##
@@ -54,10 +77,9 @@ func _physics_process(delta):
 	# Only move if actively moving to avoid sliding down slopes
 	if dir != Vector3.ZERO:
 		# Move kinematic body and slide against other colliders
-		# warning-ignore:return_value_discarded
 		var velocity = self.move_and_slide_with_snap(
 			dir*SPEED,
-			Vector3(0, -10, 0),
+			Vector3(0, -3, 0), # snap
 			Vector3.UP, # up_direction
 			true, # stop_on_slope
 			4, # max_slides
@@ -66,8 +88,8 @@ func _physics_process(delta):
 		# Move upward at full speed on slopes
 		if get_slide_count() > 0:
 			var collision = get_slide_collision(0)
-			var slope_angle = collision.normal.angle_to(Vector3.UP)
-			if slope_angle <= PI/3:
+			# Only move if slope is less than 60°
+			if collision.normal.angle_to(Vector3.UP) <= PI/3:
 				# Get distance left on move
 				var remain_distance = SPEED*delta - velocity.length()*delta
 				var new_move = dir.slide(collision.normal).normalized()*remain_distance
@@ -75,7 +97,6 @@ func _physics_process(delta):
 	# Only do "gravity" of not on floor to prevent sliding down slopes
 	if not is_on_floor():
 		# Make character fall (not realistic gravity)
-		# warning-ignore:return_value_discarded
 		self.move_and_collide(Vector3.DOWN*0.1)
 	# Rotate character visuals to point in direction moved
 	# Smoothed with quaternions
@@ -85,11 +106,11 @@ func _physics_process(delta):
 		# Target basis quaternion
 		var target_quat = Quat(
 			$visuals.transform.looking_at(-dir, Vector3.UP).basis)
-		# Use spherical linear interpolation between start and target
+		# Spherical linear interpolate between start and target
 		$visuals.transform.basis = Basis(current_quat.slerp(target_quat, 0.5))
+	# Update fog hole position to character position
+	$fog.process_material.set_shader_param("holePos", translation)
 
 func refill(amount):
 	# Refill the lantern by the time given by the lamppost, capped by the max
 	light_time = min(light_time + amount, LIGHT_MAX_TIME)
-
-
