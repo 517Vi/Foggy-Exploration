@@ -1,7 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://entities/character/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/demo/demo_script.gd" type="Script" id=3]
+[ext_resource path="res://scenes/demo/platform_mat.tres" type="Material" id=4]
+[ext_resource path="res://scenes/demo/puzzle.gd" type="Script" id=5]
+[ext_resource path="res://scenes/demo/puzzle_lamp.gd" type="Script" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.1, 50 )
@@ -9,22 +13,22 @@ extents = Vector3( 50, 0.1, 50 )
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 100, 100 )
 
-[sub_resource type="OpenSimplexNoise" id=6]
+[sub_resource type="OpenSimplexNoise" id=3]
 octaves = 5
 lacunarity = 4.0
 
-[sub_resource type="NoiseTexture" id=7]
+[sub_resource type="NoiseTexture" id=4]
 seamless = true
-noise = SubResource( 6 )
+noise = SubResource( 3 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.662745, 0.662745, 0.662745, 1 )
-albedo_texture = SubResource( 7 )
+albedo_texture = SubResource( 4 )
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=6]
 size = Vector3( 40, 2, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=5]
+[sub_resource type="ConvexPolygonShape" id=7]
 points = PoolVector3Array( -20, 1, 1, 20, 1, -1, 20, 1, 1, -20, 1, -1, -20, -1, 1, 20, -1, -1, 20, -1, 1, -20, -1, -1, 20, 1, 1, -20, 1, -1, 20, 1, -1, -20, 1, 1, 20, -1, 1, -20, -1, -1, 20, -1, -1, -20, -1, 1, 20, 1, 1, -20, -1, 1, -20, 1, 1, 20, -1, 1, 20, 1, -1, -20, -1, -1, -20, 1, -1, 20, -1, -1 )
 
 [sub_resource type="CubeMesh" id=8]
@@ -34,18 +38,29 @@ size = Vector3( 30, 2, 2 )
 points = PoolVector3Array( -15, 1, 1, 15, 1, -1, 15, 1, 1, -15, 1, -1, -15, -1, 1, 15, -1, -1, 15, -1, 1, -15, -1, -1, 15, 1, 1, -15, 1, -1, 15, 1, -1, -15, 1, 1, 15, -1, 1, -15, -1, -1, 15, -1, -1, -15, -1, 1, 15, 1, 1, -15, -1, 1, -15, 1, 1, 15, -1, 1, 15, 1, -1, -15, -1, -1, -15, 1, -1, 15, -1, -1 )
 
 [sub_resource type="CubeMesh" id=10]
+material = ExtResource( 4 )
 size = Vector3( 2, 1, 3 )
 
-[sub_resource type="ConvexPolygonShape" id=13]
+[sub_resource type="ConvexPolygonShape" id=11]
 points = PoolVector3Array( -1, 0.5, 1.5, 1, 0.5, -1.5, 1, 0.5, 1.5, -1, 0.5, -1.5, -1, -0.5, 1.5, 1, -0.5, -1.5, 1, -0.5, 1.5, -1, -0.5, -1.5, 1, 0.5, 1.5, -1, 0.5, -1.5, 1, 0.5, -1.5, -1, 0.5, 1.5, 1, -0.5, 1.5, -1, -0.5, -1.5, 1, -0.5, -1.5, -1, -0.5, 1.5, 1, 0.5, 1.5, -1, -0.5, 1.5, -1, 0.5, 1.5, 1, -0.5, 1.5, 1, 0.5, -1.5, -1, -0.5, -1.5, -1, 0.5, -1.5, 1, -0.5, -1.5 )
 
-[sub_resource type="CubeMesh" id=11]
+[sub_resource type="CubeMesh" id=12]
+material = ExtResource( 4 )
 size = Vector3( 5, 1, 5 )
 
-[sub_resource type="ConvexPolygonShape" id=12]
+[sub_resource type="ConvexPolygonShape" id=13]
 points = PoolVector3Array( -2.5, 0.5, 2.5, 2.5, 0.5, -2.5, 2.5, 0.5, 2.5, -2.5, 0.5, -2.5, -2.5, -0.5, 2.5, 2.5, -0.5, -2.5, 2.5, -0.5, 2.5, -2.5, -0.5, -2.5, 2.5, 0.5, 2.5, -2.5, 0.5, -2.5, 2.5, 0.5, -2.5, -2.5, 0.5, 2.5, 2.5, -0.5, 2.5, -2.5, -0.5, -2.5, 2.5, -0.5, -2.5, -2.5, -0.5, 2.5, 2.5, 0.5, 2.5, -2.5, -0.5, 2.5, -2.5, 0.5, 2.5, 2.5, -0.5, 2.5, 2.5, 0.5, -2.5, -2.5, -0.5, -2.5, -2.5, 0.5, -2.5, 2.5, -0.5, -2.5 )
 
-[node name="city" type="Spatial"]
+[sub_resource type="CylinderMesh" id=14]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.5
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 0.674136, 0.294012, 0.658631 )
+
+[node name="demo" type="Spatial"]
+script = ExtResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.801024, 0.598632, 0, -0.598632, 0.801024, 0, 13.0867, 0 )
@@ -63,21 +78,21 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="ground"]
 cast_shadow = 0
 mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 5 )
 
 [node name="character" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4473, 3.19463, 7.68408 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95345, 0.650152, 9.93238 )
 
 [node name="wall" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="wall"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875082, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="wall"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875082, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="wall2" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.5473, 0, 13.9337 )
@@ -96,37 +111,109 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.9711 )
 
 [node name="MeshInstance" type="MeshInstance" parent="wall3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875082, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="wall3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875082, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
-[node name="dais" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85829, 0, 15.4838 )
+[node name="lamp_post" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981503, 1.84722 )
 
-[node name="steps" type="StaticBody" parent="dais"]
+[node name="puzzle" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.6206 )
+script = ExtResource( 5 )
 
-[node name="MeshInstance" type="MeshInstance" parent="dais/steps"]
+[node name="dais" type="Spatial" parent="puzzle"]
+
+[node name="steps" type="StaticBody" parent="puzzle/dais"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0116647, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="puzzle/dais/steps"]
 transform = Transform( 0.829311, -0.558788, 0, 0.558788, 0.829311, 0, 0, 0, 1, -0.535991, 0.013351, 0 )
 mesh = SubResource( 10 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="dais/steps"]
+[node name="CollisionShape" type="CollisionShape" parent="puzzle/dais/steps"]
 transform = Transform( 0.829311, -0.558788, 0, 0.558788, 0.829311, 0, 0, 0, 1, -0.535991, 0.013351, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
-[node name="platform" type="StaticBody" parent="dais"]
+[node name="platform" type="StaticBody" parent="puzzle/dais"]
 
-[node name="MeshInstance" type="MeshInstance" parent="dais/platform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51856, 0.487959, 0 )
-mesh = SubResource( 11 )
+[node name="MeshInstance" type="MeshInstance" parent="puzzle/dais/platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51856, 0.477296, 0 )
+mesh = SubResource( 12 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="dais/platform"]
+[node name="CollisionShape" type="CollisionShape" parent="puzzle/dais/platform"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51856, 0.487959, 0 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
-[node name="lamp_post" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.981503, 2.38949 )
+[node name="lamp1" type="Area" parent="puzzle"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.614026, 1.21498, -1.8972 )
+script = ExtResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="puzzle/lamp1"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzle/lamp1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222302, 0, 0.330785 )
+shape = SubResource( 15 )
+
+[node name="light" type="OmniLight" parent="puzzle/lamp1"]
+visible = false
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="lamp2" type="Area" parent="puzzle"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.43949, 1.21498, 2.05547 )
+
+[node name="MeshInstance" type="MeshInstance" parent="puzzle/lamp2"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzle/lamp2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222302, 0, 0.330785 )
+shape = SubResource( 15 )
+
+[node name="light" type="OmniLight" parent="puzzle/lamp2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+visible = false
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="lamp3" type="Area" parent="puzzle"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.53528, 1.21498, -1.8972 )
+
+[node name="MeshInstance" type="MeshInstance" parent="puzzle/lamp3"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzle/lamp3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222302, 0, 0.330785 )
+shape = SubResource( 15 )
+
+[node name="light" type="OmniLight" parent="puzzle/lamp3"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+visible = false
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="lamp4" type="Area" parent="puzzle"]
+transform = Transform( 1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.405945, 1.21498, 1.96543 )
+
+[node name="MeshInstance" type="MeshInstance" parent="puzzle/lamp4"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzle/lamp4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222302, 0, 0.330785 )
+shape = SubResource( 15 )
+
+[node name="light" type="OmniLight" parent="puzzle/lamp4"]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0 )
+visible = false
+shadow_enabled = true
+omni_range = 1.0
