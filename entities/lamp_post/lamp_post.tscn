@@ -44,6 +44,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19209e-07, 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="interact_zone"]
 shape = SubResource( 3 )
-
-[node name="respawn_point" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2 )
