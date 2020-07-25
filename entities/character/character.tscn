@@ -28,7 +28,6 @@ material/2 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.520119 )
 light_color = Color( 1, 0.941176, 0.780392, 1 )
 shadow_enabled = true
-omni_attenuation = 1.36604
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 1, 0 )
@@ -38,3 +37,6 @@ shape = SubResource( 1 )
 transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -10, 14, 10 )
 environment = SubResource( 2 )
 fov = 30.0
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
