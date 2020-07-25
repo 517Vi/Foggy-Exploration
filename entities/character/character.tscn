@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/character/char-model.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/character/char-controller.gd" type="Script" id=2]
+[ext_resource path="res://entities/fog/fogParticles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.65
@@ -26,8 +27,9 @@ material/2 = null
 
 [node name="light" type="OmniLight" parent="visuals"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.520119 )
-light_color = Color( 1, 0.941176, 0.780392, 1 )
+light_color = Color( 1, 0.905882, 0.623529, 1 )
 shadow_enabled = true
+omni_range = 10.0
 omni_attenuation = 1.36604
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -38,3 +40,5 @@ shape = SubResource( 1 )
 transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -10, 14, 10 )
 environment = SubResource( 2 )
 fov = 30.0
+
+[node name="fog" parent="." instance=ExtResource( 3 )]

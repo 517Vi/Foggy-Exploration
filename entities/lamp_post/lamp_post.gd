@@ -16,4 +16,4 @@ func _input(ev: InputEvent):
 func _process(delta):
 	if lit and $interact_zone.overlaps_body($"../character"):
 		$"../character".refill(delta*REFILL_RATE)
-		$"../character".last_lamp_post = self
+		$"../character".last_lamp_post = self.get_path()

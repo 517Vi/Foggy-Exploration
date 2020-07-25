@@ -6,28 +6,32 @@ export var ORBIT_SPEED = 1
 export var LIGHT_MAX_TIME = 20
 
 export var light_time: float = LIGHT_MAX_TIME
-var last_lamp_post 
+export var last_lamp_post: NodePath
 
 func _process(delta):
 	# Decay lantern light
 	light_time -= delta
+	var light_ratio = light_time/LIGHT_MAX_TIME
 #	$visuals/light.light_energy = light_time/LIGHT_MAX_TIME
-	$visuals/light.omni_range = 4 * light_time/LIGHT_MAX_TIME + 1
+	$visuals/light.omni_range = 9 * light_ratio + 1
+	$fog.process_material.set_shader_param("innerRadius", 2.5 * light_ratio + 1)
+	$fog.process_material.set_shader_param("outerRadius", 5 * light_ratio + 2)
 	if light_time <= 0:
 		if last_lamp_post:
 			# Respawn
-			translation = last_lamp_post.get_node("respawn_point").global_transform.origin
+			translation = get_node(last_lamp_post).get_node("respawn_point")\
+				.global_transform.origin
 			light_time = LIGHT_MAX_TIME
 			# Snap to floor
 			move_and_collide(Vector3(0, -3, 0))
 			# Drop exposure for fade-in
 			$camera.environment.tonemap_exposure = 0
 		else:
-			# Quit to title no checkpoint
+			# Quit to title if no checkpoint
 			get_tree().change_scene("res://scenes/title_screen/TitleScreen.tscn")
-	# Follow remaining light amount with exposure
+	# Ramp exposure back up for respawn
 	$camera.environment.tonemap_exposure = lerp(
-		$camera.environment.tonemap_exposure, light_time/LIGHT_MAX_TIME, 0.01)
+		$camera.environment.tonemap_exposure, 1, 0.01)
 	
 	# Debug controls for testing
 	if Input.is_action_just_pressed("debug_refill_lantern"):
@@ -104,6 +108,8 @@ func _physics_process(delta):
 			$visuals.transform.looking_at(-dir, Vector3.UP).basis)
 		# Spherical linear interpolate between start and target
 		$visuals.transform.basis = Basis(current_quat.slerp(target_quat, 0.5))
+	# Update fog hole position to character position
+	$fog.process_material.set_shader_param("holePos", translation)
 
 func refill(amount):
 	# Refill the lantern by the time given by the lamppost, capped by the max
