@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://entities/character/char-model.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://entities/character/char-controller.gd" type="Script" id=2]
+[ext_resource path="res://entities/character/models/char-model.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://entities/character/char_controller.gd" type="Script" id=2]
 [ext_resource path="res://entities/fog/fogParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/character/random_sfx.gd" type="Script" id=4]
+[ext_resource path="res://entities/character/sounds/step1.wav" type="AudioStream" id=5]
+[ext_resource path="res://entities/character/sounds/step2.wav" type="AudioStream" id=6]
+[ext_resource path="res://entities/character/sounds/step0.wav" type="AudioStream" id=7]
+[ext_resource path="res://entities/character/models/lantern.obj" type="ArrayMesh" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.65
@@ -25,6 +30,13 @@ material/0 = null
 material/1 = null
 material/2 = null
 
+[node name="lantern" type="MeshInstance" parent="visuals"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0854785, 0.812612, 0.518061 )
+cast_shadow = 0
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+
 [node name="light" type="OmniLight" parent="visuals"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.520119 )
 light_color = Color( 1, 0.905882, 0.623529, 1 )
@@ -42,3 +54,14 @@ environment = SubResource( 2 )
 fov = 30.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
+
+[node name="sfx" type="Spatial" parent="."]
+
+[node name="footstep" type="AudioStreamPlayer" parent="sfx"]
+volume_db = -12.0
+script = ExtResource( 4 )
+clips = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ]
+
+[node name="timer" type="Timer" parent="sfx/footstep"]
+wait_time = 0.4
+autostart = true

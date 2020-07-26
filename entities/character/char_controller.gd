@@ -8,6 +8,9 @@ export var LIGHT_MAX_TIME = 20
 export var light_time: float = LIGHT_MAX_TIME
 export var last_lamp_post: NodePath
 
+func _ready():
+	$sfx/footstep/timer.connect("timeout", self, "footstep_timeout")
+
 func _process(delta):
 	# Decay lantern light
 	light_time -= delta
@@ -32,7 +35,6 @@ func _process(delta):
 	# Ramp exposure back up for respawn
 	$camera.environment.tonemap_exposure = lerp(
 		$camera.environment.tonemap_exposure, 1, 0.01)
-	
 	# Debug controls for testing
 	if Input.is_action_just_pressed("debug_refill_lantern"):
 		light_time = LIGHT_MAX_TIME
@@ -54,7 +56,7 @@ func _physics_process(delta):
 	$camera.look_at(self.translation, Vector3.UP)
 	## Character movement ##
 	# Direction camera is pointing, without Y
-	var facing = -$camera.transform.basis.z
+	var facing = -$camera.global_transform.basis.z
 	facing.y = 0
 	facing = facing.normalized()
 	# Movement direction vector
@@ -102,14 +104,22 @@ func _physics_process(delta):
 	# Smoothed with quaternions
 	if dir != Vector3.ZERO:
 		# Starting basis quaternion
-		var current_quat = Quat($visuals.transform.basis)
+		var current_quat = Quat($visuals.global_transform.basis)
 		# Target basis quaternion
 		var target_quat = Quat(
 			$visuals.transform.looking_at(-dir, Vector3.UP).basis)
 		# Spherical linear interpolate between start and target
-		$visuals.transform.basis = Basis(current_quat.slerp(target_quat, 0.5))
+		$visuals.global_transform.basis = Basis(current_quat.slerp(target_quat, 0.5))
 	# Update fog hole position to character position
 	$fog.process_material.set_shader_param("holePos", translation)
+
+func footstep_timeout():
+	# Play footstep sound when walking and timout occurs
+	if Input.is_action_pressed("move_up") \
+		or Input.is_action_pressed("move_down") \
+		or Input.is_action_pressed("move_left") \
+		or Input.is_action_pressed("move_right"):
+		$sfx/footstep.play()
 
 func refill(amount):
 	# Refill the lantern by the time given by the lamppost, capped by the max

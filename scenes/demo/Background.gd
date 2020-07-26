@@ -6,7 +6,7 @@ var count = 0;
 func _ready():
 	var player = AudioStreamPlayer.new();
 	self.add_child(player)
-	player.stream = load("res://Sounds/Howling winds sounds effects for 15 minutes.ogg")
+	player.stream = preload("res://Sounds/Howling winds sounds effects for 15 minutes.ogg")
 	player.play()
 	timer.set_wait_time(.7)
 func _process(delta):
@@ -23,11 +23,11 @@ func _on_Timer_timeout():
 	var footstep = AudioStreamPlayer.new();
 	self.add_child(footstep)
 	if count%3 == 0:
-		footstep.stream = load("res://Sounds/foot_stone_walk_dry0.wav")
+		footstep.stream = load("res://entities/character/sounds/foot_stone_walk_dry0.wav")
 	elif count%3 == 1:
-		footstep.stream = load("res://Sounds/foot_stone_walk_dry1.wav")
+		footstep.stream = load("res://entities/character/sounds/foot_stone_walk_dry1.wav")
 	else:
-		footstep.stream = load("res://Sounds/foot_stone_walk_dry2.wav")
+		footstep.stream = load("res://entities/character/sounds/foot_stone_walk_dry2.wav")
 	count= count+1
 	#loops through 3 different sound effects
 	footstep.play()
