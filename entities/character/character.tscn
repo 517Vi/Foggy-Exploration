@@ -10,8 +10,7 @@
 [ext_resource path="res://entities/character/models/lantern.obj" type="ArrayMesh" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.65
-height = 0.7
+radius = 0.5
 
 [sub_resource type="Environment" id=2]
 background_mode = 1
@@ -38,7 +37,7 @@ material/0 = null
 material/1 = null
 
 [node name="light" type="OmniLight" parent="visuals"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.520119 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.430347 )
 light_color = Color( 1, 0.905882, 0.623529, 1 )
 shadow_enabled = true
 omni_range = 10.0
