@@ -1,9 +1,10 @@
-[gd_scene load_steps=166 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://scenes/city/generate_colliders.gd" type="Script" id=1]
 [ext_resource path="res://entities/character/character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/city/sounds/ambience.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/city/puzzle/puzzle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/city/wallMaterial.tres" type="Material" id=5]
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -281,6 +282,10 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 358
 }
+
+[sub_resource type="SpatialMaterial" id=161]
+albedo_color = Color( 0, 0, 0, 1 )
+roughness = 0.86
 
 [sub_resource type="ConcavePolygonShape" id=10]
 data = PoolVector3Array( -19.5152, 0, 23.2753, -48.9083, 0, 59.682, -36.2899, 0, 34.4879, -48.9083, -0.1, 59.682, -19.5152, -0.1, 23.2753, -36.2899, -0.1, 34.4879, -60, 0, -60, -60, 0, 60, -60, -0.1, 60, -60, 0, 60, 60, 0, 60, 60, -0.1, 60, 60, 0, 60, 60, 0, -60, 60, -0.1, -60, -14.6855, 0, -60, -60, 0, -60, -60, -0.1, -60, -59.4216, -0.1, 40.7195, -59.4216, 0, 40.7195, -58.4231, 0, 37.2186, -59.7867, -0.1, 43.6431, -59.7867, 0, 43.6431, -59.4216, 0, 40.7195, 2.7146, 0, -37.4114, 2.7146, -0.1, -37.4114, -6.6309, -0.1, -37.2236, -6.6309, 0, -37.2236, -6.6309, -0.1, -37.2236, -11.7646, -0.1, -12.6743, -36.2899, 0, 34.4879, -36.2899, -0.1, 34.4879, -19.5152, -0.1, 23.2753, -58.4231, -0.1, 37.2186, -58.4231, 0, 37.2186, -57.2454, 0, 35.1673, -53.0136, -0.1, 43.7812, -53.0136, 0, 43.7812, -48.9083, 0, 59.682, -10.1668, 0, 13.813, -10.1668, -0.1, 13.813, -14.1981, -0.1, 18.2044, -52.5727, 0, 42.4873, -52.5727, -0.1, 42.4873, -51.8435, -0.1, 41.9976, -36.2899, -0.1, 34.4879, -36.2899, 0, 34.4879, -51.8435, 0, 41.9976, 2.6584, 0, -38.7261, 2.6584, -0.1, -38.7261, -5.1565, -0.1, -60, -3.438, 0, -7.6174, -3.438, -0.1, -7.6174, 2.7146, -0.1, -37.4114, -4.2847, 0, -4.5622, -4.2847, -0.1, -4.5622, -12.4715, -0.1, -9.5471, -16.2113, 0, 4.9928, -16.2113, -0.1, 4.9928, -18.0493, -0.1, 9.1059, -53.0136, 0, 43.7812, -53.0136, -0.1, 43.7812, -52.5727, -0.1, 42.4873, -7.0112, -0.1, -38.5312, -7.0112, 0, -38.5312, -14.6855, 0, -60, -57.1939, -0.1, 59.7009, -57.1939, 0, 59.7009, -59.6131, 0, 48.3006, -11.7646, 0, -12.6743, -11.7646, -0.1, -12.6743, -3.438, -0.1, -7.6174, -54.9452, -0.1, 33.3829, -54.9452, 0, 33.3829, -41.1175, 0, 26.6964, -7.0112, 0, -38.5312, -7.0112, -0.1, -38.5312, 2.6584, -0.1, -38.7261, -24.8292, -0.1, 15.8624, -24.8279, 0, 15.8644, -18.0493, 0, 9.1059, -58.4231, 0, 37.2186, -60, 0, -60, -57.2454, 0, 35.1673, -6.6309, 0, -37.2236, 2.6584, 0, -38.7261, 2.7146, 0, -37.4114, -19.5152, 0, 23.2753, -19.5152, -0.1, 23.2753, -14.1981, -0.1, 18.2044, -57.1939, 0, 59.7009, -57.1939, -0.1, 59.7009, -48.9083, -0.1, 59.682, -57.2454, -0.1, 35.1673, -57.2454, 0, 35.1673, -54.9452, 0, 33.3829, -5.1565, 0, -60, -5.1565, -0.1, -60, 60, -0.1, -60, -8.0642, 0, 9.4354, -8.0642, -0.1, 9.4354, -10.1668, -0.1, 13.813, -16.2113, -0.1, 4.9928, -16.2113, 0, 4.9928, -12.4715, 0, -9.5471, -4.2847, -0.1, -4.5622, -4.2847, 0, -4.5622, -8.0642, 0, 9.4354, -24.8279, 0, 15.8644, -24.8292, -0.1, 15.8624, -41.1188, -0.1, 26.6944, 2.7146, -0.1, -37.4114, 2.6584, -0.1, -38.7261, -6.6309, -0.1, -37.2236, -60, -0.1, -60, -58.4231, -0.1, 37.2186, -57.2454, -0.1, 35.1673, -59.6131, -0.1, 48.3006, -59.6131, 0, 48.3006, -59.7867, 0, 43.6431, 60, 0, 60, -4.2847, 0, -4.5622, 60, 0, -60, 60, 0, 60, -8.0642, 0, 9.4354, -4.2847, 0, -4.5622, -59.6131, 0, 48.3006, -60, 0, 60, -59.7867, 0, 43.6431, -57.1939, 0, 59.7009, -60, 0, 60, -59.6131, 0, 48.3006, 60, 0, 60, -10.1668, 0, 13.813, -8.0642, 0, 9.4354, 60, 0, 60, -14.1981, 0, 18.2044, -10.1668, 0, 13.813, -57.1939, 0, 59.7009, -48.9083, 0, 59.682, -60, 0, 60, -60, 0, 60, -48.9083, 0, 59.682, 60, 0, 60, -52.5727, 0, 42.4873, -51.8435, 0, 41.9976, -53.0136, 0, 43.7812, -53.0136, 0, 43.7812, -51.8435, 0, 41.9976, -48.9083, 0, 59.682, 60, 0, 60, -19.5152, 0, 23.2753, -14.1981, 0, 18.2044, -36.2899, 0, 34.4879, -48.9083, 0, 59.682, -51.8435, 0, 41.9976, 60, 0, 60, -48.9083, 0, 59.682, -19.5152, 0, 23.2753, -60, -0.1, 60, -59.6131, -0.1, 48.3006, -59.7867, -0.1, 43.6431, -60, -0.1, 60, -57.1939, -0.1, 59.7009, -59.6131, -0.1, 48.3006, -4.2847, -0.1, -4.5622, 60, -0.1, 60, 60, -0.1, -60, -8.0642, -0.1, 9.4354, 60, -0.1, 60, -4.2847, -0.1, -4.5622, 60, -0.1, 60, -48.9083, -0.1, 59.682, -60, -0.1, 60, -60, -0.1, 60, -48.9083, -0.1, 59.682, -57.1939, -0.1, 59.7009, -48.9083, -0.1, 59.682, -51.8435, -0.1, 41.9976, -53.0136, -0.1, 43.7812, -53.0136, -0.1, 43.7812, -51.8435, -0.1, 41.9976, -52.5727, -0.1, 42.4873, -10.1668, -0.1, 13.813, 60, -0.1, 60, -8.0642, -0.1, 9.4354, -14.1981, -0.1, 18.2044, 60, -0.1, 60, -10.1668, -0.1, 13.813, 60, -0.1, 60, -19.5152, -0.1, 23.2753, -48.9083, -0.1, 59.682, -36.2899, -0.1, 34.4879, -51.8435, -0.1, 41.9976, -48.9083, -0.1, 59.682, -19.5152, -0.1, 23.2753, 60, -0.1, 60, -14.1981, -0.1, 18.2044, -60, 0, -60, -60, -0.1, 60, -60, -0.1, -60, -60, 0, 60, 60, -0.1, 60, -60, -0.1, 60, 60, 0, 60, 60, -0.1, -60, 60, -0.1, 60, -14.6855, 0, -60, -60, -0.1, -60, -14.6855, -0.1, -60, -59.4216, -0.1, 40.7195, -58.4231, 0, 37.2186, -58.4231, -0.1, 37.2186, -59.7867, -0.1, 43.6431, -59.4216, 0, 40.7195, -59.4216, -0.1, 40.7195, 2.7146, 0, -37.4114, -6.6309, -0.1, -37.2236, -6.6309, 0, -37.2236, -6.6309, 0, -37.2236, -11.7646, -0.1, -12.6743, -11.7646, 0, -12.6743, -36.2899, 0, 34.4879, -19.5152, -0.1, 23.2753, -19.5152, 0, 23.2753, -58.4231, -0.1, 37.2186, -57.2454, 0, 35.1673, -57.2454, -0.1, 35.1673, -53.0136, -0.1, 43.7812, -48.9083, 0, 59.682, -48.9083, -0.1, 59.682, -10.1668, 0, 13.813, -14.1981, -0.1, 18.2044, -14.1981, 0, 18.2044, -52.5727, 0, 42.4873, -51.8435, -0.1, 41.9976, -51.8435, 0, 41.9976, -36.2899, -0.1, 34.4879, -51.8435, 0, 41.9976, -51.8435, -0.1, 41.9976, 2.6584, 0, -38.7261, -5.1565, -0.1, -60, -5.1565, 0, -60, -3.438, 0, -7.6174, 2.7146, -0.1, -37.4114, 2.7146, 0, -37.4114, -4.2847, 0, -4.5622, -12.4715, -0.1, -9.5471, -12.4715, 0, -9.5471, -16.2113, 0, 4.9928, -18.0493, -0.1, 9.1059, -18.0493, 0, 9.1059, -53.0136, 0, 43.7812, -52.5727, -0.1, 42.4873, -52.5727, 0, 42.4873, -7.0112, -0.1, -38.5312, -14.6855, 0, -60, -14.6855, -0.1, -60, -57.1939, -0.1, 59.7009, -59.6131, 0, 48.3006, -59.6131, -0.1, 48.3006, -11.7646, 0, -12.6743, -3.438, -0.1, -7.6174, -3.438, 0, -7.6174, -54.9452, -0.1, 33.3829, -41.1175, 0, 26.6964, -41.1188, -0.1, 26.6944, -7.0112, 0, -38.5312, 2.6584, -0.1, -38.7261, 2.6584, 0, -38.7261, -24.8292, -0.1, 15.8624, -18.0493, 0, 9.1059, -18.0493, -0.1, 9.1059, -54.9452, 0, 33.3829, -60, 0, -60, -41.1175, 0, 26.6964, -41.1175, 0, 26.6964, -60, 0, -60, -24.8279, 0, 15.8644, -60, 0, -60, -12.4715, 0, -9.5471, -24.8279, 0, 15.8644, -24.8279, 0, 15.8644, -16.2113, 0, 4.9928, -18.0493, 0, 9.1059, -24.8279, 0, 15.8644, -12.4715, 0, -9.5471, -16.2113, 0, 4.9928, 60, 0, -60, -3.438, 0, -7.6174, 2.7146, 0, -37.4114, -4.2847, 0, -4.5622, -3.438, 0, -7.6174, 60, 0, -60, -57.2454, 0, 35.1673, -60, 0, -60, -54.9452, 0, 33.3829, -12.4715, 0, -9.5471, -3.438, 0, -7.6174, -4.2847, 0, -4.5622, -12.4715, 0, -9.5471, -11.7646, 0, -12.6743, -3.438, 0, -7.6174, -12.4715, 0, -9.5471, -60, 0, -60, -11.7646, 0, -12.6743, -60, 0, -60, -59.7867, 0, 43.6431, -60, 0, 60, -60, 0, -60, -59.4216, 0, 40.7195, -59.7867, 0, 43.6431, -60, 0, -60, -58.4231, 0, 37.2186, -59.4216, 0, 40.7195, -14.6855, 0, -60, -7.0112, 0, -38.5312, -60, 0, -60, -60, 0, -60, -7.0112, 0, -38.5312, -11.7646, 0, -12.6743, -7.0112, 0, -38.5312, -6.6309, 0, -37.2236, -11.7646, 0, -12.6743, 60, 0, -60, 2.6584, 0, -38.7261, -5.1565, 0, -60, 2.6584, 0, -38.7261, -6.6309, 0, -37.2236, -7.0112, 0, -38.5312, 2.7146, 0, -37.4114, 2.6584, 0, -38.7261, 60, 0, -60, -19.5152, 0, 23.2753, -14.1981, -0.1, 18.2044, -14.1981, 0, 18.2044, -57.1939, 0, 59.7009, -48.9083, -0.1, 59.682, -48.9083, 0, 59.682, -57.2454, -0.1, 35.1673, -54.9452, 0, 33.3829, -54.9452, -0.1, 33.3829, -5.1565, 0, -60, 60, -0.1, -60, 60, 0, -60, -8.0642, 0, 9.4354, -10.1668, -0.1, 13.813, -10.1668, 0, 13.813, -16.2113, -0.1, 4.9928, -12.4715, 0, -9.5471, -12.4715, -0.1, -9.5471, -4.2847, -0.1, -4.5622, -8.0642, 0, 9.4354, -8.0642, -0.1, 9.4354, -24.8279, 0, 15.8644, -41.1188, -0.1, 26.6944, -41.1175, 0, 26.6964, -6.6309, -0.1, -37.2236, -7.0112, -0.1, -38.5312, -11.7646, -0.1, -12.6743, -11.7646, -0.1, -12.6743, -7.0112, -0.1, -38.5312, -60, -0.1, -60, -60, -0.1, -60, -7.0112, -0.1, -38.5312, -14.6855, -0.1, -60, 2.6584, -0.1, -38.7261, 60, -0.1, -60, -5.1565, -0.1, -60, 2.6584, -0.1, -38.7261, 2.7146, -0.1, -37.4114, 60, -0.1, -60, -6.6309, -0.1, -37.2236, 2.6584, -0.1, -38.7261, -7.0112, -0.1, -38.5312, -3.438, -0.1, -7.6174, 60, -0.1, -60, 2.7146, -0.1, -37.4114, -12.4715, -0.1, -9.5471, -24.8292, -0.1, 15.8624, -16.2113, -0.1, 4.9928, -16.2113, -0.1, 4.9928, -24.8292, -0.1, 15.8624, -18.0493, -0.1, 9.1059, -24.8292, -0.1, 15.8624, -60, -0.1, -60, -41.1188, -0.1, 26.6944, -12.4715, -0.1, -9.5471, -60, -0.1, -60, -24.8292, -0.1, 15.8624, -41.1188, -0.1, 26.6944, -60, -0.1, -60, -54.9452, -0.1, 33.3829, -54.9452, -0.1, 33.3829, -60, -0.1, -60, -57.2454, -0.1, 35.1673, -3.438, -0.1, -7.6174, -4.2847, -0.1, -4.5622, 60, -0.1, -60, -11.7646, -0.1, -12.6743, -12.4715, -0.1, -9.5471, -3.438, -0.1, -7.6174, -3.438, -0.1, -7.6174, -12.4715, -0.1, -9.5471, -4.2847, -0.1, -4.5622, -59.7867, -0.1, 43.6431, -60, -0.1, -60, -60, -0.1, 60, -59.4216, -0.1, 40.7195, -60, -0.1, -60, -59.7867, -0.1, 43.6431, -60, -0.1, -60, -12.4715, -0.1, -9.5471, -11.7646, -0.1, -12.6743, -58.4231, -0.1, 37.2186, -60, -0.1, -60, -59.4216, -0.1, 40.7195, -59.6131, -0.1, 48.3006, -59.7867, 0, 43.6431, -59.7867, -0.1, 43.6431 )
@@ -2353,7 +2358,7 @@ shape = SubResource( 6 )
 [node name="Ground" type="MeshInstance" parent="ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3455, -1, -9.1887 )
 mesh = SubResource( 9 )
-material/0 = null
+material/0 = SubResource( 161 )
 
 [node name="StaticBody" type="StaticBody" parent="ground/Ground"]
 
@@ -2367,167 +2372,167 @@ script = ExtResource( 1 )
 [node name="Cylinder001" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, -27.5413, 5.00962, -12.8953 )
 mesh = SubResource( 11 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube" type="MeshInstance" parent="wall"]
 transform = Transform( 2.44019, 0, -1.25138, 0, 6, 0, 1.25138, 0, 2.44019, -20.6311, 5.00962, -31.3879 )
 mesh = SubResource( 12 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube003" type="MeshInstance" parent="wall"]
 transform = Transform( 2.44019, 0, -1.25138, 0, 6, 0, 1.25138, 0, 2.44019, -16.6812, 5.00962, -38.7024 )
 mesh = SubResource( 13 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube004" type="MeshInstance" parent="wall"]
 transform = Transform( 0.610635, 0, -2.6735, 0, 6, 0, 2.6735, 0, 0.610635, 13.6749, 5.00962, -62.5996 )
 mesh = SubResource( 14 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube005" type="MeshInstance" parent="wall"]
 transform = Transform( 0.610635, 0, -2.6735, 0, 6, 0, 2.6735, 0, 0.610635, 27.9322, 5.00962, -66.025 )
 mesh = SubResource( 15 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube006" type="MeshInstance" parent="wall"]
 transform = Transform( 2.2133, 0, 1.61919, 0, 6, 0, -1.61919, 0, 2.2133, -5.37902, 5.00962, 27.3187 )
 mesh = SubResource( 16 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube007" type="MeshInstance" parent="wall"]
 transform = Transform( 2.2133, 0, 1.61919, 0, 6, 0, -1.61919, 0, 2.2133, -14.1691, 5.00962, 15.5825 )
 mesh = SubResource( 17 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder000" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, -5.11772, 5.00962, -54.5391 )
 mesh = SubResource( 18 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder002" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 42.9328, 5.00962, -66.6245 )
 mesh = SubResource( 19 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder003" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 65.2108, 5.00962, -57.4512 )
 mesh = SubResource( 20 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder004" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 82.9749, 5.00962, -40.1239 )
 mesh = SubResource( 21 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder005" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 86.7607, 5.00962, -15.225 )
 mesh = SubResource( 22 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder006" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 87.0519, 5.00962, 1.81106 )
 mesh = SubResource( 23 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder007" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 81.9556, 5.00962, 15.0614 )
 mesh = SubResource( 24 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder008" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 59.2408, 5.00962, 34.7184 )
 mesh = SubResource( 25 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder009" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 40.8943, 5.00962, 46.2214 )
 mesh = SubResource( 26 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder010" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 23.4214, 5.00962, 46.9494 )
 mesh = SubResource( 27 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder011" type="MeshInstance" parent="wall"]
 transform = Transform( 2.98795, 0, 0, 0, 6, 0, 0, 0, 2.98795, 3.61873, 5.00962, 34.2816 )
 mesh = SubResource( 28 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube001" type="MeshInstance" parent="wall"]
 transform = Transform( 1.17895, 0, 0.595109, 0, 4.5, 0, -0.595109, 0, 1.17895, -19.6334, 3.50962, 2.86496 )
 mesh = SubResource( 29 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube002" type="MeshInstance" parent="wall"]
 transform = Transform( 1.22771, 0, -2.95303, 0, 4.5, 0, 0.487618, 0, 7.43503, -23.8742, 3.50962, -22.0957 )
 mesh = SubResource( 30 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube008" type="MeshInstance" parent="wall"]
 transform = Transform( 1.08023, 0, -4.60477, 0, 4.5, 0, 0.760363, 0, 6.54187, -10.5751, 3.50962, -46.6295 )
 mesh = SubResource( 31 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube009" type="MeshInstance" parent="wall"]
 transform = Transform( 0.494819, 0, -7.41756, 0, 4.5, 0, 1.22482, 0, 2.99663, 4.11254, 3.50962, -58.2158 )
 mesh = SubResource( 32 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube010" type="MeshInstance" parent="wall"]
 transform = Transform( 0.113119, 0, -4.98163, 0, 4.5, 0, 1.31615, 0, 0.428156, 35.4676, 3.50962, -66.1155 )
 mesh = SubResource( 33 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube011" type="MeshInstance" parent="wall"]
 transform = Transform( -0.498784, 0, -9.25977, 0, 4.5, 0, 1.22322, 0, -3.7758, 54.0758, 3.50962, -61.9609 )
 mesh = SubResource( 34 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube012" type="MeshInstance" parent="wall"]
 transform = Transform( -0.922038, 0, -7.51919, 0, 4.5, 0, 0.945985, 0, -7.32884, 73.9644, 3.50962, -48.7795 )
 mesh = SubResource( 35 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube013" type="MeshInstance" parent="wall"]
 transform = Transform( -1.30732, 0, -1.5074, 0, 4.5, 0, 0.189645, 0, -10.3912, 84.6378, 3.50962, -27.854 )
 mesh = SubResource( 36 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube014" type="MeshInstance" parent="wall"]
 transform = Transform( -1.32013, 0, -0.254642, 0, 4.5, 0, 0.0480546, 0, -6.99537, 87.0253, 3.50962, -6.71788 )
 mesh = SubResource( 37 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube015" type="MeshInstance" parent="wall"]
 transform = Transform( -1.23735, 0, 1.75101, 0, 4.5, 0, -0.462617, 0, -4.68337, 84.5676, 3.50962, 8.30914 )
 mesh = SubResource( 38 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube016" type="MeshInstance" parent="wall"]
 transform = Transform( -0.851246, 0, 10.3234, 0, 4.5, 0, -1.01016, 0, -8.69933, 70.5798, 3.50962, 24.8248 )
 mesh = SubResource( 39 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube017" type="MeshInstance" parent="wall"]
 transform = Transform( -0.720623, 0, 7.54292, 0, 4.5, 0, -1.10713, 0, -4.90962, 50.1231, 3.50962, 40.424 )
 mesh = SubResource( 40 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube018" type="MeshInstance" parent="wall"]
 transform = Transform( -0.105319, 0, 6.97772, 0, 4.5, 0, -1.31679, 0, -0.558085, 31.9241, 3.50962, 47.1288 )
 mesh = SubResource( 41 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube019" type="MeshInstance" parent="wall"]
 transform = Transform( 0.740566, 0, 8.2808, 0, 4.5, 0, -1.09389, 0, 5.6061, 13.383, 3.50962, 40.9713 )
 mesh = SubResource( 42 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube020" type="MeshInstance" parent="wall"]
 transform = Transform( 0.862884, 0, 2.65013, 0, 4.5, 0, -1.00024, 0, 2.28622, -0.409885, 3.50962, 30.7087 )
 mesh = SubResource( 43 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="buildings" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960202, 0 )
@@ -2538,561 +2543,561 @@ script = ExtResource( 1 )
 [node name="Cube021" type="MeshInstance" parent="buildings/block_1"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 4.81155, 2.00962, -1.93898 )
 mesh = SubResource( 44 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube022" type="MeshInstance" parent="buildings/block_1"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 2.0042, 2.00962, -6.55373 )
 mesh = SubResource( 45 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube023" type="MeshInstance" parent="buildings/block_1"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 1.51517, 2.00962, -21.453 )
 mesh = SubResource( 46 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube024" type="MeshInstance" parent="buildings/block_1"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -6.82234, 2.00962, -23.555 )
 mesh = SubResource( 47 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_2" type="Spatial" parent="buildings"]
 
 [node name="Cube025" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -5.25261, 2.00962, 6.26272 )
 mesh = SubResource( 48 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube026" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -11.7404, 2.00962, 1.00435 )
 mesh = SubResource( 49 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube027" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -5.9458, 2.00962, -1.9541 )
 mesh = SubResource( 50 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube028" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -13.9292, 2.00962, -10.6824 )
 mesh = SubResource( 51 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube029" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -22.2411, 2.00962, -14.5026 )
 mesh = SubResource( 52 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube030" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -15.4999, 2.00962, -18.3724 )
 mesh = SubResource( 53 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube031" type="MeshInstance" parent="buildings/block_2"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -17.657, 2.00962, -25.0325 )
 mesh = SubResource( 54 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_3" type="Spatial" parent="buildings"]
 
 [node name="Cylinder" type="MeshInstance" parent="buildings/block_3"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -4.8197, 2.00962, -38.7019 )
 mesh = SubResource( 55 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_4" type="Spatial" parent="buildings"]
 
 [node name="Cube033" type="MeshInstance" parent="buildings/block_4"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 3.0823, 2.00962, -34.1131 )
 mesh = SubResource( 56 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube034" type="MeshInstance" parent="buildings/block_4"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 10.4244, 2.00962, -30.823 )
 mesh = SubResource( 57 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube035" type="MeshInstance" parent="buildings/block_4"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 16.8907, 2.00962, -37.8317 )
 mesh = SubResource( 58 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube036" type="MeshInstance" parent="buildings/block_4"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 11.4167, 2.00962, -40.0826 )
 mesh = SubResource( 59 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_5" type="Spatial" parent="buildings"]
 
 [node name="Cylinder012" type="MeshInstance" parent="buildings/block_5"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 16.7528, 2.00962, -48.1488 )
 mesh = SubResource( 60 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube038" type="MeshInstance" parent="buildings/block_5"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 10.9005, 2.00962, -51.6433 )
 mesh = SubResource( 61 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube039" type="MeshInstance" parent="buildings/block_5"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 4.28872, 2.00962, -53.609 )
 mesh = SubResource( 62 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_6" type="Spatial" parent="buildings"]
 
 [node name="Cube037" type="MeshInstance" parent="buildings/block_6"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 26.8086, 2.00962, -5.66231 )
 mesh = SubResource( 63 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_7" type="Spatial" parent="buildings"]
 
 [node name="Cylinder013" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 26.0341, 2.00962, 12.7692 )
 mesh = SubResource( 64 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube032" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 30.3494, 2.00962, 5.00053 )
 mesh = SubResource( 65 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube040" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 27.3316, 2.00962, 9.97428 )
 mesh = SubResource( 66 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube041" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 28.166, 2.00962, 14.9806 )
 mesh = SubResource( 67 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube042" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 29.7696, 2.00962, 19.9935 )
 mesh = SubResource( 68 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube043" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 31.8313, 2.00962, 18.8076 )
 mesh = SubResource( 69 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube044" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 34.8363, 2.00962, 17.231 )
 mesh = SubResource( 70 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube045" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 38.4456, 2.00962, 15.2052 )
 mesh = SubResource( 71 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube046" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 43.1259, 2.00962, 13.2725 )
 mesh = SubResource( 72 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube047" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 40.5412, 2.00962, 7.07859 )
 mesh = SubResource( 73 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube050" type="MeshInstance" parent="buildings/block_7"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 29.7696, 2.00962, 19.9935 )
 mesh = SubResource( 74 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_8" type="Spatial" parent="buildings"]
 
 [node name="Cylinder014" type="MeshInstance" parent="buildings/block_8"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 49.4039, 2.00962, 32.1313 )
 mesh = SubResource( 75 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube048" type="MeshInstance" parent="buildings/block_8"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 42.598, 2.00962, 30.8011 )
 mesh = SubResource( 76 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube049" type="MeshInstance" parent="buildings/block_8"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 34.6794, 2.00962, 26.0692 )
 mesh = SubResource( 77 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube051" type="MeshInstance" parent="buildings/block_8"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 33.6171, 2.00962, 42.2928 )
 mesh = SubResource( 78 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder015" type="MeshInstance" parent="buildings/block_8"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 41.4079, 2.00962, 44.7162 )
 mesh = SubResource( 79 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder016" type="MeshInstance" parent="buildings/block_8"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 30.3427, 2.00962, 43.0955 )
 mesh = SubResource( 80 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_9" type="Spatial" parent="buildings"]
 
 [node name="Cube052" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 23.9851, 2.00962, 19.8538 )
 mesh = SubResource( 81 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube053" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 21.4904, 2.00962, 22.1071 )
 mesh = SubResource( 82 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube054" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 25.2324, 2.00962, 23.7568 )
 mesh = SubResource( 83 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube055" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 19.9211, 2.00962, 25.0041 )
 mesh = SubResource( 84 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube056" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 16.2596, 2.00962, 26.6539 )
 mesh = SubResource( 85 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube057" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 14.4891, 2.00962, 31.1202 )
 mesh = SubResource( 86 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube058" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 11.069, 2.00962, 32.9309 )
 mesh = SubResource( 87 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube059" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 14.4087, 2.00962, 35.7475 )
 mesh = SubResource( 88 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube060" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 18.3921, 2.00962, 38.3629 )
 mesh = SubResource( 89 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder017" type="MeshInstance" parent="buildings/block_9"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 24.9912, 2.00962, 40.3594 )
 mesh = SubResource( 90 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_10" type="Spatial" parent="buildings"]
 
 [node name="Cube061" type="MeshInstance" parent="buildings/block_10"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 7.83659, 2.00962, 28.4042 )
 mesh = SubResource( 91 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube062" type="MeshInstance" parent="buildings/block_10"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 11.5585, 2.00962, 25.2523 )
 mesh = SubResource( 92 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube063" type="MeshInstance" parent="buildings/block_10"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 7.90365, 2.00962, 22.3686 )
 mesh = SubResource( 93 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube064" type="MeshInstance" parent="buildings/block_10"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 4.08112, 2.00962, 21.5974 )
 mesh = SubResource( 94 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube065" type="MeshInstance" parent="buildings/block_10"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 2.23692, 2.00962, 26.4929 )
 mesh = SubResource( 95 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_11" type="Spatial" parent="buildings"]
 
 [node name="Cube066" type="MeshInstance" parent="buildings/block_11"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 15.5152, 2.00962, 20.9939 )
 mesh = SubResource( 96 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube067" type="MeshInstance" parent="buildings/block_11"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 20.0418, 2.00962, 15.3271 )
 mesh = SubResource( 97 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube068" type="MeshInstance" parent="buildings/block_11"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 19.7065, 2.00962, 9.29155 )
 mesh = SubResource( 98 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube069" type="MeshInstance" parent="buildings/block_11"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 17.8623, 2.00962, 10.834 )
 mesh = SubResource( 99 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube070" type="MeshInstance" parent="buildings/block_11"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 16.2864, 2.00962, 12.8458 )
 mesh = SubResource( 100 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder018" type="MeshInstance" parent="buildings/block_11"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 14.0467, 2.00962, 20.8042 )
 mesh = SubResource( 101 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_12" type="Spatial" parent="buildings"]
 
 [node name="Cube071" type="MeshInstance" parent="buildings/block_12"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 36.3689, 2.00962, -19.1047 )
 mesh = SubResource( 102 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube072" type="MeshInstance" parent="buildings/block_12"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 29.5688, 2.00962, -23.5711 )
 mesh = SubResource( 103 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube073" type="MeshInstance" parent="buildings/block_12"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 33.5925, 2.00962, -30.1297 )
 mesh = SubResource( 104 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube074" type="MeshInstance" parent="buildings/block_12"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 41.1571, 2.00962, -27.1119 )
 mesh = SubResource( 105 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_13" type="Spatial" parent="buildings"]
 
 [node name="Cube075" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 39.1694, 2.00962, -9.10983 )
 mesh = SubResource( 106 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube076" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 41.8519, 2.00962, -12.6306 )
 mesh = SubResource( 107 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube077" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 42.6622, 2.00962, -14.5027 )
 mesh = SubResource( 108 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube078" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 44.4785, 2.00962, -16.7102 )
 mesh = SubResource( 109 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube079" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 46.0433, 2.00962, -13.9439 )
 mesh = SubResource( 110 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube080" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 49.3405, 2.00962, -11.4849 )
 mesh = SubResource( 111 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube081" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 46.9933, 2.00962, -8.66275 )
 mesh = SubResource( 112 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube082" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 44.4226, 2.00962, -5.8685 )
 mesh = SubResource( 113 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube083" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 41.293, 2.00962, -5.03023 )
 mesh = SubResource( 114 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube084" type="MeshInstance" parent="buildings/block_13"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 42.9416, 2.00962, -2.29187 )
 mesh = SubResource( 115 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_14" type="Spatial" parent="buildings"]
 
 [node name="Cube085" type="MeshInstance" parent="buildings/block_14"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 46.8771, 2.00962, 2.29964 )
 mesh = SubResource( 116 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube086" type="MeshInstance" parent="buildings/block_14"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 48.9403, 2.00962, -2.47629 )
 mesh = SubResource( 117 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube087" type="MeshInstance" parent="buildings/block_14"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 51.7055, 2.00962, 0.408492 )
 mesh = SubResource( 118 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube088" type="MeshInstance" parent="buildings/block_14"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 50.1474, 2.00962, 7.01968 )
 mesh = SubResource( 119 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube089" type="MeshInstance" parent="buildings/block_14"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 52.8009, 2.00962, 9.45514 )
 mesh = SubResource( 120 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube090" type="MeshInstance" parent="buildings/block_14"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 55.528, 2.00962, 5.31742 )
 mesh = SubResource( 121 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_15" type="Spatial" parent="buildings"]
 
 [node name="Cube091" type="MeshInstance" parent="buildings/block_15"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 60.133, 2.00962, 1.7542 )
 mesh = SubResource( 122 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_16" type="Spatial" parent="buildings"]
 
 [node name="Cube092" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 66.6156, 2.00962, 7.23092 )
 mesh = SubResource( 123 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube093" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 57.4784, 2.00962, 14.8872 )
 mesh = SubResource( 124 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube094" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 67.3142, 2.00962, 17.0108 )
 mesh = SubResource( 125 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube095" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 63.989, 2.00962, 22.1801 )
 mesh = SubResource( 126 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube097" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 81.1736, 2.00962, -4.14166 )
 mesh = SubResource( 127 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder019" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 77.0055, 2.00962, 10.684 )
 mesh = SubResource( 128 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cylinder020" type="MeshInstance" parent="buildings/block_16"]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 74.4191, 2.00962, 21.4176 )
 mesh = SubResource( 129 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_17" type="Spatial" parent="buildings"]
 
 [node name="Cube098" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 56.8281, 2.00962, -10.1659 )
 mesh = SubResource( 130 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube099" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 59.2334, 2.00962, -13.6187 )
 mesh = SubResource( 131 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube100" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 60.9404, 2.00962, -16.6448 )
 mesh = SubResource( 132 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube101" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 62.8802, 2.00962, -20.6796 )
 mesh = SubResource( 133 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube102" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.943355, 0, -0.331784, 0, 3, 0, 0.331784, 0, 0.943355, 57.1687, 2.00962, -20.2036 )
 mesh = SubResource( 134 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube103" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 53.5692, 2.00962, -21.7659 )
 mesh = SubResource( 135 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube104" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 51.6294, 2.00962, -24.9083 )
 mesh = SubResource( 136 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube105" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 49.5732, 2.00962, -21.9598 )
 mesh = SubResource( 137 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube106" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 48.6033, 2.00962, -17.8863 )
 mesh = SubResource( 138 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube107" type="MeshInstance" parent="buildings/block_17"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 53.1759, 2.00962, -12.4077 )
 mesh = SubResource( 139 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="block_18" type="Spatial" parent="buildings"]
 
 [node name="Cube108" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 69.9928, 2.00962, -7.42428 )
 mesh = SubResource( 140 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube109" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 74.5837, 2.00962, -11.7888 )
 mesh = SubResource( 141 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube110" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 65.1433, 2.00962, -2.67177 )
 mesh = SubResource( 142 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube111" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 65.2048, 2.00962, -10.1143 )
 mesh = SubResource( 143 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube112" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 67.2719, 2.00962, -13.9132 )
 mesh = SubResource( 144 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube113" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 69.9535, 2.00962, -17.0976 )
 mesh = SubResource( 145 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube114" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 61.9635, 2.00962, -7.20901 )
 mesh = SubResource( 146 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube115" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 78.1374, 2.00962, -15.9791 )
 mesh = SubResource( 147 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="Cube116" type="MeshInstance" parent="buildings/block_18"]
 transform = Transform( 0.649671, 0, 0.760215, 0, 3, 0, -0.760215, 0, 0.649671, 82.1877, 2.00962, -13.1392 )
 mesh = SubResource( 148 )
-material/0 = null
+material/0 = ExtResource( 5 )
 
 [node name="lamp_posts" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960202, 0 )
@@ -3166,9 +3171,11 @@ transform = Transform( -0.227552, 0, 0.973766, 0, 1, 0, -0.973766, 0, -0.227552,
 last_lamp_post = NodePath("../lamp_posts/streetLamp003")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.994744, -0.0697572, 0.0749549, -4.06069e-08, 0.732032, 0.68127, -0.102393, -0.677689, 0.728185, 0, 13.2042, 0 )
-light_color = Color( 0.423529, 0.596078, 0.639216, 1 )
-light_energy = 0.08
+process_priority = 3
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 12.0371, 20.0624, -11.6665 )
+light_color = Color( 0.266667, 0.360784, 0.580392, 1 )
+light_energy = 0.1
+light_indirect_energy = 1.26
 
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

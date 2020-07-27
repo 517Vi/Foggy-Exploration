@@ -75,6 +75,11 @@ fov = 30.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="fog"]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
+light_color = Color( 0.4, 0.376471, 0.572549, 1 )
+light_energy = 1.5
+
 [node name="sfx" type="Spatial" parent="."]
 
 [node name="footstep" type="AudioStreamPlayer" parent="sfx"]
