@@ -146,9 +146,9 @@ func raycast_hide():
 			break
 	# Remove transparency
 	for obj in prev_objects_hidden:
-		var mat: SpatialMaterial = obj.mesh.surface_get_material(0)
+		var mat: SpatialMaterial = obj.get_surface_material(0)
 		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_DISABLED
-		obj.mesh.surface_set_material(0, mat)
+		obj.set_surface_material(0, mat)
 	# Collect objects to hide
 	var obj_to_hide = []
 	for coll in colls:
@@ -161,12 +161,12 @@ func raycast_hide():
 					obj = child
 					break
 		# Set transparency
-		var mat: SpatialMaterial = obj.mesh.surface_get_material(0)
+		var mat: SpatialMaterial = obj.get_surface_material(0)
 		if not mat:
 			mat = SpatialMaterial.new()
 		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_OBJECT_DITHER
 		mat.distance_fade_max_distance = 20
-		obj.mesh.surface_set_material(0, mat)
+		obj.set_surface_material(0, mat)
 		# Store for later
 		obj_to_hide.append(obj)
 	# Store hidden objects to be unhidden
