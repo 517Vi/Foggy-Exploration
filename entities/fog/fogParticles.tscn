@@ -70,16 +70,21 @@ uint hash(uint x) {
 	return x;
 }
 
-float opacity(vec3 pos){
+float opacity(vec3 pos, float startingOpacity){
 	float pi = 3.14159;
 	float dist = sqrt(pow(pos.z - holePos.z, 2.0)+pow(pos.x - holePos.x,2.0));
+	float output;
 	if(dist < innerRadius){
-		return 0.01;
+		output = 0.05;
+	} else if(dist < outerRadius){
+		output = (dist-innerRadius)/(outerRadius-innerRadius);
+	} else {
+		output = 1.0;
 	}
-	if(dist < outerRadius){
-		return outerOpacity;
+	if(startingOpacity > -0.5){
+		output = output * 0.7 + startingOpacity * 0.4;
 	}
-	return 1.0;
+	return output;
 	//return 3.0;
 }
 
@@ -119,6 +124,7 @@ void vertex() {
 		CUSTOM.w = (1.0 - lifetime_randomness * rand_from_seed(alt_seed));
 		CUSTOM.z = (anim_offset + tex_anim_offset) * mix(1.0, anim_offset_rand, anim_offset_random);
 		TRANSFORM[3].xyz = vec3(rand_from_seed(alt_seed) * 2.0 - 1.0, rand_from_seed(alt_seed) * 2.0 - 1.0, rand_from_seed(alt_seed) * 2.0 - 1.0) * emission_box_extents;
+		CUSTOM.a = 0.5;
 		VELOCITY = (EMISSION_TRANSFORM * vec4(VELOCITY, 0.0)).xyz;
 		TRANSFORM = EMISSION_TRANSFORM * TRANSFORM;
 	} else {
@@ -180,7 +186,10 @@ void vertex() {
 			vec4(0.000, 0.000, 0.000, 0.0)) * hue_rot_s;
 	COLOR = hue_rot_mat * textureLod(color_ramp, vec2(CUSTOM.y, 0.0), 0.0);
 	
-	COLOR *= vec4(1.0,1.0,1.0,opacity(TRANSFORM[3].xyz));
+	float opac = opacity(TRANSFORM[3].xyz, CUSTOM.a);
+	CUSTOM.a = 0.85 * CUSTOM.a + 0.15 * opac;
+	COLOR *= vec4(1.0,1.0,1.0,opac);
+	
 	
 	TRANSFORM[0].xyz = normalize(TRANSFORM[0].xyz);
 	TRANSFORM[1].xyz = normalize(TRANSFORM[1].xyz);
@@ -197,14 +206,14 @@ void vertex() {
 }
 
 "
-custom_defines = ""
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 1.4013e-45, 0.51526, 1 )
+offsets = PoolRealArray( 1.4013e-45, 0.46833, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 0.627451, 0.627451, 0.627451, 1, 0.156863, 0.156863, 0.156863, 0 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
+width = 2500
 
 [sub_resource type="Curve" id=4]
 max_value = 4.0
@@ -222,7 +231,7 @@ shader_param/holePos = null
 shader_param/direction = Vector3( 1, 0, 0 )
 shader_param/spread = 100.0
 shader_param/flatness = 0.0
-shader_param/initial_linear_velocity = 0.0
+shader_param/initial_linear_velocity = 0.3
 shader_param/initial_angle = 0.0
 shader_param/angular_velocity = 0.0
 shader_param/orbit_velocity = 0.0
@@ -234,7 +243,7 @@ shader_param/scale = 1.0
 shader_param/hue_variation = 0.0
 shader_param/anim_speed = 0.0
 shader_param/anim_offset = 0.0
-shader_param/initial_linear_velocity_random = 0.18
+shader_param/initial_linear_velocity_random = 1.0
 shader_param/initial_angle_random = 1.0
 shader_param/angular_velocity_random = 1.0
 shader_param/orbit_velocity_random = 0.0
@@ -247,7 +256,7 @@ shader_param/hue_variation_random = 0.0
 shader_param/anim_speed_random = 0.0
 shader_param/anim_offset_random = 0.0
 shader_param/lifetime_randomness = 0.1
-shader_param/emission_box_extents = Vector3( 16, 2, 16 )
+shader_param/emission_box_extents = Vector3( 12, 1.6, 12 )
 shader_param/color_value = Color( 1, 1, 1, 1 )
 shader_param/trail_divisor = 1
 shader_param/gravity = Vector3( 0, 0.25, 0 )
@@ -255,6 +264,7 @@ shader_param/color_ramp = SubResource( 3 )
 shader_param/scale_texture = SubResource( 5 )
 
 [sub_resource type="SpatialMaterial" id=7]
+render_priority = 5
 flags_transparent = true
 flags_disable_ambient_light = true
 vertex_color_use_as_albedo = true
@@ -263,7 +273,7 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 0.67, 0.67, 0.67, 0.16 )
+albedo_color = Color( 0.670588, 0.670588, 0.670588, 0.117647 )
 albedo_texture = ExtResource( 1 )
 clearcoat_enabled = true
 clearcoat = 1.0
@@ -273,7 +283,8 @@ clearcoat_gloss = 0.0
 material = SubResource( 7 )
 
 [node name="fog" type="Particles"]
-amount = 2000
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0 )
+amount = 7500
 speed_scale = 0.25
 randomness = 0.2
 local_coords = false

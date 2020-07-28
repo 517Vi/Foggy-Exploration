@@ -89,6 +89,11 @@ fov = 30.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="fog"]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
+light_color = Color( 0.270588, 0.254902, 0.4, 1 )
+light_energy = 1.51
+
 [node name="sfx" type="Spatial" parent="."]
 
 [node name="footstep" type="AudioStreamPlayer" parent="sfx"]
@@ -97,5 +102,5 @@ script = ExtResource( 4 )
 clips = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="timer" type="Timer" parent="sfx/footstep"]
-wait_time = 0.4
+wait_time = 0.55
 autostart = true

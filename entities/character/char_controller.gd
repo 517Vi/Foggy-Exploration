@@ -1,9 +1,9 @@
 # warning-ignore-all:return_value_discarded
 extends KinematicBody
 
-export var SPEED = 4
+export var SPEED = 2
 export var ORBIT_SPEED = 1
-export var LIGHT_MAX_TIME = 20
+export var LIGHT_MAX_TIME = 200
 
 export var light_time: float = LIGHT_MAX_TIME
 export var last_lamp_post: NodePath
@@ -19,7 +19,7 @@ func _process(delta):
 	var light_ratio = light_time/LIGHT_MAX_TIME
 #	$visuals/light.light_energy = light_time/LIGHT_MAX_TIME
 	$visuals/light.omni_range = 9 * light_ratio + 1
-	$fog.process_material.set_shader_param("innerRadius", 2.5 * light_ratio + 1)
+	$fog.process_material.set_shader_param("innerRadius", 2 * light_ratio + 1)
 	$fog.process_material.set_shader_param("outerRadius", 5 * light_ratio + 2)
 	if light_time <= 0:
 		if last_lamp_post:
