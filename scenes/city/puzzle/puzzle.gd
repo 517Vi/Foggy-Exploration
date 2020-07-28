@@ -7,6 +7,7 @@ func puzzle_num(num: int):
 	pattern.append(num)
 	if pattern == SOLUTION:
 		print("Correct!")
+		$SFX/Solved.play()
 	elif len(pattern) >= 4:
 		pattern = []
 		extinguish_lamps()

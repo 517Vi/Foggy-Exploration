@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/torch.wav-4ab8f054f6bb0b68267cdd9d69381c9a.sample"
+
+[deps]
+
+source_file="res://entities/character/sounds/torch.wav"
+dest_files=[ "res://.import/torch.wav-4ab8f054f6bb0b68267cdd9d69381c9a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
