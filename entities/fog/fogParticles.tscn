@@ -286,6 +286,7 @@ material = SubResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0 )
 amount = 3000
 lifetime = 1.5
+preprocess = 9.0
 speed_scale = 0.25
 randomness = 0.15
 local_coords = false
