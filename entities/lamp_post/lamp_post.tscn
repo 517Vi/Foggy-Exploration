@@ -3,14 +3,16 @@
 [ext_resource path="res://entities/lamp_post/lamp_post.gd" type="Script" id=1]
 [ext_resource path="res://entities/lamp_post/lamp_post.mesh" type="ArrayMesh" id=2]
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="CylinderShape" id=1]
 radius = 0.464728
 height = 4.0
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="CylinderShape" id=2]
 radius = 1.5
 
-[node name="lamp_post" type="StaticBody"]
+[node name="lamp_post" type="StaticBody" groups=[
+"nohide",
+]]
 script = ExtResource( 1 )
 
 [node name="mesh" type="MeshInstance" parent="."]
@@ -20,7 +22,7 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="light" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 2.75, 1.968 )
@@ -33,7 +35,7 @@ spot_angle = 84.5803
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="interact_zone"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="respawn_point" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2 )

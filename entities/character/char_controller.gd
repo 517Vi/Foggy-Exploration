@@ -8,6 +8,8 @@ export var LIGHT_MAX_TIME = 20
 export var light_time: float = LIGHT_MAX_TIME
 export var last_lamp_post: NodePath
 
+var prev_objects_hidden = []
+
 func _ready():
 	$sfx/footstep/timer.connect("timeout", self, "footstep_timeout")
 
@@ -112,6 +114,8 @@ func _physics_process(delta):
 		$visuals.global_transform.basis = Basis(current_quat.slerp(target_quat, 0.5))
 	# Update fog hole position to character position
 	$fog.process_material.set_shader_param("holePos", translation)
+	# Hide objects in path of camera
+	raycast_hide()
 
 func footstep_timeout():
 	# Play footstep sound when walking and timout occurs
@@ -120,6 +124,53 @@ func footstep_timeout():
 		or Input.is_action_pressed("move_left") \
 		or Input.is_action_pressed("move_right"):
 		$sfx/footstep.play()
+
+func raycast_hide():
+	var space_state = get_world().direct_space_state
+	var colls = []
+	# Continually cast rays until all objects are found
+	while true:
+		# Cast ray, ignoring objects already found
+		var coll = space_state.intersect_ray(
+			$camera.global_transform.origin,
+			global_transform.origin,
+			colls
+		)
+		# Ignore if object is player or has "nohide" tag
+		if coll.has("collider") \
+			and coll.collider != self \
+			and not coll.collider.is_in_group("nohide"):
+			colls.append(coll.collider)
+		# No more objects found, exit
+		else:
+			break
+	# Remove transparency
+	for obj in prev_objects_hidden:
+		var mat: SpatialMaterial = obj.mesh.surface_get_material(0)
+		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_DISABLED
+		obj.mesh.surface_set_material(0, mat)
+	# Collect objects to hide
+	var obj_to_hide = []
+	for coll in colls:
+		var obj: MeshInstance
+		if coll.get_parent() is MeshInstance:
+			obj = coll.get_parent()
+		else:
+			for child in coll.get_children():
+				if child is MeshInstance:
+					obj = child
+					break
+		# Set transparency
+		var mat: SpatialMaterial = obj.mesh.surface_get_material(0)
+		if not mat:
+			mat = SpatialMaterial.new()
+		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_OBJECT_DITHER
+		mat.distance_fade_max_distance = 20
+		obj.mesh.surface_set_material(0, mat)
+		# Store for later
+		obj_to_hide.append(obj)
+	# Store hidden objects to be unhidden
+	prev_objects_hidden = obj_to_hide
 
 func refill(amount):
 	# Refill the lantern by the time given by the lamppost, capped by the max
