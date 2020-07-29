@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://scenes/city/generate_colliders.gd" type="Script" id=1]
 [ext_resource path="res://entities/character/character.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/city/puzzle/puzzle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/city/wallMaterial.tres" type="Material" id=5]
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/npc/npc.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube043"
@@ -3103,3 +3104,6 @@ autoplay = true
 
 [node name="puzzle" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.397564, 0, -0.917574, 0, 1, 0, 0.917574, 0, 0.397564, 10.0614, -0.0752062, -13.1588 )
+
+[node name="npc" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57918, -0.039798, -16.4213 )

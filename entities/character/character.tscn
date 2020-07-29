@@ -52,7 +52,10 @@ background_mode = 1
 background_energy = 0.0
 ambient_light_energy = 0.0
 
-[node name="character" type="KinematicBody"]
+[node name="character" type="KinematicBody" groups=[
+"nohide",
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="visuals" type="Spatial" parent="."]

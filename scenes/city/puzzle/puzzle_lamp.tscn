@@ -82,7 +82,9 @@ albedo_texture = ExtResource( 2 )
 material = SubResource( 8 )
 size = Vector2( 0.4, 0.4 )
 
-[node name="lamp" type="Area"]
+[node name="puzzle_lamp" type="Area" groups=[
+"interactable",
+]]
 script = ExtResource( 1 )
 lamp_number = 1
 
@@ -116,3 +118,4 @@ local_coords = false
 draw_order = 2
 process_material = SubResource( 7 )
 draw_pass_1 = SubResource( 9 )
+[connection signal="interact" from="." to="." method="on_interact"]
