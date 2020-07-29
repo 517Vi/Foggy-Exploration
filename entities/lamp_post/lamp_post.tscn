@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/lamp_post/lamp_post.gd" type="Script" id=1]
 [ext_resource path="res://entities/lamp_post/lamp_post.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://entities/lamp_post/interact_zone.gd" type="Script" id=3]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.464728
@@ -31,11 +32,15 @@ shadow_enabled = true
 spot_range = 5.10788
 spot_angle = 84.5803
 
-[node name="interact_zone" type="Area" parent="."]
+[node name="interact_zone" type="Area" parent="." groups=[
+"interactable",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="interact_zone"]
 shape = SubResource( 2 )
 
 [node name="respawn_point" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2 )
+[connection signal="interact" from="interact_zone" to="." method="on_interact"]

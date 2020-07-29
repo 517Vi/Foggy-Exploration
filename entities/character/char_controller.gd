@@ -1,12 +1,14 @@
 # warning-ignore-all:return_value_discarded
 extends KinematicBody
 
-export var SPEED = 2
-export var ORBIT_SPEED = 1
-export var LIGHT_MAX_TIME = 200
+export(float) var SPEED = 2
+export(float) var ORBIT_SPEED = 2
+export(float) var LIGHT_MAX_TIME = 200
 
-export var light_time: float = LIGHT_MAX_TIME
-export var last_lamp_post: NodePath
+export(float) var light_time = LIGHT_MAX_TIME
+export(NodePath) var last_lamp_post
+
+export(float) var DEBUG_SPRINT_SPEED = 6
 
 var prev_objects_hidden = []
 
@@ -78,11 +80,15 @@ func _physics_process(delta):
 		dir = Vector3.ZERO
 	# Normalize vector to get pure direction
 	dir = dir.normalized()
+	# Select speed based on if sprinting (DEBUG)
+	var speed = SPEED
+	if Input.is_action_pressed("debug_sprint"):
+		speed = DEBUG_SPRINT_SPEED
 	# Only move if actively moving to avoid sliding down slopes
 	if dir != Vector3.ZERO:
 		# Move kinematic body and slide against other colliders
 		var velocity = self.move_and_slide_with_snap(
-			dir*SPEED,
+			dir*speed,
 			Vector3(0, -3, 0), # snap
 			Vector3.UP, # up_direction
 			true, # stop_on_slope
@@ -95,7 +101,7 @@ func _physics_process(delta):
 			# Only move if slope is less than 60°
 			if collision.normal.angle_to(Vector3.UP) <= PI/3:
 				# Get distance left on move
-				var remain_distance = SPEED*delta - velocity.length()*delta
+				var remain_distance = speed*delta - velocity.length()*delta
 				var new_move = dir.slide(collision.normal).normalized()*remain_distance
 				move_and_collide(new_move)
 	# Only do "gravity" of not on floor to prevent sliding down slopes
@@ -116,6 +122,14 @@ func _physics_process(delta):
 	$fog.process_material.set_shader_param("holePos", translation)
 	# Hide objects in path of camera
 	raycast_hide()
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("interact"):
+		for obj in get_tree().get_nodes_in_group("interactable"):
+			if obj.overlaps_body(self):
+				# Emit a signal on the interacted object that can be handled
+				obj.emit_signal("interact")
+				break
 
 func footstep_timeout():
 	# Play footstep sound when walking and timout occurs

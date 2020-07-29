@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scenes/city/puzzle/puzzle_lamp.gd" type="Script" id=1]
 
-
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.25
 bottom_radius = 0.25
@@ -24,7 +23,9 @@ material = SubResource( 3 )
 radius = 0.125
 height = 0.25
 
-[node name="lamp" type="Area"]
+[node name="puzzle_lamp" type="Area" groups=[
+"interactable",
+]]
 script = ExtResource( 1 )
 lamp_number = 1
 
@@ -47,3 +48,4 @@ omni_range = 1.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387362, 0 )
 mesh = SubResource( 4 )
 material/0 = null
+[connection signal="interact" from="." to="." method="on_interact"]
