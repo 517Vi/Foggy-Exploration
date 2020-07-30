@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://entities/character/models/char-model.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/character/char_controller.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/character/sounds/step0.wav" type="AudioStream" id=7]
 [ext_resource path="res://entities/character/models/lantern.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://entities/character/fogTest.png" type="Texture" id=9]
+[ext_resource path="res://entities/character/sounds/Death.wav" type="AudioStream" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.329412, 0.203922, 0.0745098, 1 )
@@ -81,7 +82,6 @@ environment = SubResource( 4 )
 fov = 30.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="fog"]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
