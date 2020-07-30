@@ -1,9 +1,9 @@
 # warning-ignore-all:return_value_discarded
 extends KinematicBody
 
-export(float) var SPEED = 2
+export(float) var SPEED = 4
 export(float) var ORBIT_SPEED = 2
-export(float) var LIGHT_MAX_TIME = 200
+export(float) var LIGHT_MAX_TIME = 30
 
 export(float) var light_time = LIGHT_MAX_TIME
 export(NodePath) var last_lamp_post
@@ -23,6 +23,7 @@ func _process(delta):
 	$visuals/light.omni_range = 9 * light_ratio + 1
 	$fog.process_material.set_shader_param("innerRadius", 2 * light_ratio + 1)
 	$fog.process_material.set_shader_param("outerRadius", 5 * light_ratio + 2)
+	$hud/fuel_indicator.value = light_ratio
 	if light_time <= 0:
 		if last_lamp_post:
 			# Respawn
@@ -39,11 +40,17 @@ func _process(delta):
 	# Ramp exposure back up for respawn
 	$camera.environment.tonemap_exposure = lerp(
 		$camera.environment.tonemap_exposure, 1, 0.01)
+	# Set zone name
+	for zone in get_tree().get_nodes_in_group("zones"):
+		if zone.overlaps_body(self):
+			$hud/location.text = zone.zone_name
+			break
 	# Debug controls for testing
-	if Input.is_action_just_pressed("debug_refill_lantern"):
-		light_time = LIGHT_MAX_TIME
-	if Input.is_action_just_pressed("debug_respawn"):
-		light_time = 0
+	if OS.is_debug_build():
+		if Input.is_action_just_pressed("debug_refill_lantern"):
+			light_time = LIGHT_MAX_TIME
+		if Input.is_action_just_pressed("debug_respawn"):
+			light_time = 0
 
 func _physics_process(delta):
 	## Camera movement ##
@@ -82,7 +89,7 @@ func _physics_process(delta):
 	dir = dir.normalized()
 	# Select speed based on if sprinting (DEBUG)
 	var speed = SPEED
-	if Input.is_action_pressed("debug_sprint"):
+	if OS.is_debug_build() and Input.is_action_pressed("debug_sprint"):
 		speed = DEBUG_SPRINT_SPEED
 	# Only move if actively moving to avoid sliding down slopes
 	if dir != Vector3.ZERO:
@@ -189,3 +196,20 @@ func raycast_hide():
 func refill(amount):
 	# Refill the lantern by the time given by the lamppost, capped by the max
 	light_time = min(light_time + amount, LIGHT_MAX_TIME)
+
+# Tutorial stuff
+func show_movement_controls(body):
+	if body == self:
+		$tutorial_messages/movement.show()
+
+func hide_movement_controls(body):
+	if body == self:
+		$tutorial_messages/movement.hide()
+
+func show_camera_controls(body):
+	if body == self:
+		$tutorial_messages/camera.show()
+
+func hide_camera_controls(body):
+	if body == self:
+		$tutorial_messages/camera.hide()
