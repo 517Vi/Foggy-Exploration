@@ -93,7 +93,6 @@ environment = SubResource( 7 )
 fov = 30.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="fog"]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
