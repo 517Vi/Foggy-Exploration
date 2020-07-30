@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://entities/character/models/char-model.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/character/char_controller.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://entities/character/textures/tutorial-movement.png" type="Texture" id=10]
 [ext_resource path="res://entities/character/textures/tutorial-camera.png" type="Texture" id=11]
 [ext_resource path="res://entities/hud/hud.tscn" type="PackedScene" id=12]
+[ext_resource path="res://entities/character/sounds/Death.wav" type="AudioStream" id=13]
+[ext_resource path="res://entities/character/sounds/torch.wav" type="AudioStream" id=14]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "cloak"
@@ -124,3 +126,10 @@ billboard = 1
 texture = ExtResource( 11 )
 
 [node name="hud" parent="." instance=ExtResource( 12 )]
+
+[node name="Lantern" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource( 14 )
+
+[node name="Death" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource( 13 )
+volume_db = -10.0

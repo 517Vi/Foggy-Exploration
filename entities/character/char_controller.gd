@@ -14,6 +14,7 @@ var prev_objects_hidden = []
 
 func _ready():
 	$sfx/footstep/timer.connect("timeout", self, "footstep_timeout")
+	$sfx/Lantern.play()
 
 func _process(delta):
 	# Decay lantern light
@@ -24,8 +25,13 @@ func _process(delta):
 	$fog.process_material.set_shader_param("innerRadius", 2 * light_ratio + 1)
 	$fog.process_material.set_shader_param("outerRadius", 5 * light_ratio + 2)
 	$hud/fuel_indicator.value = light_ratio
+	#Lantern gets quieter
+	$sfx/Lantern.set_volume_db((light_time/10)-30)
 	if light_time <= 0:
 		if last_lamp_post:
+			#Spooky Death Sound, also restart fire sound because that stops for some reason
+			$sfx/Death.play()
+			$sfx/Lantern.play()
 			# Respawn
 			translation = get_node(last_lamp_post).get_node("respawn_point")\
 				.global_transform.origin
