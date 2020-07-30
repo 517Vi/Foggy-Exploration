@@ -101,3 +101,7 @@ autostart = true
 
 [node name="Lantern" type="AudioStreamPlayer" parent="sfx"]
 stream = SubResource( 5 )
+
+[node name="Death" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource( 10 )
+volume_db = -10.0
