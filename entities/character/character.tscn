@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://entities/character/models/char-model.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://entities/character/char_controller.gd" type="Script" id=2]
@@ -10,15 +10,30 @@
 [ext_resource path="res://entities/character/models/lantern.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://entities/character/fogTest.png" type="Texture" id=9]
 [ext_resource path="res://entities/character/sounds/Death.wav" type="AudioStream" id=10]
+[ext_resource path="res://entities/character/sounds/torch.wav" type="AudioStream" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.329412, 0.203922, 0.0745098, 1 )
+resource_name = "cloak"
+albedo_color = Color( 0.589777, 0.158588, 0.814043, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_name = "darkness"
+albedo_color = Color( 0, 0, 0, 1 )
+metallic_specular = 0.0
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_name = "hand"
+albedo_color = Color( 0.686275, 0.427451, 0.219608, 1 )
+metallic = 0.1
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.36, 0.2214, 0.0828, 1 )
 metallic = 1.0
 clearcoat_enabled = true
 clearcoat = 1.0
 clearcoat_gloss = 1.0
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=5]
 render_priority = -1
 emission_enabled = true
 emission = Color( 0.996078, 0.866667, 0.337255, 1 )
@@ -31,10 +46,10 @@ refraction_scale = 0.22
 refraction_texture = ExtResource( 9 )
 refraction_texture_channel = 4
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=6]
 radius = 0.5
 
-[sub_resource type="Environment" id=4]
+[sub_resource type="Environment" id=7]
 background_mode = 1
 background_energy = 0.0
 ambient_light_energy = 0.0
@@ -50,19 +65,19 @@ script = ExtResource( 2 )
 [node name="char" type="MeshInstance" parent="visuals"]
 cast_shadow = 0
 mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-material/2 = null
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
 
 [node name="lantern" type="MeshInstance" parent="visuals"]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0854785, 0.812612, 0.518061 )
 cast_shadow = 0
 mesh = ExtResource( 8 )
-material/0 = SubResource( 1 )
-material/1 = SubResource( 2 )
+material/0 = SubResource( 4 )
+material/1 = SubResource( 5 )
 
 [node name="light" type="OmniLight" parent="visuals"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.430347 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.427805 )
 light_color = Color( 1, 0.905882, 0.623529, 1 )
 shadow_enabled = true
 omni_range = 10.0
@@ -70,14 +85,15 @@ omni_attenuation = 1.36604
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 1, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="camera" type="Camera" parent="."]
 transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -10, 14, 10 )
-environment = SubResource( 4 )
+environment = SubResource( 7 )
 fov = 30.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="fog"]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
@@ -96,7 +112,7 @@ wait_time = 0.55
 autostart = true
 
 [node name="Lantern" type="AudioStreamPlayer" parent="sfx"]
-stream = SubResource( 5 )
+stream = ExtResource( 11 )
 
 [node name="Death" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 10 )
