@@ -112,7 +112,7 @@ margin_bottom = 591.0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.2, 0.192157, 0.192157, 1 )
-text = "Version 1.0
+text = "Version 1.2
 Blindspot"
 align = 1
 valign = 1
