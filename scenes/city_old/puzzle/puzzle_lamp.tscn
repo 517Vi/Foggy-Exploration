@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/city/puzzle/puzzle_lamp.gd" type="Script" id=1]
+[ext_resource path="res://scenes/city/Smoke30Frames_0.png" type="Texture" id=2]
+[ext_resource path="res://entities/Fire.tres" type="Gradient" id=3]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.5
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.674136, 0.294012, 0.658631 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.854902, 0.282353, 1 )
+emission_enabled = true
+emission = Color( 0.964706, 0.807843, 0.266667, 1 )
+emission_energy = 0.29
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
+radius = 0.125
+height = 0.25
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 1, 1, 1, 0.392157 )
+metallic = 1.0
+emission_enabled = true
+emission = Color( 0.709804, 0.658824, 0.407843, 1 )
+emission_energy = 0.9
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="GradientTexture" id=10]
+gradient = ExtResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.150591, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.799535, 0 ), -0.0915987, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+trail_divisor = 5
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.5
+initial_velocity_random = 0.1
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+linear_accel = 3.0
+linear_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.8
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 10 )
+hue_variation = -0.01
+hue_variation_random = 1.0
+anim_speed = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=9]
+material = SubResource( 8 )
+size = Vector2( 0.4, 0.4 )
+
+[node name="puzzle_lamp" type="Area" groups=[
+"interactable",
+]]
+script = ExtResource( 1 )
+lamp_number = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222302, 0, 0.330785 )
+shape = SubResource( 2 )
+
+[node name="lit_elem" type="Spatial" parent="."]
+
+[node name="light" type="OmniLight" parent="lit_elem"]
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="lit_elem"]
+transform = Transform( 2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0.249, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 11 )
+
+[node name="Particles" type="Particles" parent="lit_elem"]
+transform = Transform( 0.5, 0, 0, 0, 0.496191, 0.0616016, 0, -0.0616016, 0.496191, 0.030713, 0.265888, 0.021032 )
+amount = 300
+lifetime = 0.5
+speed_scale = 0.75
+randomness = 1.0
+visibility_aabb = AABB( -4, -4.01367, -4, 8, 8, 8 )
+local_coords = false
+draw_order = 2
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 9 )
+[connection signal="interact" from="." to="." method="on_interact"]

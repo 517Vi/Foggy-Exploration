@@ -113,6 +113,13 @@ clips = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ]
 wait_time = 0.55
 autostart = true
 
+[node name="Lantern" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource( 14 )
+
+[node name="Death" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+
 [node name="tutorial_messages" type="Spatial" parent="."]
 transform = Transform( 0.469457, 0, 0, 0, 0.469457, 0, 0, 0, 0.469457, 0, 3.55798, 0 )
 
@@ -126,10 +133,3 @@ billboard = 1
 texture = ExtResource( 11 )
 
 [node name="hud" parent="." instance=ExtResource( 12 )]
-
-[node name="Lantern" type="AudioStreamPlayer" parent="sfx"]
-stream = ExtResource( 14 )
-
-[node name="Death" type="AudioStreamPlayer" parent="sfx"]
-stream = ExtResource( 13 )
-volume_db = -10.0

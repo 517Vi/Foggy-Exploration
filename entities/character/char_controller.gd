@@ -41,7 +41,7 @@ func _process(delta):
 			# Drop exposure for fade-in
 			$camera.environment.tonemap_exposure = 0
 		else:
-			# Quit to title if no checkpoint
+			# Quit to title if no checkpoint (shouldn't ever happen)
 			get_tree().change_scene("res://scenes/title_screen/TitleScreen.tscn")
 	# Ramp exposure back up for respawn
 	$camera.environment.tonemap_exposure = lerp(
@@ -70,7 +70,7 @@ func _physics_process(delta):
 	# Set new position
 	$camera.translation = cam_pos
 	# Point at character
-	$camera.look_at(self.translation, Vector3.UP)
+	$camera.look_at(self.global_transform.origin, Vector3.UP)
 	## Character movement ##
 	# Direction camera is pointing, without Y
 	var facing = -$camera.global_transform.basis.z
@@ -174,7 +174,9 @@ func raycast_hide():
 	# Remove transparency
 	for obj in prev_objects_hidden:
 		var mat: SpatialMaterial = obj.get_surface_material(0)
-		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_DISABLED
+#		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_DISABLED
+		mat.albedo_color.a = 1
+		mat.flags_transparent = false
 		obj.set_surface_material(0, mat)
 	# Collect objects to hide
 	var obj_to_hide = []
@@ -190,9 +192,15 @@ func raycast_hide():
 		# Set transparency
 		var mat: SpatialMaterial = obj.get_surface_material(0)
 		if not mat:
+			mat = obj.mesh.surface_get_material(0)
+		if not mat:
 			mat = SpatialMaterial.new()
-		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_OBJECT_DITHER
-		mat.distance_fade_max_distance = 20
+		else:
+			mat = mat.duplicate()
+		mat.albedo_color.a = 0.5
+		mat.flags_transparent = true
+#		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_OBJECT_DITHER
+#		mat.distance_fade_max_distance = 20
 		obj.set_surface_material(0, mat)
 		# Store for later
 		obj_to_hide.append(obj)
