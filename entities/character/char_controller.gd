@@ -26,6 +26,9 @@ func _process(delta):
 	$sfx/Lantern.set_volume_db((light_time/10)-30)
 	if light_time <= 0:
 		if last_lamp_post:
+			#Spooky Death Sound, also restart fire sound because that stops for some reason
+			$sfx/Death.play()
+			$sfx/Lantern.play()
 			# Respawn
 			translation = get_node(last_lamp_post).get_node("respawn_point")\
 				.global_transform.origin
