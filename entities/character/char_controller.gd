@@ -1,12 +1,14 @@
 # warning-ignore-all:return_value_discarded
 extends KinematicBody
 
-export var SPEED = 2
-export var ORBIT_SPEED = 1
-export var LIGHT_MAX_TIME = 200
+export(float) var SPEED = 2
+export(float) var ORBIT_SPEED = 2
+export(float) var LIGHT_MAX_TIME = 200
 
-export var light_time: float = LIGHT_MAX_TIME
-export var last_lamp_post: NodePath
+export(float) var light_time = LIGHT_MAX_TIME
+export(NodePath) var last_lamp_post
+
+export(float) var DEBUG_SPRINT_SPEED = 6
 
 var prev_objects_hidden = []
 
