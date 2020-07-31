@@ -91,7 +91,7 @@ stream = ExtResource( 15 )
 bus = "sfx"
 
 [node name="character" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.984941, 0, 0.172892, 0, 1, 0, -0.172892, 0, 0.984941, -3.6416, 0.5, -50.0452 )
+transform = Transform( 0.984941, 0, 0.172892, 0, 1, 0, -0.172892, 0, 0.984941, -4.60091, 0.5, -50.0906 )
 last_lamp_post = NodePath("../lamp_posts/lamp_post")
 
 [node name="lamp_posts" type="Spatial" parent="."]
@@ -100,7 +100,7 @@ last_lamp_post = NodePath("../lamp_posts/lamp_post")
 transform = Transform( 0.806476, 0, -0.591267, 0, 1, 0, 0.591267, 0, 0.806476, -2.02896, -0.034122, -52.3853 )
 
 [node name="tutorial_interact" type="Sprite3D" parent="lamp_posts/lamp_post"]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.0728493, 5.27276, 1.92854 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.0456886, 4.49942, 2.29781 )
 billboard = 1
 texture = ExtResource( 10 )
 
