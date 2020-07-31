@@ -10,7 +10,7 @@ bottom_radius = 0.25
 height = 0.5
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.674136, 0.294012, 0.658631 )
+extents = Vector3( 0.75, 0.25, 0.75 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0.854902, 0.282353, 1 )
@@ -93,7 +93,6 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222302, 0, 0.330785 )
 shape = SubResource( 2 )
 
 [node name="lit_elem" type="Spatial" parent="."]

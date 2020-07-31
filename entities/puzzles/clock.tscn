@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/puzzle_lamp/puzzle_lamp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/puzzles/solved.wav" type="AudioStream" id=2]
+[ext_resource path="res://entities/puzzles/clock.gd" type="Script" id=3]
+
+[node name="clock" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6377, 0, -12.2202 )
+script = ExtResource( 3 )
+
+[node name="puzzle_lamp" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67187, 0.25, -1.03612 )
+
+[node name="puzzle_lamp2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32095, 0.25, -3.38415 )
+lamp_number = 2
+
+[node name="puzzle_lamp3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25338, 0.25, -3.441 )
+lamp_number = 3
+
+[node name="puzzle_lamp4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.999867, 0, -0.0163356, 0, 1, 0, 0.0163356, 0, 0.999867, 2.21567, 0.25, -1.16517 )
+lamp_number = 4
+
+[node name="puzzle_lamp5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26309, 0.25, 1.0878 )
+lamp_number = 5
+
+[node name="puzzle_lamp6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51183, 0.25, 0.982173 )
+lamp_number = 6
+
+[node name="solved" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -6.0
+bus = "sfx"

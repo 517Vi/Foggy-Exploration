@@ -1,85 +1,77 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scenes/city/city_buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/character/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/named_zone/named_zone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/npc/npc.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/city/dialog/clock_hint.gd" type="Script" id=6]
+[ext_resource path="res://scenes/city/dialog/brightness_hint.gd" type="Script" id=7]
+[ext_resource path="res://scenes/city/dialog/gate_backstory.gd" type="Script" id=8]
+[ext_resource path="res://entities/puzzles/clock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/city/textures/tutorial_interact.png" type="Texture" id=10]
+[ext_resource path="res://entities/puzzles/gravestones.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/city/dialog/gravestones_hint.tres.gd" type="Script" id=12]
 
-[sub_resource type="CubeMesh" id=15]
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.505882, 0.309804, 0.14902, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
 size = Vector3( 0.5, 8, 3 )
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.57473, 1, 15.6495 )
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 4.61877, 1, 5.06417 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 10.4246, 1, 1 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 7.11634, 1, 1 )
 
-[sub_resource type="BoxShape" id=5]
-
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 30.4839, 1, 1 )
-
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 30.5156, 1, 1 )
 
 [sub_resource type="BoxShape" id=8]
-extents = Vector3( 5.76733, 1, 1 )
+extents = Vector3( 30.4839, 1, 1 )
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 28.994, 1, 1 )
+extents = Vector3( 30.5156, 1, 1 )
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 1, 1, 3.74367 )
+extents = Vector3( 5.76733, 1, 1 )
 
 [sub_resource type="BoxShape" id=11]
-extents = Vector3( 2.15384, 1, 3.8244 )
+extents = Vector3( 28.994, 1, 1 )
 
 [sub_resource type="BoxShape" id=12]
+extents = Vector3( 1, 1, 3.74367 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 2.15384, 1, 3.8244 )
+
+[sub_resource type="BoxShape" id=14]
 extents = Vector3( 2.67145, 1, 2.8875 )
 
-[sub_resource type="GDScript" id=13]
-script/source = "const SPEECH = [
-	\"People once came and went as they pleased.\",
-	\"Then the great gate was sealed with elemental power.\",
-	\"That was long ago...\",
-	\"...\",
-	\"You are not from here, are you?\",
-	\"...\"
-]
+[sub_resource type="CubeMesh" id=16]
+size = Vector3( 1, 0.5, 1 )
 
-var i = 0
+[sub_resource type="ConcavePolygonShape" id=17]
+data = PoolVector3Array( -0.5, 0.25, 0.5, 0.5, 0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, -0.5, 0.5, -0.25, -0.5, -0.5, 0.25, -0.5, -0.5, -0.25, -0.5, 0.5, -0.25, -0.5, 0.5, 0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, -0.5, 0.5, -0.25, 0.5, -0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, 0.25, 0.5, -0.5, 0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, 0.25, -0.5, 0.5, 0.25, -0.5, -0.5, -0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, -0.25, 0.5, 0.5, -0.25, -0.5, -0.5, -0.25, -0.5 )
 
-func next():
-	var text = SPEECH[i]
-	i += 1
-	if i == len(SPEECH):
-		i = 0
-	return text
-"
+[sub_resource type="ConcavePolygonShape" id=18]
+data = PoolVector3Array( -0.5, 0.25, 0.5, 0.5, 0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, -0.5, 0.5, -0.25, -0.5, -0.5, 0.25, -0.5, -0.5, -0.25, -0.5, 0.5, -0.25, -0.5, 0.5, 0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, -0.5, 0.5, -0.25, 0.5, -0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, 0.25, 0.5, -0.5, 0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, 0.25, -0.5, 0.5, 0.25, -0.5, -0.5, -0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, -0.25, 0.5, 0.5, -0.25, -0.5, -0.5, -0.25, -0.5 )
 
-[sub_resource type="GDScript" id=14]
-script/source = "const SPEECH = [
-	\"It is said that the one with the brightest lantern is the one hunted first.\",
-	\"...\",
-	\"...\"
-]
+[sub_resource type="ConcavePolygonShape" id=19]
+data = PoolVector3Array( -0.5, 0.25, 0.5, 0.5, 0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, -0.5, 0.5, -0.25, -0.5, -0.5, 0.25, -0.5, -0.5, -0.25, -0.5, 0.5, -0.25, -0.5, 0.5, 0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, -0.5, 0.5, -0.25, 0.5, -0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, 0.25, 0.5, -0.5, 0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, 0.25, -0.5, 0.5, 0.25, -0.5, -0.5, -0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, -0.25, 0.5, 0.5, -0.25, -0.5, -0.5, -0.25, -0.5 )
 
-var i = 0
+[sub_resource type="ConcavePolygonShape" id=20]
+data = PoolVector3Array( -0.5, 0.25, 0.5, 0.5, 0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, -0.5, 0.5, -0.25, -0.5, -0.5, 0.25, -0.5, -0.5, -0.25, -0.5, 0.5, -0.25, -0.5, 0.5, 0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, -0.5, 0.5, -0.25, 0.5, -0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, 0.25, 0.5, -0.5, 0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, 0.25, -0.5, 0.5, 0.25, -0.5, -0.5, -0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, -0.25, 0.5, 0.5, -0.25, -0.5, -0.5, -0.25, -0.5 )
 
-func next():
-	var text = SPEECH[i]
-	i += 1
-	if i == len(SPEECH):
-		i = 0
-	return text
-"
+[sub_resource type="ConcavePolygonShape" id=21]
+data = PoolVector3Array( -0.5, 0.25, 0.5, 0.5, 0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, -0.5, 0.5, -0.25, -0.5, -0.5, 0.25, -0.5, -0.5, -0.25, -0.5, 0.5, -0.25, -0.5, 0.5, 0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, 0.5, 0.5, 0.25, -0.5, 0.5, -0.25, -0.5, 0.5, -0.25, 0.5, -0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, -0.5, -0.5, 0.25, 0.5, -0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, 0.25, 0.5, -0.5, 0.25, 0.5, 0.5, 0.25, -0.5, -0.5, 0.25, 0.5, -0.5, 0.25, -0.5, 0.5, 0.25, -0.5, -0.5, -0.25, 0.5, 0.5, -0.25, 0.5, -0.5, -0.25, -0.5, 0.5, -0.25, 0.5, 0.5, -0.25, -0.5, -0.5, -0.25, -0.5 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -87,7 +79,7 @@ func next():
 
 [node name="gate" type="MeshInstance" parent="map"]
 transform = Transform( 0.893293, 0, -0.449475, 0, 1, 0, 0.449475, 0, 0.893293, -17.7913, 4, -34.7156 )
-mesh = SubResource( 15 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="character" parent="." instance=ExtResource( 3 )]
@@ -103,11 +95,18 @@ lit = true
 [node name="lamp_post2" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( 0.0240482, 0, -0.999711, 0, 1, 0, 0.999711, 0, 0.0240482, -9.04833, 0, -36.1103 )
 
+[node name="tutorial_interact" type="Sprite3D" parent="lamp_posts/lamp_post2"]
+transform = Transform( 1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.0484009, 5.28114, 2.01083 )
+billboard = 1
+texture = ExtResource( 10 )
+
 [node name="lamp_post3" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.13926, 0, 0.990256, 0, 1, 0, -0.990256, 0, -0.13926, 5.21588, 0.00379312, -15.516 )
+lit = true
 
 [node name="lamp_post4" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.811971, 0, -0.583697, 0, 1, 0, 0.583697, 0, -0.811971, 36.9095, -1.90735e-06, 2.56171 )
+lit = true
 
 [node name="lamp_post5" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.776377, 0, -0.630269, 0, 1, 0, 0.630269, 0, -0.776377, 56.7163, -9.53674e-07, -1.59211 )
@@ -123,6 +122,7 @@ transform = Transform( -0.570857, 0, 0.821049, 0, 1, 0, -0.821049, 0, -0.570857,
 
 [node name="lamp_post9" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( 0.722569, 0, -0.691299, 0, 1, 0, 0.691299, 0, 0.722569, 66.6595, 0, -53.1918 )
+lit = true
 
 [node name="zones" type="Spatial" parent="."]
 
@@ -131,7 +131,7 @@ transform = Transform( 0.980368, 0, -0.197178, 0, 1, 0, 0.197178, 0, 0.980368, 2
 zone_name = "Gate District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/gate_0"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="gate_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.476913, 0, 0.87895, 0, 1, 0, -0.87895, 0, 0.476913, -11.434, 1, -36.755 )
@@ -139,56 +139,56 @@ zone_name = "Gate District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/gate_1"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="graveyard_0" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.955268, 0, -0.295741, 0, 1, 0, 0.295741, 0, 0.955268, 59.2551, 1, -29.2761 )
 zone_name = "Graveyard"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/graveyard_0"]
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="graveyard_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.999565, 0, -0.0295092, 0, 1, 0, 0.0295092, 0, 0.999565, 37.3463, 1, -39.7093 )
 zone_name = "Graveyard"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/graveyard_1"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="graveyard_3" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.67, 1, -46.9859 )
 zone_name = "Graveyard"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/graveyard_3"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="east_0" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.95206, 0, -0.305911, 0, 1, 0, 0.305911, 0, 0.95206, 58.7301, 1, -25.5225 )
 zone_name = "East District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/east_0"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="east_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.522796, 0, -0.852458, 0, 1, 0, 0.852458, 0, 0.522796, 44.485, 1, 5.266 )
 zone_name = "East District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/east_1"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="east_2" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.756892, 0, -0.65354, 0, 1, 0, 0.65354, 0, 0.756892, 30.5903, 1, -14.1446 )
 zone_name = "East District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/east_2"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="south_0" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.53752, 0, -0.843251, 0, 1, 0, 0.843251, 0, 0.53752, 47.3279, 1, 15.9853 )
 zone_name = "South District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/south_0"]
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="south_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.596547, 0, 0.802578, 0, 1, 0, -0.802578, 0, 0.596547, 28.0627, 0.999998, -11.6291 )
@@ -196,7 +196,7 @@ zone_name = "South District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/south_1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.479065, 0, 0.0290432 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
 [node name="tutorial" type="Spatial" parent="."]
 
@@ -204,27 +204,101 @@ shape = SubResource( 10 )
 transform = Transform( 0.81821, 0, -0.57492, 0, 1, 0, 0.57492, 0, 0.81821, -3.97228, 1, -50.3573 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tutorial/movement"]
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 
 [node name="camera" type="Area" parent="tutorial"]
 transform = Transform( 0.862681, 0, -0.505748, 0, 1, 0, 0.505748, 0, 0.862681, -9.62727, 1, -42.1456 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tutorial/camera"]
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 
 [node name="npcs" type="Spatial" parent="."]
 
-[node name="gate_0" parent="npcs" instance=ExtResource( 5 )]
+[node name="gate_backstory" parent="npcs" instance=ExtResource( 5 )]
 transform = Transform( 0.722569, 0, -0.691299, 0, 1, 0, 0.691299, 0, 0.722569, -9.22673, 4.76837e-07, -34.687 )
-dialog_script = SubResource( 13 )
+dialog_script = ExtResource( 8 )
 
-[node name="gate_puzzle" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.18027, -4.76837e-07, -13.4231 )
-dialog_script = SubResource( 14 )
+[node name="tutorial_interact" type="Sprite3D" parent="npcs/gate_backstory"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67969, 0 )
+billboard = 1
+texture = ExtResource( 10 )
+
+[node name="clock_hint" parent="npcs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.62969, -4.76837e-07, -13.2141 )
+dialog_script = ExtResource( 6 )
+
+[node name="brightness_hint" parent="npcs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5753, -4.76837e-07, 3.30418 )
+dialog_script = ExtResource( 7 )
+
+[node name="gravestone_hint" parent="npcs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3857, 4.76837e-07, -53.7691 )
+dialog_script = ExtResource( 12 )
 
 [node name="puzzles" type="Spatial" parent="."]
 
+[node name="clock" parent="puzzles" instance=ExtResource( 9 )]
+
+[node name="tutorial_interact" type="Sprite3D" parent="puzzles/clock"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66185, 1.85962, -1.04505 )
+billboard = 1
+texture = ExtResource( 10 )
+
 [node name="brightness" type="Spatial" parent="puzzles"]
+
+[node name="gravestones" parent="puzzles" instance=ExtResource( 11 )]
+transform = Transform( 0.928447, 0, 0.371465, 0, 1, 0, -0.371465, 0, 0.928447, 46.4612, 0.249999, -51.4762 )
+
+[node name="headstone1" type="MeshInstance" parent="puzzles/gravestones"]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -0.590294, 0, 3.29637 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="puzzles/gravestones/headstone1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzles/gravestones/headstone1/StaticBody"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+shape = SubResource( 17 )
+
+[node name="headstone2" type="MeshInstance" parent="puzzles/gravestones"]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 3.52856, 0, 1.50816 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="puzzles/gravestones/headstone2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzles/gravestones/headstone2/StaticBody"]
+shape = SubResource( 18 )
+
+[node name="headstone3" type="MeshInstance" parent="puzzles/gravestones"]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 5.86823, 0, 3.59329 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="puzzles/gravestones/headstone3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzles/gravestones/headstone3/StaticBody"]
+shape = SubResource( 19 )
+
+[node name="headstone4" type="MeshInstance" parent="puzzles/gravestones"]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 8.86527, 0, 1.80987 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="puzzles/gravestones/headstone4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzles/gravestones/headstone4/StaticBody"]
+shape = SubResource( 20 )
+
+[node name="headstone5" type="MeshInstance" parent="puzzles/gravestones"]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 12.8499, 0, 1.36959 )
+mesh = SubResource( 16 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="puzzles/gravestones/headstone5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="puzzles/gravestones/headstone5/StaticBody"]
+shape = SubResource( 21 )
 [connection signal="body_entered" from="tutorial/movement" to="character" method="show_movement_controls"]
 [connection signal="body_exited" from="tutorial/movement" to="character" method="hide_movement_controls"]
 [connection signal="body_entered" from="tutorial/camera" to="character" method="show_camera_controls"]

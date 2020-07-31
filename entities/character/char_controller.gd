@@ -8,7 +8,7 @@ export(float) var LIGHT_MAX_TIME = 15
 export(float) var light_time = LIGHT_MAX_TIME
 export(NodePath) var last_lamp_post
 
-export(float) var DEBUG_SPRINT_SPEED = 6
+export(float) var DEBUG_SPRINT_SPEED = 10
 
 var prev_objects_hidden = []
 

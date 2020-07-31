@@ -1,6 +1,5 @@
 extends StaticBody
 
-export(String) var npc_name
 export(Script) var dialog_script
 
 var scr
@@ -13,8 +12,9 @@ func _ready():
 		hud = get_tree().get_nodes_in_group("hud")[0]
 
 func on_interact():
-	if not scr:
-		return
-	var text = scr.next()
+	# If no defined text, just do "..."
+	var text = ". . ."
+	if scr:
+		text = scr.next()
 	hud.set_dialog(text)
 	
