@@ -106,7 +106,7 @@ shadow_enabled = true
 [node name="sfx" type="Spatial" parent="."]
 
 [node name="footstep" type="AudioStreamPlayer" parent="sfx"]
-volume_db = -12.0
+bus = "sfx"
 script = ExtResource( 4 )
 clips = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
@@ -116,10 +116,13 @@ autostart = true
 
 [node name="Lantern" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 14 )
+volume_db = -25.0
+bus = "ambience"
 
 [node name="Death" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource( 13 )
 volume_db = -10.0
+bus = "sfx"
 
 [node name="tutorial_messages" type="Spatial" parent="."]
 transform = Transform( 0.469457, 0, 0, 0, 0.469457, 0, 0, 0, 0.469457, 0, 3.55798, 0 )

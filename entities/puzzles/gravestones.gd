@@ -10,8 +10,10 @@ func puzzle_num(num: int):
 	lit.append(num)
 	if lit.size() == 3 and not broken:
 		$solved.play()
+		add_to_group("solved")
 	elif lit.size() >= 5:
 		lit = []
+		broken = false
 		extinguish_lamps()
 
 func extinguish_lamps():

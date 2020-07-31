@@ -2,11 +2,13 @@ extends Area
 
 export var lamp_number: int
 export var lit = false
+export var particle_lifetime = 0.5
 
 signal interact
 
 func _ready():
 	$lit_elem.visible = lit
+	$lit_elem/fire.lifetime = particle_lifetime
 
 func on_interact():
 	if not lit:

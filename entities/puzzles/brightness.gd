@@ -1,6 +1,6 @@
 extends Spatial
 
-export var SOLUTION = [1, 2, 3, 4, 5, 6]
+export var SOLUTION = [2, 3, 1]
 var pattern = []
 
 func puzzle_num(num: int):
@@ -8,7 +8,7 @@ func puzzle_num(num: int):
 	if pattern == SOLUTION:
 		$solved.play()
 		add_to_group("solved")
-	elif pattern.size() >= 6:
+	elif pattern.size() >= 3:
 		pattern = []
 		extinguish_lamps()
 

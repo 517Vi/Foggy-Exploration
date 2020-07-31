@@ -25,11 +25,11 @@ func _process(delta):
 	$fog.process_material.set_shader_param("innerRadius", 2 * light_ratio + 1)
 	$fog.process_material.set_shader_param("outerRadius", 5 * light_ratio + 2)
 	$hud.set_fuel(light_ratio)
-	#Lantern gets quieter
-	$sfx/Lantern.set_volume_db((light_time/10)-30)
+	# Lantern gets quieter
+	$sfx/Lantern.set_volume_db(light_ratio*20-40)
 	if light_time <= 0:
 		if last_lamp_post:
-			#Spooky Death Sound, also restart fire sound because that stops for some reason
+			# Spooky Death Sound, also restart fire sound because that stops for some reason
 			$sfx/Death.play()
 			$sfx/Lantern.play()
 			# Respawn

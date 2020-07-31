@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gate_open.wav-92646e06e619c17da029a8823d6983b4.sample"
+
+[deps]
+
+source_file="res://scenes/city/sounds/gate_open.wav"
+dest_files=[ "res://.import/gate_open.wav-92646e06e619c17da029a8823d6983b4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
