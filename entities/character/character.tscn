@@ -98,9 +98,10 @@ fov = 30.0
 [node name="fog" parent="." instance=ExtResource( 3 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="fog"]
-transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
+transform = Transform( 0.85295, 6.22471e-09, 0.521993, -0.521993, 1.01713e-08, 0.85295, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
 light_color = Color( 0.270588, 0.254902, 0.4, 1 )
-light_energy = 1.51
+light_energy = 0.76
+shadow_enabled = true
 
 [node name="sfx" type="Spatial" parent="."]
 

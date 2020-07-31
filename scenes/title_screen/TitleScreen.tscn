@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/title_screen/berkahi_blackletter/Berkahi Blackletter.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://common/fonts/berkahi-blackletter.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/title_screen/buttons/HowToPlayButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/title_screen/buttons/NewGameButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/title_screen/buttons/OptionsButton.tscn" type="PackedScene" id=4]

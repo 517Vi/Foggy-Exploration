@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/title_screen/berkahi_blackletter/Berkahi Blackletter.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://common/fonts/berkahi-blackletter.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/title_screen/buttons/MenuButtons.gd" type="Script" id=2]
-
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

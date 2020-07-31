@@ -188,12 +188,17 @@ script = ExtResource( 2 )
 "nohide",
 ]]
 
-[node name="StaticBody" type="StaticBody" parent="Ground" index="0"]
+[node name="StaticBody" type="StaticBody" parent="Ground" index="0" groups=[
+"nohide",
+]]
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody" index="0"]
 shape = SubResource( 1 )
 
-[node name="StaticBody" type="StaticBody" parent="River" index="0"]
+[node name="StaticBody" type="StaticBody" parent="River" index="0" groups=[
+"nohide",
+]]
 
 [node name="CollisionShape" type="CollisionShape" parent="River/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 32, 0, 0, 0, 1, 0, 31.3385, 0 )
 shape = SubResource( 2 )

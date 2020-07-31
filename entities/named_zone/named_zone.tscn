@@ -2,5 +2,7 @@
 
 [ext_resource path="res://entities/named_zone/named_zone.gd" type="Script" id=1]
 
-[node name="named_zone" type="Area"]
+[node name="named_zone" type="Area" groups=[
+"named_zone",
+]]
 script = ExtResource( 1 )

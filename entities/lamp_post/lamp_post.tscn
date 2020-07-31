@@ -28,9 +28,10 @@ shape = SubResource( 1 )
 [node name="light" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 2.75, 1.968 )
 light_color = Color( 0.94902, 0.866667, 0.494118, 1 )
+light_energy = 2.0
 shadow_enabled = true
 spot_range = 5.10788
-spot_angle = 84.5803
+spot_angle = 61.6
 
 [node name="interact_zone" type="Area" parent="." groups=[
 "interactable",
