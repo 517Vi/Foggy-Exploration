@@ -3,7 +3,7 @@ extends KinematicBody
 
 export(float) var SPEED = 4
 export(float) var ORBIT_SPEED = 2
-export(float) var LIGHT_MAX_TIME = 15
+export(float) var LIGHT_MAX_TIME = 30
 
 export(float) var light_time = LIGHT_MAX_TIME
 export(NodePath) var last_lamp_post

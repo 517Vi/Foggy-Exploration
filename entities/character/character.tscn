@@ -82,25 +82,28 @@ material/1 = SubResource( 5 )
 [node name="light" type="OmniLight" parent="visuals"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118457, 0.924183, 0.427805 )
 light_color = Color( 1, 0.905882, 0.623529, 1 )
+light_energy = 1.43
+light_indirect_energy = 2.0
 shadow_enabled = true
 omni_range = 10.0
-omni_attenuation = 1.36604
+omni_attenuation = 0.659754
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 1, 0 )
 shape = SubResource( 6 )
 
 [node name="camera" type="Camera" parent="."]
-transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -10, 14, 10 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 14, 14 )
 environment = SubResource( 7 )
 fov = 30.0
+size = 10.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="fog"]
-transform = Transform( 0.85295, 6.22471e-09, 0.521993, -0.521993, 1.01713e-08, 0.85295, 0, -1, 1.19249e-08, 0, 7.20883, 0 )
+transform = Transform( 1, 0, -1.62921e-07, 1.62921e-07, 2.65431e-14, 1, 0, -1, 2.65432e-14, 0, 7.20883, 0 )
 light_color = Color( 0.270588, 0.254902, 0.4, 1 )
-light_energy = 0.76
+light_energy = 0.85
 shadow_enabled = true
 
 [node name="sfx" type="Spatial" parent="."]
