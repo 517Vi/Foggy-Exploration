@@ -5,20 +5,20 @@
 [ext_resource path="res://entities/lamp_post/interact_zone.gd" type="Script" id=3]
 [ext_resource path="res://.import/lantern.obj-462f74890f5652c62bad05d7920cb60d.mesh" type="ArrayMesh" id=4]
 
-[sub_resource type="CylinderShape" id=3]
+[sub_resource type="CylinderShape" id=1]
 radius = 0.464728
 height = 4.0
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
 albedo_color = Color( 0, 0, 0, 0 )
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
-albedo_color = Color( 1, 0.952941, 0.662745, 0.270588 )
+albedo_color = Color( 1, 0.952941, 0.662745, 0.329412 )
 emission_enabled = true
 emission = Color( 1, 0.909804, 0.623529, 1 )
-emission_energy = 1.23
+emission_energy = 3.4
 emission_operator = 0
 emission_on_uv2 = false
 
@@ -37,7 +37,7 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="light" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 2.75, 1.968 )
@@ -50,8 +50,8 @@ spot_angle = 61.6
 [node name="MeshInstance" type="MeshInstance" parent="light"]
 transform = Transform( -1.37762e-07, 1.84741e-13, -0.845574, -0.957915, 3.38736e-08, 1.56064e-07, -3.38739e-08, 0.75, 1.67535e-13, 0.0122824, 0.0113661, 0.324534 )
 mesh = ExtResource( 4 )
-material/0 = SubResource( 1 )
-material/1 = SubResource( 2 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
 
 [node name="interact_zone" type="Area" parent="." groups=[
 "interactable",

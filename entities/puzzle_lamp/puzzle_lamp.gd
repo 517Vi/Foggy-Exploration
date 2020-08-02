@@ -13,8 +13,8 @@ func _ready():
 func on_interact():
 	if not lit:
 		lit = true
-		$"..".puzzle_num(lamp_number)
-		$lit_elem.show()
+		if $"..".light(lamp_number):
+			$lit_elem.show()
 
 func extinguish():
 	lit = false

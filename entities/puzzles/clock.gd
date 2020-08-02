@@ -3,7 +3,7 @@ extends Spatial
 export var SOLUTION = [1, 2, 3, 4, 5, 6]
 var pattern = []
 
-func puzzle_num(num: int):
+func light(num: int):
 	pattern.append(num)
 	if pattern == SOLUTION:
 		$solved.play()
@@ -11,6 +11,7 @@ func puzzle_num(num: int):
 	elif pattern.size() >= 6:
 		pattern = []
 		extinguish_lamps()
+	return true
 
 func extinguish_lamps():
 	# Wait 1 second before extinguishing

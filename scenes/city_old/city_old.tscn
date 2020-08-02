@@ -1,6 +1,6 @@
 [gd_scene load_steps=171 format=2]
 
-[ext_resource path="res://scenes/city/generate_colliders.gd" type="Script" id=1]
+[ext_resource path="res://scenes/city/scripts/generate_colliders.gd" type="Script" id=1]
 [ext_resource path="res://entities/character/character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/city/sounds/ambience.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/city/puzzle/puzzle.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/npc/npc.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/city/named_zone.gd" type="Script" id=8]
+
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube043"

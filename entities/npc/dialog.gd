@@ -11,3 +11,6 @@ func next():
 	if i == len(speech):
 		i = 0
 	return text
+
+func has_next():
+	return i != 0

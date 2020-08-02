@@ -14,7 +14,9 @@ func _ready():
 func on_interact():
 	# If no defined text, just do "..."
 	var text = ". . ."
+	var has_next = false
 	if scr:
 		text = scr.next()
-	hud.set_dialog(text)
+		has_next = scr.has_next()
+	hud.set_dialog(text, has_next)
 	

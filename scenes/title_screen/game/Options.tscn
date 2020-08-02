@@ -6,9 +6,9 @@
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
 margin_left = 423.0
-margin_top = 322.0
+margin_top = 311.0
 margin_right = 856.0
-margin_bottom = 398.0
+margin_bottom = 409.0
 
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
 margin_right = 433.0
@@ -16,4 +16,4 @@ text = "Options Scene"
 
 [node name="Button" parent="CenterContainer/VBoxContainer" index="1"]
 margin_right = 433.0
-margin_bottom = 76.0
+margin_bottom = 98.0
