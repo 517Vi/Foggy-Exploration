@@ -99,6 +99,7 @@ fov = 30.0
 size = 10.0
 
 [node name="fog" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0264902, 2.27912, 0.00513697 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="fog"]
 transform = Transform( 1, 0, -1.62921e-07, 1.62921e-07, 2.65431e-14, 1, 0, -1, 2.65432e-14, 0, 7.20883, 0 )
