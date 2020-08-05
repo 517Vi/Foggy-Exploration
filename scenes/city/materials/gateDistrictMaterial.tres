@@ -1,6 +1,7 @@
 [gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://wallnoisetexture.tres" type="Texture" id=1]
+[ext_resource path="res://scenes/city/materials/wallnoisetexture.tres" type="Texture" id=1]
+
 
 [resource]
 albedo_color = Color( 0.34902, 0.113725, 0.113725, 1 )

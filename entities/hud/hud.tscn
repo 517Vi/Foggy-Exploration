@@ -24,6 +24,8 @@ font_data = ExtResource( 3 )
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.41406
+margin_right = 1.41406
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,6 +81,16 @@ margin_right = 100.0
 margin_bottom = 88.4183
 rect_scale = Vector2( 0.50494, 0.50494 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fade_to_white" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

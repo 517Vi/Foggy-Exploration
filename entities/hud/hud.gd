@@ -11,6 +11,9 @@ func set_dialog(text, has_next):
 	$dialog/Timer.start()
 	$dialog/has_next.visible = has_next
 	call_deferred("update_has_next_prompt") # size only updates after a frame
+
+func set_fade_to_white(amount):
+	$fade_to_white.color.a = max(min(amount, 1), 0)
 	
 func _dialog_timeout():
 	$dialog.text = ""

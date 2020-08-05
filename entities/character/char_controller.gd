@@ -57,6 +57,13 @@ func _process(delta):
 			light_time = LIGHT_MAX_TIME
 		if Input.is_action_just_pressed("debug_respawn"):
 			light_time = 0
+		if Input.is_action_just_pressed("debug_solve_all"):
+			var fake_puzzle = Node.new()
+			fake_puzzle.add_to_group("solved")
+			add_child(fake_puzzle)
+			add_child(fake_puzzle.duplicate())
+			add_child(fake_puzzle.duplicate())
+			add_child(fake_puzzle.duplicate())
 
 func _physics_process(delta):
 	## Camera movement ##
@@ -173,11 +180,12 @@ func raycast_hide():
 			break
 	# Remove transparency
 	for obj in prev_objects_hidden:
-		var mat: SpatialMaterial = obj.get_surface_material(0)
-#		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_DISABLED
-		mat.albedo_color.a = 1
-		mat.flags_transparent = false
-		obj.set_surface_material(0, mat)
+		for surface in range(obj.get_surface_material_count()):
+			var mat: SpatialMaterial = obj.get_surface_material(surface)
+	#		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_DISABLED
+			mat.albedo_color.a = 1
+			mat.flags_transparent = false
+			obj.set_surface_material(surface, mat)
 	# Collect objects to hide
 	var obj_to_hide = []
 	for coll in colls:
@@ -189,19 +197,22 @@ func raycast_hide():
 				if child is MeshInstance:
 					obj = child
 					break
+		if not obj:
+			continue
 		# Set transparency
-		var mat: SpatialMaterial = obj.get_surface_material(0)
-		if not mat:
-			mat = obj.mesh.surface_get_material(0)
-		if not mat:
-			mat = SpatialMaterial.new()
-		else:
-			mat = mat.duplicate()
-		mat.albedo_color.a = 0.5
-		mat.flags_transparent = true
-#		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_OBJECT_DITHER
-#		mat.distance_fade_max_distance = 20
-		obj.set_surface_material(0, mat)
+		for surface in range(obj.get_surface_material_count()):
+			var mat: SpatialMaterial = obj.get_surface_material(surface)
+			if not mat:
+				mat = obj.mesh.surface_get_material(surface)
+			if not mat:
+				mat = SpatialMaterial.new()
+			else:
+				mat = mat.duplicate()
+			mat.albedo_color.a = 0.5
+			mat.flags_transparent = true
+	#		mat.distance_fade_mode = SpatialMaterial.DISTANCE_FADE_OBJECT_DITHER
+	#		mat.distance_fade_max_distance = 20
+			obj.set_surface_material(surface, mat)
 		# Store for later
 		obj_to_hide.append(obj)
 	# Store hidden objects to be unhidden

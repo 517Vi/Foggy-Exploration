@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/city/city_buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=2]
@@ -13,16 +13,8 @@
 [ext_resource path="res://entities/puzzles/gravestones.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/city/dialog/gravestones_hint.gd" type="Script" id=12]
 [ext_resource path="res://entities/puzzles/brightness.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/city/scripts/gate.gd" type="Script" id=14]
-[ext_resource path="res://scenes/city/sounds/gate_open.wav" type="AudioStream" id=15]
+[ext_resource path="res://entities/the_light/the_light.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/city/scripts/tutorial_interact.gd" type="Script" id=16]
-
-[sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.505882, 0.309804, 0.14902, 1 )
-
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
-size = Vector3( 0.5, 8, 3 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 1.57473, 1, 15.6495 )
@@ -59,20 +51,12 @@ extents = Vector3( 2.15384, 1, 3.8244 )
 [sub_resource type="BoxShape" id=14]
 extents = Vector3( 2.67145, 1, 2.8875 )
 
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 6.5861, 1, 1 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="map" parent="." instance=ExtResource( 1 )]
-
-[node name="gate" type="MeshInstance" parent="."]
-transform = Transform( 0.893293, 0, -0.449475, 0, 1, 0, 0.449475, 0, 0.893293, -17.7913, 4, -34.7156 )
-visible = false
-mesh = SubResource( 2 )
-material/0 = null
-script = ExtResource( 14 )
-
-[node name="open" type="AudioStreamPlayer" parent="gate"]
-stream = ExtResource( 15 )
-bus = "sfx"
 
 [node name="character" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.857293, 0, -0.514829, 0, 1, 0, 0.514829, 0, 0.857293, -6.12901, 0.5, -48.9678 )
@@ -207,7 +191,9 @@ shape = SubResource( 14 )
 
 [node name="npcs" type="Spatial" parent="."]
 
-[node name="gate_backstory" parent="npcs" instance=ExtResource( 5 )]
+[node name="gate_backstory" parent="npcs" groups=[
+"gate_npc",
+] instance=ExtResource( 5 )]
 transform = Transform( 0.722569, 0, -0.691299, 0, 1, 0, 0.691299, 0, 0.722569, -9.22673, 4.76837e-07, -34.687 )
 dialog_script = ExtResource( 8 )
 
@@ -243,6 +229,25 @@ transform = Transform( 0.928447, 0, 0.371465, 0, 1, 0, -0.371465, 0, 0.928447, 4
 
 [node name="brightness" parent="puzzles" instance=ExtResource( 13 )]
 transform = Transform( -0.5359, 0, -0.844281, 0, 1, 0, 0.844281, 0, -0.5359, 34.486, 0.250001, 8.4539 )
+
+[node name="the_light" parent="." groups=[
+"the_light",
+] instance=ExtResource( 14 )]
+transform = Transform( -0.507313, 0, -0.861762, 0, 1, 0, 0.861762, 0, -0.507313, -34.5362, 0.78398, -44.0564 )
+visible = false
+target_scene = "res://scenes/title_screen/TitleScreen.tscn"
+
+[node name="invis_wall" type="StaticBody" parent="the_light"]
+transform = Transform( -0.0267876, 0, -0.999642, 0, 1, 0, 0.999642, 0, -0.0267876, 2.58296, 0, -11.2743 )
+
+[node name="CollisionShape" type="CollisionShape" parent="the_light/invis_wall"]
+shape = SubResource( 15 )
+
+[node name="invis_wall2" type="StaticBody" parent="the_light"]
+transform = Transform( -0.0267876, 0, -0.999642, 0, 1, 0, 0.999642, 0, -0.0267876, -3.03889, 0, -11.178 )
+
+[node name="CollisionShape" type="CollisionShape" parent="the_light/invis_wall2"]
+shape = SubResource( 15 )
 [connection signal="body_entered" from="tutorial/movement" to="character" method="show_movement_controls"]
 [connection signal="body_exited" from="tutorial/movement" to="character" method="hide_movement_controls"]
 [connection signal="body_entered" from="tutorial/camera" to="character" method="show_camera_controls"]
