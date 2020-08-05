@@ -207,7 +207,6 @@ void vertex() {
 }
 
 "
-custom_defines = ""
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 1.4013e-45, 0.384837, 0.71881 )
@@ -268,6 +267,7 @@ shader_param/scale_texture = SubResource( 5 )
 [sub_resource type="SpatialMaterial" id=7]
 render_priority = 5
 flags_transparent = true
+flags_vertex_lighting = true
 flags_disable_ambient_light = true
 vertex_color_use_as_albedo = true
 params_specular_mode = 3

@@ -16,7 +16,7 @@ extents = Vector3( 0.75, 0.25, 0.75 )
 flags_transparent = true
 flags_unshaded = true
 flags_do_not_receive_shadows = true
-albedo_color = Color( 0.972549, 0.87451, 0.478431, 0.568627 )
+albedo_color = Color( 0.760784, 0.682353, 0.372549, 0.568627 )
 
 [sub_resource type="SphereMesh" id=4]
 material = SubResource( 3 )
@@ -57,6 +57,7 @@ anim_offset_random = 1.0
 
 [sub_resource type="SpatialMaterial" id=10]
 flags_transparent = true
+flags_vertex_lighting = true
 flags_do_not_receive_shadows = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -67,7 +68,7 @@ particles_anim_v_frames = 5
 particles_anim_loop = true
 albedo_texture = ExtResource( 2 )
 rim_enabled = true
-rim = 0.5
+rim = 0.4
 rim_tint = 1.0
 
 [sub_resource type="QuadMesh" id=11]
@@ -92,7 +93,7 @@ shape = SubResource( 2 )
 [node name="light" type="OmniLight" parent="lit_elem"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841575, 0 )
 light_color = Color( 1, 0.845, 0.38, 1 )
-light_energy = 0.5
+light_energy = 2.5
 omni_range = 1.0
 
 [node name="MeshInstance" type="MeshInstance" parent="lit_elem"]
