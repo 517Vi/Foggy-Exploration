@@ -8,6 +8,8 @@ func _process(delta):
 		# Open
 		global_rotate(Vector3.UP, -PI/2)
 		open = true
+		# Play opening noise
+		$gate_open.play()
 		# Show "The Light"
 		get_tree().get_nodes_in_group("the_light")[0].show()
 		# Change gate npc dialog

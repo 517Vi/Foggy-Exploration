@@ -4,7 +4,9 @@
 [ext_resource path="res://entities/puzzles/solved.wav" type="AudioStream" id=2]
 [ext_resource path="res://entities/puzzles/clock.gd" type="Script" id=3]
 
-[node name="clock" type="Spatial"]
+[node name="clock" type="Spatial" groups=[
+"puzzle",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6377, 0, -12.2202 )
 script = ExtResource( 3 )
 

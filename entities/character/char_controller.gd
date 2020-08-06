@@ -46,11 +46,36 @@ func _process(delta):
 	# Ramp exposure back up for respawn
 	$camera.environment.tonemap_exposure = lerp(
 		$camera.environment.tonemap_exposure, 1, 0.01)
+	## HUD stuff
 	# Set zone name
 	for zone in get_tree().get_nodes_in_group("named_zone"):
 		if zone.overlaps_body(self):
 			$hud.set_location(zone.zone_name)
 			break
+	# Update arrow direction
+	# Find nearest puzzle (or the gate if they're all solved)
+	var nearest_puzzle: Spatial
+	for puzzle in get_tree().get_nodes_in_group("puzzle"):
+		if not puzzle in get_tree().get_nodes_in_group("solved"):
+			if not nearest_puzzle:
+				nearest_puzzle = puzzle
+			elif global_transform.origin.distance_to(puzzle.global_transform.origin) \
+				< global_transform.origin.distance_to(nearest_puzzle.global_transform.origin):
+				nearest_puzzle = puzzle
+	# Default to gate if all puzzles solved
+	if not nearest_puzzle:
+		nearest_puzzle = get_tree().get_nodes_in_group("gate")[0]
+	# Hide if close to target
+	$hud/arrow.visible = global_transform.origin.distance_to(nearest_puzzle.global_transform.origin) > 10
+	# Find rotation
+	var vec_to = (global_transform.origin - nearest_puzzle.global_transform.origin).normalized()
+	var facing = $camera.global_transform.basis.z
+	facing.y = 0
+	facing = facing.normalized()
+	var direction = sign(vec_to.dot(facing.rotated(Vector3.UP, -PI/2)))
+	# Set rotation
+	$hud.rotate_arrow(direction * vec_to.angle_to(facing) * 180/PI + 180)
+	
 	# Debug controls for testing
 	if OS.is_debug_build():
 		if Input.is_action_just_pressed("debug_refill_lantern"):

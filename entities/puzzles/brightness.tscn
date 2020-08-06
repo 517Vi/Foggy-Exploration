@@ -4,7 +4,9 @@
 [ext_resource path="res://entities/puzzles/brightness.gd" type="Script" id=2]
 [ext_resource path="res://entities/puzzles/solved.wav" type="AudioStream" id=3]
 
-[node name="brightness" type="Spatial"]
+[node name="brightness" type="Spatial" groups=[
+"puzzle",
+]]
 script = ExtResource( 2 )
 
 [node name="puzzle_lamp1" parent="." instance=ExtResource( 1 )]

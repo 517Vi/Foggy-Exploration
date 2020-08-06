@@ -256,7 +256,7 @@ transform = Transform( 0.915677, 0, 0.401916, 0, 1, 0, -0.401916, 0, 0.915677, 3
 ] instance=ExtResource( 14 )]
 transform = Transform( -0.507313, 0, -0.861762, 0, 1, 0, 0.861762, 0, -0.507313, -34.5362, 0.78398, -44.0564 )
 visible = false
-target_scene = "res://scenes/title_screen/TitleScreen.tscn"
+target_scene = "res://scenes/win/win.tscn"
 
 [node name="invis_wall" type="StaticBody" parent="the_light"]
 transform = Transform( -0.0267876, 0, -0.999642, 0, 1, 0, 0.999642, 0, -0.0267876, 2.58296, 0, -11.2743 )

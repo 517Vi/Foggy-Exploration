@@ -20,7 +20,7 @@ func _dialog_timeout():
 	$dialog/has_next.hide()
 
 func update_has_next_prompt():
-	$dialog/has_next.rect_position.x = $dialog.get_combined_minimum_size().x + 15
+	$dialog/has_next.rect_position.x = $dialog.get_combined_minimum_size().x + 20
 
 func show_element(el):
 	match el:
@@ -32,3 +32,6 @@ func show_element(el):
 			$elements/earth.show()
 		"wind":
 			$elements/wind.show()
+
+func rotate_arrow(rotation):
+	$arrow.rect_rotation = rotation
