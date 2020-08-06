@@ -1,15 +1,17 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/city/blend/map.dae" type="PackedScene" id=1]
 [ext_resource path="res://scenes/city/scripts/generate_colliders.gd" type="Script" id=2]
 [ext_resource path="res://scenes/city/materials/gateDistrictMaterial.tres" type="Material" id=3]
-[ext_resource path="res://scenes/city/materials/greenDistrictMaterial.tres" type="Material" id=4]
+[ext_resource path="res://scenes/city/materials/building_wood.tres" type="Material" id=4]
 [ext_resource path="res://scenes/city/materials/blueDistrictMaterial.tres" type="Material" id=5]
 [ext_resource path="res://scenes/city/materials/wall.tres" type="Material" id=6]
 [ext_resource path="res://scenes/city/materials/wall_dark.tres" type="Material" id=7]
-[ext_resource path="res://scenes/city/materials/gate.tres" type="Material" id=8]
+[ext_resource path="res://scenes/city/materials/building_wood_dark.tres" type="Material" id=8]
 [ext_resource path="res://scenes/city/scripts/gate.gd" type="Script" id=9]
 [ext_resource path="res://scenes/city/sounds/gate_open.wav" type="AudioStream" id=10]
+[ext_resource path="res://scenes/city/materials/greenDistrictMaterial.tres" type="Material" id=11]
+[ext_resource path="res://scenes/city/materials/building_wall.tres" type="Material" id=12]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -19.5152, 0, 23.2753, -48.9083, 0, 59.682, -36.2899, 0, 34.4879, -48.9083, -0.1, 59.682, -19.5152, -0.1, 23.2753, -36.2899, -0.1, 34.4879, -60, 0, -60, -60, 0, 60, -60, -0.1, 60, -60, 0, 60, 60, 0, 60, 60, -0.1, 60, 60, 0, 60, 60, 0, -60, 60, -0.1, -60, -14.6855, 0, -60, -60, 0, -60, -60, -0.1, -60, -59.4216, 0, 40.7195, -58.4231, 0, 37.2186, -58.4231, -0.1, 37.2186, -59.7867, 0, 43.6431, -59.4216, 0, 40.7195, -59.4216, -0.1, 40.7195, 2.7146, 0, -37.4114, 2.7146, -0.1, -37.4114, -6.6309, -0.1, -37.2236, -6.6309, 0, -37.2236, -6.6309, -0.1, -37.2236, -11.7646, -0.1, -12.6743, -36.2899, 0, 34.4879, -36.2899, -0.1, 34.4879, -19.5152, -0.1, 23.2753, -58.4231, 0, 37.2186, -57.2454, 0, 35.1673, -57.2454, -0.1, 35.1673, -53.0137, -0.1, 43.7812, -53.0137, 0, 43.7812, -48.9083, 0, 59.682, -10.1668, -0.1, 13.813, -14.1981, -0.1, 18.2044, -14.1981, 0, 18.2044, -52.5727, 0, 42.4873, -52.5727, -0.1, 42.4873, -51.8435, -0.1, 41.9976, -36.2899, -0.1, 34.4879, -36.2899, 0, 34.4879, -51.8435, 0, 41.9976, 2.6584, 0, -38.7261, 2.6584, -0.1, -38.7261, -5.1565, -0.1, -60, -3.438, 0, -7.6174, -3.438, -0.1, -7.6174, 2.7146, -0.1, -37.4114, -4.2847, 0, -4.5622, -4.2847, -0.1, -4.5622, -12.4715, -0.1, -9.5471, -16.2113, 0, 4.9929, -16.2113, -0.1, 4.9929, -18.0493, -0.1, 9.1059, -53.0137, 0, 43.7812, -53.0137, -0.1, 43.7812, -52.5727, -0.1, 42.4873, -7.0112, -0.1, -38.5312, -7.0112, 0, -38.5312, -14.6855, 0, -60, -57.1939, -0.1, 59.7009, -57.1939, 0, 59.7009, -59.6131, 0, 48.3006, -11.7646, 0, -12.6743, -11.7646, -0.1, -12.6743, -3.438, -0.1, -7.6174, -54.9452, 0, 33.3829, -41.1175, 0, 26.6964, -41.1188, -0.1, 26.6944, -7.0112, 0, -38.5312, -7.0112, -0.1, -38.5312, 2.6584, -0.1, -38.7261, -24.8292, -0.1, 15.8624, -24.8279, 0, 15.8644, -18.0493, 0, 9.1059, -58.4231, 0, 37.2186, -60, 0, -60, -57.2454, 0, 35.1673, -6.6309, 0, -37.2236, 2.6584, 0, -38.7261, 2.7146, 0, -37.4114, -19.5152, 0, 23.2753, -19.5152, -0.1, 23.2753, -14.1981, -0.1, 18.2044, -57.1939, 0, 59.7009, -57.1939, -0.1, 59.7009, -48.9083, -0.1, 59.682, -57.2454, -0.1, 35.1673, -57.2454, 0, 35.1673, -54.9452, 0, 33.3829, -5.1565, 0, -60, -5.1565, -0.1, -60, 60, -0.1, -60, -8.0642, 0, 9.4354, -8.0642, -0.1, 9.4354, -10.1668, -0.1, 13.813, -16.2113, -0.1, 4.9929, -16.2113, 0, 4.9929, -12.4715, 0, -9.5471, -4.2847, -0.1, -4.5622, -4.2847, 0, -4.5622, -8.0642, 0, 9.4354, -24.8279, 0, 15.8644, -24.8292, -0.1, 15.8624, -41.1188, -0.1, 26.6944, 2.7146, -0.1, -37.4114, 2.6584, -0.1, -38.7261, -6.6309, -0.1, -37.2236, -60, -0.1, -60, -58.4231, -0.1, 37.2186, -57.2454, -0.1, 35.1673, -59.6131, 0, 48.3006, -59.7867, 0, 43.6431, -59.7867, -0.1, 43.6431, 60, 0, 60, -4.2847, 0, -4.5622, 60, 0, -60, 60, 0, 60, -8.0642, 0, 9.4354, -4.2847, 0, -4.5622, -59.6131, 0, 48.3006, -60, 0, 60, -59.7867, 0, 43.6431, -57.1939, 0, 59.7009, -60, 0, 60, -59.6131, 0, 48.3006, 60, 0, 60, -10.1668, 0, 13.813, -8.0642, 0, 9.4354, 60, 0, 60, -14.1981, 0, 18.2044, -10.1668, 0, 13.813, -57.1939, 0, 59.7009, -48.9083, 0, 59.682, -60, 0, 60, -60, 0, 60, -48.9083, 0, 59.682, 60, 0, 60, -52.5727, 0, 42.4873, -51.8435, 0, 41.9976, -53.0137, 0, 43.7812, -53.0137, 0, 43.7812, -51.8435, 0, 41.9976, -48.9083, 0, 59.682, 60, 0, 60, -19.5152, 0, 23.2753, -14.1981, 0, 18.2044, -36.2899, 0, 34.4879, -48.9083, 0, 59.682, -51.8435, 0, 41.9976, 60, 0, 60, -48.9083, 0, 59.682, -19.5152, 0, 23.2753, -60, -0.1, 60, -59.6131, -0.1, 48.3006, -59.7867, -0.1, 43.6431, -60, -0.1, 60, -57.1939, -0.1, 59.7009, -59.6131, -0.1, 48.3006, -4.2847, -0.1, -4.5622, 60, -0.1, 60, 60, -0.1, -60, -8.0642, -0.1, 9.4354, 60, -0.1, 60, -4.2847, -0.1, -4.5622, 60, -0.1, 60, -48.9083, -0.1, 59.682, -60, -0.1, 60, -60, -0.1, 60, -48.9083, -0.1, 59.682, -57.1939, -0.1, 59.7009, -48.9083, -0.1, 59.682, -51.8435, -0.1, 41.9976, -53.0137, -0.1, 43.7812, -53.0137, -0.1, 43.7812, -51.8435, -0.1, 41.9976, -52.5727, -0.1, 42.4873, -10.1668, -0.1, 13.813, 60, -0.1, 60, -8.0642, -0.1, 9.4354, -14.1981, -0.1, 18.2044, 60, -0.1, 60, -10.1668, -0.1, 13.813, 60, -0.1, 60, -19.5152, -0.1, 23.2753, -48.9083, -0.1, 59.682, -36.2899, -0.1, 34.4879, -51.8435, -0.1, 41.9976, -48.9083, -0.1, 59.682, -19.5152, -0.1, 23.2753, 60, -0.1, 60, -14.1981, -0.1, 18.2044, -60, 0, -60, -60, -0.1, 60, -60, -0.1, -60, -60, 0, 60, 60, -0.1, 60, -60, -0.1, 60, 60, 0, 60, 60, -0.1, -60, 60, -0.1, 60, -14.6855, 0, -60, -60, -0.1, -60, -14.6855, -0.1, -60, -59.4216, 0, 40.7195, -58.4231, -0.1, 37.2186, -59.4216, -0.1, 40.7195, -59.7867, 0, 43.6431, -59.4216, -0.1, 40.7195, -59.7867, -0.1, 43.6431, 2.7146, 0, -37.4114, -6.6309, -0.1, -37.2236, -6.6309, 0, -37.2236, -6.6309, 0, -37.2236, -11.7646, -0.1, -12.6743, -11.7646, 0, -12.6743, -36.2899, 0, 34.4879, -19.5152, -0.1, 23.2753, -19.5152, 0, 23.2753, -58.4231, 0, 37.2186, -57.2454, -0.1, 35.1673, -58.4231, -0.1, 37.2186, -53.0137, -0.1, 43.7812, -48.9083, 0, 59.682, -48.9083, -0.1, 59.682, -10.1668, -0.1, 13.813, -14.1981, 0, 18.2044, -10.1668, 0, 13.813, -52.5727, 0, 42.4873, -51.8435, -0.1, 41.9976, -51.8435, 0, 41.9976, -36.2899, -0.1, 34.4879, -51.8435, 0, 41.9976, -51.8435, -0.1, 41.9976, 2.6584, 0, -38.7261, -5.1565, -0.1, -60, -5.1565, 0, -60, -3.438, 0, -7.6174, 2.7146, -0.1, -37.4114, 2.7146, 0, -37.4114, -4.2847, 0, -4.5622, -12.4715, -0.1, -9.5471, -12.4715, 0, -9.5471, -16.2113, 0, 4.9929, -18.0493, -0.1, 9.1059, -18.0493, 0, 9.1059, -53.0137, 0, 43.7812, -52.5727, -0.1, 42.4873, -52.5727, 0, 42.4873, -7.0112, -0.1, -38.5312, -14.6855, 0, -60, -14.6855, -0.1, -60, -57.1939, -0.1, 59.7009, -59.6131, 0, 48.3006, -59.6131, -0.1, 48.3006, -11.7646, 0, -12.6743, -3.438, -0.1, -7.6174, -3.438, 0, -7.6174, -54.9452, 0, 33.3829, -41.1188, -0.1, 26.6944, -54.9452, -0.1, 33.3829, -7.0112, 0, -38.5312, 2.6584, -0.1, -38.7261, 2.6584, 0, -38.7261, -24.8292, -0.1, 15.8624, -18.0493, 0, 9.1059, -18.0493, -0.1, 9.1059, -54.9452, 0, 33.3829, -60, 0, -60, -41.1175, 0, 26.6964, -41.1175, 0, 26.6964, -60, 0, -60, -24.8279, 0, 15.8644, -60, 0, -60, -12.4715, 0, -9.5471, -24.8279, 0, 15.8644, -24.8279, 0, 15.8644, -16.2113, 0, 4.9929, -18.0493, 0, 9.1059, -24.8279, 0, 15.8644, -12.4715, 0, -9.5471, -16.2113, 0, 4.9929, 60, 0, -60, -3.438, 0, -7.6174, 2.7146, 0, -37.4114, -4.2847, 0, -4.5622, -3.438, 0, -7.6174, 60, 0, -60, -57.2454, 0, 35.1673, -60, 0, -60, -54.9452, 0, 33.3829, -12.4715, 0, -9.5471, -3.438, 0, -7.6174, -4.2847, 0, -4.5622, -12.4715, 0, -9.5471, -11.7646, 0, -12.6743, -3.438, 0, -7.6174, -12.4715, 0, -9.5471, -60, 0, -60, -11.7646, 0, -12.6743, -60, 0, -60, -59.7867, 0, 43.6431, -60, 0, 60, -60, 0, -60, -59.4216, 0, 40.7195, -59.7867, 0, 43.6431, -60, 0, -60, -58.4231, 0, 37.2186, -59.4216, 0, 40.7195, -14.6855, 0, -60, -7.0112, 0, -38.5312, -60, 0, -60, -60, 0, -60, -7.0112, 0, -38.5312, -11.7646, 0, -12.6743, -7.0112, 0, -38.5312, -6.6309, 0, -37.2236, -11.7646, 0, -12.6743, 60, 0, -60, 2.6584, 0, -38.7261, -5.1565, 0, -60, 2.6584, 0, -38.7261, -6.6309, 0, -37.2236, -7.0112, 0, -38.5312, 2.7146, 0, -37.4114, 2.6584, 0, -38.7261, 60, 0, -60, -19.5152, 0, 23.2753, -14.1981, -0.1, 18.2044, -14.1981, 0, 18.2044, -57.1939, 0, 59.7009, -48.9083, -0.1, 59.682, -48.9083, 0, 59.682, -57.2454, -0.1, 35.1673, -54.9452, 0, 33.3829, -54.9452, -0.1, 33.3829, -5.1565, 0, -60, 60, -0.1, -60, 60, 0, -60, -8.0642, 0, 9.4354, -10.1668, -0.1, 13.813, -10.1668, 0, 13.813, -16.2113, -0.1, 4.9929, -12.4715, 0, -9.5471, -12.4715, -0.1, -9.5471, -4.2847, -0.1, -4.5622, -8.0642, 0, 9.4354, -8.0642, -0.1, 9.4354, -24.8279, 0, 15.8644, -41.1188, -0.1, 26.6944, -41.1175, 0, 26.6964, -6.6309, -0.1, -37.2236, -7.0112, -0.1, -38.5312, -11.7646, -0.1, -12.6743, -11.7646, -0.1, -12.6743, -7.0112, -0.1, -38.5312, -60, -0.1, -60, -60, -0.1, -60, -7.0112, -0.1, -38.5312, -14.6855, -0.1, -60, 2.6584, -0.1, -38.7261, 60, -0.1, -60, -5.1565, -0.1, -60, 2.6584, -0.1, -38.7261, 2.7146, -0.1, -37.4114, 60, -0.1, -60, -6.6309, -0.1, -37.2236, 2.6584, -0.1, -38.7261, -7.0112, -0.1, -38.5312, -3.438, -0.1, -7.6174, 60, -0.1, -60, 2.7146, -0.1, -37.4114, -12.4715, -0.1, -9.5471, -24.8292, -0.1, 15.8624, -16.2113, -0.1, 4.9929, -16.2113, -0.1, 4.9929, -24.8292, -0.1, 15.8624, -18.0493, -0.1, 9.1059, -24.8292, -0.1, 15.8624, -60, -0.1, -60, -41.1188, -0.1, 26.6944, -12.4715, -0.1, -9.5471, -60, -0.1, -60, -24.8292, -0.1, 15.8624, -41.1188, -0.1, 26.6944, -60, -0.1, -60, -54.9452, -0.1, 33.3829, -54.9452, -0.1, 33.3829, -60, -0.1, -60, -57.2454, -0.1, 35.1673, -3.438, -0.1, -7.6174, -4.2847, -0.1, -4.5622, 60, -0.1, -60, -11.7646, -0.1, -12.6743, -12.4715, -0.1, -9.5471, -3.438, -0.1, -7.6174, -3.438, -0.1, -7.6174, -12.4715, -0.1, -9.5471, -4.2847, -0.1, -4.5622, -59.7867, -0.1, 43.6431, -60, -0.1, -60, -60, -0.1, 60, -59.4216, -0.1, 40.7195, -60, -0.1, -60, -59.7867, -0.1, 43.6431, -60, -0.1, -60, -12.4715, -0.1, -9.5471, -11.7646, -0.1, -12.6743, -58.4231, -0.1, 37.2186, -60, -0.1, -60, -59.4216, -0.1, 40.7195, -59.6131, 0, 48.3006, -59.7867, -0.1, 43.6431, -59.6131, -0.1, 48.3006 )
@@ -23,628 +25,2344 @@ script = ExtResource( 2 )
 [node name="grave11006" parent="." index="0" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave10006" parent="." index="1" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave9006" parent="." index="2" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave6006" parent="." index="3" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave5006" parent="." index="4" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave4006" parent="." index="5" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave3006" parent="." index="6" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave2006" parent="." index="7" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 4 )
 
 [node name="grave1006" parent="." index="8" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave11005" parent="." index="9" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave10005" parent="." index="10" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave9005" parent="." index="11" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave7005" parent="." index="12" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave6005" parent="." index="13" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave5005" parent="." index="14" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave4005" parent="." index="15" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave3005" parent="." index="16" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave1005" parent="." index="17" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave11004" parent="." index="18" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave10004" parent="." index="19" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave9004" parent="." index="20" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave7004" parent="." index="21" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave6004" parent="." index="22" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave5004" parent="." index="23" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave3004" parent="." index="24" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave2004" parent="." index="25" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 4 )
 
 [node name="grave1004" parent="." index="26" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave11003" parent="." index="27" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave10003" parent="." index="28" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave9003" parent="." index="29" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave8003" parent="." index="30" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave7003" parent="." index="31" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave6003" parent="." index="32" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave5003" parent="." index="33" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave4003" parent="." index="34" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave3003" parent="." index="35" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave11002" parent="." index="36" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave10002" parent="." index="37" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave9002" parent="." index="38" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave8002" parent="." index="39" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave5002" parent="." index="40" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave4002" parent="." index="41" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave3002" parent="." index="42" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave2002" parent="." index="43" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 4 )
 
 [node name="grave11001" parent="." index="44" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave10001" parent="." index="45" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave9001" parent="." index="46" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave8001" parent="." index="47" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave7001" parent="." index="48" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave6001" parent="." index="49" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave5001" parent="." index="50" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave4001" parent="." index="51" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave3001" parent="." index="52" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="grave2001" parent="." index="53" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
+material/1 = ExtResource( 4 )
 
 [node name="grave1001" parent="." index="54" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
 
 [node name="trunkLong006" parent="." index="55" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="trunkLong005" parent="." index="56" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="trunk006" parent="." index="57" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="trunk005" parent="." index="58" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="pineCrooked005" parent="." index="59" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="trunk004" parent="." index="60" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="pineCrooked021" parent="." index="61" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked020" parent="." index="62" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked019" parent="." index="63" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked018" parent="." index="64" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="trunkLong004" parent="." index="65" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="pineCrooked016" parent="." index="66" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked015" parent="." index="67" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="trunkLong003" parent="." index="68" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="trunk002" parent="." index="69" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="pineCrooked014" parent="." index="70" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked013" parent="." index="71" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked012" parent="." index="72" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked011" parent="." index="73" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="trunkLong002" parent="." index="74" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 
 [node name="pineCrooked010" parent="." index="75" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked004" parent="." index="76" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked003" parent="." index="77" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="pineCrooked002" parent="." index="78" groups=[
 "nohide",
 ]]
+material/2 = ExtResource( 4 )
 
 [node name="ironFenceBorder007" parent="." index="79" groups=[
 "nohide",
 ]]
+material/0 = ExtResource( 12 )
+material/2 = ExtResource( 12 )
 
-[node name="Cube114" parent="." index="80"]
+[node name="roofGableTop023" parent="." index="80"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGable016" parent="." index="81"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat031" parent="." index="82"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableDetail027" parent="." index="83"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat030" parent="." index="84"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGable015" parent="." index="85"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableTop022" parent="." index="86"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableDetail026" parent="." index="87"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableTop021" parent="." index="88"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat029" parent="." index="89"]
+material/0 = ExtResource( 11 )
+
+[node name="roofFlat028" parent="." index="90"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableDetail025" parent="." index="91"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableTop020" parent="." index="92"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableTop019" parent="." index="93"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGable014" parent="." index="94"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat027" parent="." index="95"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableDetail024" parent="." index="96"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableDetail023" parent="." index="97"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableDetail022" parent="." index="98"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGable013" parent="." index="99"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat022" parent="." index="100"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGable012" parent="." index="101"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat026" parent="." index="102"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableTop018" parent="." index="103"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableTop017" parent="." index="104"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableDetail021" parent="." index="105"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat024" parent="." index="106"]
+material/0 = ExtResource( 11 )
+
+[node name="roofFlat019" parent="." index="107"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableDetail020" parent="." index="108"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableTop011" parent="." index="109"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat015" parent="." index="110"]
+material/0 = ExtResource( 11 )
+
+[node name="roofFlat004" parent="." index="111"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableTop004" parent="." index="112"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableDetail005" parent="." index="113"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableTop003" parent="." index="114"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGable003" parent="." index="115"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofFlat003" parent="." index="116"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableDetail004" parent="." index="117"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableTop002" parent="." index="118"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat002" parent="." index="119"]
+material/0 = ExtResource( 11 )
+
+[node name="roofGableDetail003" parent="." index="120"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="roofGableDetail002" parent="." index="121"]
+material/0 = ExtResource( 11 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 11 )
+
+[node name="wallWindowRound068" parent="." index="122"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube113" parent="." index="81"]
+[node name="wallWindowRound063" parent="." index="123"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube112" parent="." index="82"]
+[node name="wall150" parent="." index="124"]
+material/0 = ExtResource( 12 )
+
+[node name="wall149" parent="." index="125"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube111" parent="." index="83"]
+[node name="wallWindowRound062" parent="." index="126"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cube110" parent="." index="84"]
+[node name="wallWindowRound061" parent="." index="127"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube109" parent="." index="85"]
+[node name="wall148" parent="." index="128"]
+material/0 = ExtResource( 12 )
+
+[node name="wall147" parent="." index="129"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube108" parent="." index="86"]
+[node name="wallWindowRound060" parent="." index="130"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cube107" parent="." index="87"]
+[node name="wall146" parent="." index="131"]
+material/0 = ExtResource( 12 )
+
+[node name="wall145" parent="." index="132"]
+material/0 = ExtResource( 12 )
+
+[node name="wall144" parent="." index="133"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube106" parent="." index="88"]
+[node name="wallWindowRound059" parent="." index="134"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cube105" parent="." index="89"]
+[node name="wallWindowRound058" parent="." index="135"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube104" parent="." index="90"]
+[node name="wall143" parent="." index="136"]
+material/0 = ExtResource( 12 )
+
+[node name="wall142" parent="." index="137"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube103" parent="." index="91"]
+[node name="door054" parent="." index="138"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube102" parent="." index="92"]
+[node name="wallWindowRound057" parent="." index="139"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube101" parent="." index="93"]
+[node name="wallWindowRound056" parent="." index="140"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube100" parent="." index="94"]
+[node name="wallWindowRound055" parent="." index="141"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube099" parent="." index="95"]
+[node name="wall141" parent="." index="142"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube098" parent="." index="96"]
+[node name="wallWindowRound054" parent="." index="143"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cylinder020" parent="." index="97"]
+[node name="wallWindowRound053" parent="." index="144"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cylinder019" parent="." index="98"]
+[node name="wallWindowRound052" parent="." index="145"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube097" parent="." index="99"]
+[node name="wall140" parent="." index="146"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube095" parent="." index="100"]
+[node name="door053" parent="." index="147"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube094" parent="." index="101"]
+[node name="wall139" parent="." index="148"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound051" parent="." index="149"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube093" parent="." index="102"]
+[node name="wallWindowRound050" parent="." index="150"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube092" parent="." index="103"]
+[node name="door052" parent="." index="151"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube091" parent="." index="104"]
+[node name="wall138" parent="." index="152"]
+material/0 = ExtResource( 12 )
+
+[node name="wall137" parent="." index="153"]
+material/0 = ExtResource( 12 )
+
+[node name="wall136" parent="." index="154"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube090" parent="." index="105"]
+[node name="door051" parent="." index="155"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube089" parent="." index="106"]
+[node name="wallWindowRound049" parent="." index="156"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube088" parent="." index="107"]
+[node name="wall135" parent="." index="157"]
+material/0 = ExtResource( 12 )
+
+[node name="wall134" parent="." index="158"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube087" parent="." index="108"]
+[node name="door050" parent="." index="159"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube086" parent="." index="109"]
+[node name="wall133" parent="." index="160"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound048" parent="." index="161"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube085" parent="." index="110"]
+[node name="door049" parent="." index="162"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube084" parent="." index="111"]
+[node name="wall132" parent="." index="163"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube083" parent="." index="112"]
+[node name="wallWindowRound047" parent="." index="164"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube082" parent="." index="113"]
+[node name="wall131" parent="." index="165"]
+material/0 = ExtResource( 12 )
+
+[node name="wall130" parent="." index="166"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube081" parent="." index="114"]
+[node name="door048" parent="." index="167"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube080" parent="." index="115"]
+[node name="wallWindowRound046" parent="." index="168"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube079" parent="." index="116"]
+[node name="wall129" parent="." index="169"]
+material/0 = ExtResource( 12 )
+
+[node name="wall128" parent="." index="170"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube078" parent="." index="117"]
+[node name="door047" parent="." index="171"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube077" parent="." index="118"]
+[node name="wall127" parent="." index="172"]
+material/0 = ExtResource( 12 )
+
+[node name="wall126" parent="." index="173"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound045" parent="." index="174"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube076" parent="." index="119"]
+[node name="door046" parent="." index="175"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube075" parent="." index="120"]
+[node name="wall125" parent="." index="176"]
+material/0 = ExtResource( 12 )
+
+[node name="wall124" parent="." index="177"]
+material/0 = ExtResource( 12 )
+
+[node name="door045" parent="." index="178"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube074" parent="." index="121"]
+[node name="wall123" parent="." index="179"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube073" parent="." index="122"]
+[node name="wall122" parent="." index="180"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound044" parent="." index="181"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube072" parent="." index="123"]
+[node name="wall121" parent="." index="182"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube071" parent="." index="124"]
+[node name="door044" parent="." index="183"]
 material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cylinder018" parent="." index="125"]
+[node name="wall120" parent="." index="184"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound043" parent="." index="185"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall119" parent="." index="186"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door043" parent="." index="187"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound042" parent="." index="188"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall118" parent="." index="189"]
+material/0 = ExtResource( 12 )
+
+[node name="wall117" parent="." index="190"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door042" parent="." index="191"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall116" parent="." index="192"]
+material/0 = ExtResource( 12 )
+
+[node name="wall115" parent="." index="193"]
+material/0 = ExtResource( 12 )
+
+[node name="wall114" parent="." index="194"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door041" parent="." index="195"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall113" parent="." index="196"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound041" parent="." index="197"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall112" parent="." index="198"]
+material/0 = ExtResource( 12 )
+
+[node name="wall111" parent="." index="199"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door040" parent="." index="200"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound040" parent="." index="201"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall110" parent="." index="202"]
+material/0 = ExtResource( 12 )
+
+[node name="wall109" parent="." index="203"]
+material/0 = ExtResource( 12 )
+
+[node name="wall108" parent="." index="204"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door039" parent="." index="205"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+material/3 = ExtResource( 4 )
+material/4 = ExtResource( 12 )
+
+[node name="wallWindowRound039" parent="." index="206"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall107" parent="." index="207"]
+material/0 = ExtResource( 12 )
+
+[node name="wall106" parent="." index="208"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door038" parent="." index="209"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall105" parent="." index="210"]
+material/0 = ExtResource( 12 )
+
+[node name="wall104" parent="." index="211"]
+material/0 = ExtResource( 12 )
+
+[node name="wall103" parent="." index="212"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door037" parent="." index="213"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound038" parent="." index="214"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall102" parent="." index="215"]
+material/0 = ExtResource( 12 )
+
+[node name="wall101" parent="." index="216"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door036" parent="." index="217"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall100" parent="." index="218"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound037" parent="." index="219"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall099" parent="." index="220"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door035" parent="." index="221"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound036" parent="." index="222"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound035" parent="." index="223"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound034" parent="." index="224"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door034" parent="." index="225"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall098" parent="." index="226"]
+material/0 = ExtResource( 12 )
+
+[node name="wall097" parent="." index="227"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound033" parent="." index="228"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound031" parent="." index="229"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+
+[node name="wallWindowRound032" parent="." index="230"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall096" parent="." index="231"]
+material/0 = ExtResource( 12 )
+
+[node name="wall095" parent="." index="232"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound030" parent="." index="233"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door033" parent="." index="234"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound029" parent="." index="235"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound028" parent="." index="236"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall094" parent="." index="237"]
+material/0 = ExtResource( 12 )
+
+[node name="wall093" parent="." index="238"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound027" parent="." index="239"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall091" parent="." index="240"]
+material/0 = ExtResource( 12 )
+
+[node name="wall090" parent="." index="241"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall089" parent="." index="242"]
+material/0 = ExtResource( 12 )
+
+[node name="wall088" parent="." index="243"]
+material/0 = ExtResource( 12 )
+
+[node name="wall087" parent="." index="244"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall086" parent="." index="245"]
+material/0 = ExtResource( 12 )
+
+[node name="wall085" parent="." index="246"]
+material/0 = ExtResource( 12 )
+
+[node name="wall084" parent="." index="247"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall083" parent="." index="248"]
+material/0 = ExtResource( 12 )
+
+[node name="wall082" parent="." index="249"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound026" parent="." index="250"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound025" parent="." index="251"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall081" parent="." index="252"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall080" parent="." index="253"]
+material/0 = ExtResource( 12 )
+
+[node name="wall079" parent="." index="254"]
+material/0 = ExtResource( 12 )
+
+[node name="wall078" parent="." index="255"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door031" parent="." index="256"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door030" parent="." index="257"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall077" parent="." index="258"]
+material/0 = ExtResource( 12 )
+
+[node name="wall076" parent="." index="259"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door029" parent="." index="260"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door028" parent="." index="261"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door027" parent="." index="262"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door026" parent="." index="263"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door025" parent="." index="264"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound024" parent="." index="265"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall075" parent="." index="266"]
+material/0 = ExtResource( 12 )
+
+[node name="wall074" parent="." index="267"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall073" parent="." index="268"]
+material/0 = ExtResource( 12 )
+
+[node name="wall072" parent="." index="269"]
+material/0 = ExtResource( 12 )
+
+[node name="wall071" parent="." index="270"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door024" parent="." index="271"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door023" parent="." index="272"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall070" parent="." index="273"]
+material/0 = ExtResource( 12 )
+
+[node name="wall069" parent="." index="274"]
+material/0 = ExtResource( 12 )
+
+[node name="wall068" parent="." index="275"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall067" parent="." index="276"]
+material/0 = ExtResource( 12 )
+
+[node name="door022" parent="." index="277"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall066" parent="." index="278"]
+material/0 = ExtResource( 12 )
+
+[node name="wall065" parent="." index="279"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound023" parent="." index="280"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall064" parent="." index="281"]
+material/0 = ExtResource( 12 )
+
+[node name="wall063" parent="." index="282"]
+material/0 = ExtResource( 12 )
+
+[node name="wall062" parent="." index="283"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door021" parent="." index="284"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall061" parent="." index="285"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall060" parent="." index="286"]
+material/0 = ExtResource( 12 )
+
+[node name="wall059" parent="." index="287"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound022" parent="." index="288"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall058" parent="." index="289"]
+material/0 = ExtResource( 12 )
+
+[node name="wall057" parent="." index="290"]
+material/0 = ExtResource( 12 )
+
+[node name="wall056" parent="." index="291"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound021" parent="." index="292"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door002" parent="." index="293"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="roofGableDetail019" parent="." index="294"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofFlat025" parent="." index="295"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube070" parent="." index="126"]
+[node name="roofGable011" parent="." index="296"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableDetail018" parent="." index="297"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableTop016" parent="." index="298"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGable009" parent="." index="299"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableTop015" parent="." index="300"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableDetail017" parent="." index="301"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableDetail016" parent="." index="302"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofFlat023" parent="." index="303"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube069" parent="." index="127"]
+[node name="roofFlat021" parent="." index="304"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube068" parent="." index="128"]
+[node name="roofFlat020" parent="." index="305"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube067" parent="." index="129"]
+[node name="roofGableDetail015" parent="." index="306"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableTop014" parent="." index="307"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat018" parent="." index="308"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube066" parent="." index="130"]
+[node name="roofGableTop013" parent="." index="309"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGable010" parent="." index="310"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableDetail014" parent="." index="311"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableTop012" parent="." index="312"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat017" parent="." index="313"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube065" parent="." index="131"]
+[node name="roofGable008" parent="." index="314"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableDetail008" parent="." index="315"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofFlat009" parent="." index="316"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube064" parent="." index="132"]
+[node name="roofGableTop007" parent="." index="317"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat008" parent="." index="318"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube063" parent="." index="133"]
+[node name="roofGable004" parent="." index="319"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableDetail007" parent="." index="320"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGable001" parent="." index="321"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
+
+[node name="roofGableTop006" parent="." index="322"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat007" parent="." index="323"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube062" parent="." index="134"]
+[node name="roofFlat006" parent="." index="324"]
 material/0 = ExtResource( 5 )
 
-[node name="Cube061" parent="." index="135"]
+[node name="roofGableTop005" parent="." index="325"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofFlat005" parent="." index="326"]
 material/0 = ExtResource( 5 )
 
-[node name="Cylinder017" parent="." index="136"]
+[node name="roofGableDetail006" parent="." index="327"]
 material/0 = ExtResource( 5 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 5 )
 
-[node name="Cube060" parent="." index="137"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound097" parent="." index="328"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube059" parent="." index="138"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound096" parent="." index="329"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cube058" parent="." index="139"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound095" parent="." index="330"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cube057" parent="." index="140"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound094" parent="." index="331"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
 
-[node name="Cube056" parent="." index="141"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound093" parent="." index="332"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
 
-[node name="Cube055" parent="." index="142"]
-material/0 = ExtResource( 5 )
+[node name="door071" parent="." index="333"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube054" parent="." index="143"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound091" parent="." index="334"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube053" parent="." index="144"]
-material/0 = ExtResource( 5 )
+[node name="wall189" parent="." index="335"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube052" parent="." index="145"]
-material/0 = ExtResource( 5 )
+[node name="wall188" parent="." index="336"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube050" parent="." index="146"]
-material/0 = ExtResource( 5 )
+[node name="wall187" parent="." index="337"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cylinder016" parent="." index="147"]
-material/0 = ExtResource( 5 )
+[node name="wall186" parent="." index="338"]
+material/0 = ExtResource( 12 )
 
-[node name="Cylinder015" parent="." index="148"]
-material/0 = ExtResource( 5 )
+[node name="wall185" parent="." index="339"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube051" parent="." index="149"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound090" parent="." index="340"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
 
-[node name="Cube049" parent="." index="150"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound089" parent="." index="341"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
 
-[node name="Cube048" parent="." index="151"]
-material/0 = ExtResource( 5 )
+[node name="wall184" parent="." index="342"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cylinder014" parent="." index="152"]
-material/0 = ExtResource( 5 )
+[node name="wall183" parent="." index="343"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube047" parent="." index="153"]
-material/0 = ExtResource( 5 )
+[node name="wall182" parent="." index="344"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube046" parent="." index="154"]
-material/0 = ExtResource( 5 )
+[node name="wall181" parent="." index="345"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube045" parent="." index="155"]
-material/0 = ExtResource( 5 )
+[node name="wall180" parent="." index="346"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube044" parent="." index="156"]
-material/0 = ExtResource( 5 )
+[node name="door070" parent="." index="347"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube043" parent="." index="157"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound088" parent="." index="348"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube042" parent="." index="158"]
-material/0 = ExtResource( 5 )
+[node name="wallWindowRound087" parent="." index="349"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube041" parent="." index="159"]
-material/0 = ExtResource( 5 )
+[node name="door069" parent="." index="350"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube040" parent="." index="160"]
-material/0 = ExtResource( 5 )
+[node name="wall179" parent="." index="351"]
+material/0 = ExtResource( 12 )
 
-[node name="Cube032" parent="." index="161"]
-material/0 = ExtResource( 5 )
+[node name="wall178" parent="." index="352"]
+material/0 = ExtResource( 12 )
 
-[node name="Cylinder013" parent="." index="162"]
-material/0 = ExtResource( 5 )
+[node name="wall177" parent="." index="353"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube037" parent="." index="163"]
-material/0 = ExtResource( 5 )
+[node name="door068" parent="." index="354"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube039" parent="." index="164"]
+[node name="wall176" parent="." index="355"]
+material/0 = ExtResource( 12 )
+
+[node name="wall175" parent="." index="356"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound086" parent="." index="357"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door067" parent="." index="358"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall174" parent="." index="359"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound085" parent="." index="360"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound084" parent="." index="361"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door066" parent="." index="362"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound083" parent="." index="363"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound082" parent="." index="364"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound081" parent="." index="365"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+
+[node name="wallWindowRound080" parent="." index="366"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+
+[node name="wallWindowRound079" parent="." index="367"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall173" parent="." index="368"]
+material/0 = ExtResource( 12 )
+
+[node name="wall172" parent="." index="369"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door065" parent="." index="370"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound078" parent="." index="371"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall171" parent="." index="372"]
+material/0 = ExtResource( 12 )
+
+[node name="wall170" parent="." index="373"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door064" parent="." index="374"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound077" parent="." index="375"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall169" parent="." index="376"]
+material/0 = ExtResource( 12 )
+
+[node name="wall168" parent="." index="377"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door063" parent="." index="378"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound076" parent="." index="379"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall167" parent="." index="380"]
+material/0 = ExtResource( 12 )
+
+[node name="wall166" parent="." index="381"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door062" parent="." index="382"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="door061" parent="." index="383"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound075" parent="." index="384"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound074" parent="." index="385"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall165" parent="." index="386"]
+material/0 = ExtResource( 12 )
+
+[node name="wall164" parent="." index="387"]
+material/0 = ExtResource( 12 )
+
+[node name="wall163" parent="." index="388"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall162" parent="." index="389"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound073" parent="." index="390"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door060" parent="." index="391"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall161" parent="." index="392"]
+material/0 = ExtResource( 12 )
+
+[node name="wall160" parent="." index="393"]
+material/0 = ExtResource( 12 )
+
+[node name="wall159" parent="." index="394"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door059" parent="." index="395"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound072" parent="." index="396"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall158" parent="." index="397"]
+material/0 = ExtResource( 12 )
+
+[node name="wall157" parent="." index="398"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door058" parent="." index="399"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound071" parent="." index="400"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall156" parent="." index="401"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound070" parent="." index="402"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door057" parent="." index="403"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall155" parent="." index="404"]
+material/0 = ExtResource( 12 )
+
+[node name="wall154" parent="." index="405"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound069" parent="." index="406"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+
+[node name="wallWindowRound067" parent="." index="407"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+
+[node name="wallWindowRound066" parent="." index="408"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall153" parent="." index="409"]
+material/0 = ExtResource( 12 )
+
+[node name="wall152" parent="." index="410"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door056" parent="." index="411"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound065" parent="." index="412"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound064" parent="." index="413"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall151" parent="." index="414"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door055" parent="." index="415"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall092" parent="." index="416"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound020" parent="." index="417"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall055" parent="." index="418"]
+material/0 = ExtResource( 12 )
+
+[node name="wall054" parent="." index="419"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door020" parent="." index="420"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall053" parent="." index="421"]
+material/0 = ExtResource( 12 )
+
+[node name="wall052" parent="." index="422"]
+material/0 = ExtResource( 12 )
+
+[node name="wall051" parent="." index="423"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door019" parent="." index="424"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall050" parent="." index="425"]
+material/0 = ExtResource( 12 )
+
+[node name="wall049" parent="." index="426"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door018" parent="." index="427"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall048" parent="." index="428"]
+material/0 = ExtResource( 12 )
+
+[node name="wall047" parent="." index="429"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound019" parent="." index="430"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door017" parent="." index="431"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall046" parent="." index="432"]
+material/0 = ExtResource( 12 )
+
+[node name="wall045" parent="." index="433"]
+material/0 = ExtResource( 12 )
+
+[node name="wall044" parent="." index="434"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door016" parent="." index="435"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall043" parent="." index="436"]
+material/0 = ExtResource( 12 )
+
+[node name="wall042" parent="." index="437"]
+material/0 = ExtResource( 12 )
+
+[node name="wall041" parent="." index="438"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door015" parent="." index="439"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall040" parent="." index="440"]
+material/0 = ExtResource( 12 )
+
+[node name="wall039" parent="." index="441"]
+material/0 = ExtResource( 12 )
+
+[node name="wall038" parent="." index="442"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door014" parent="." index="443"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall037" parent="." index="444"]
+material/0 = ExtResource( 12 )
+
+[node name="wall036" parent="." index="445"]
+material/0 = ExtResource( 12 )
+
+[node name="wall035" parent="." index="446"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door013" parent="." index="447"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound018" parent="." index="448"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall033" parent="." index="449"]
+material/0 = ExtResource( 12 )
+
+[node name="wall034" parent="." index="450"]
+material/0 = ExtResource( 12 )
+
+[node name="door012" parent="." index="451"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall032" parent="." index="452"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound017" parent="." index="453"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall031" parent="." index="454"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door011" parent="." index="455"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound016" parent="." index="456"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall030" parent="." index="457"]
+material/0 = ExtResource( 12 )
+
+[node name="wall029" parent="." index="458"]
+material/0 = ExtResource( 12 )
+
+[node name="wall028" parent="." index="459"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound015" parent="." index="460"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall027" parent="." index="461"]
+material/0 = ExtResource( 12 )
+
+[node name="wall026" parent="." index="462"]
+material/0 = ExtResource( 12 )
+
+[node name="wall025" parent="." index="463"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall024" parent="." index="464"]
+material/0 = ExtResource( 12 )
+
+[node name="wall023" parent="." index="465"]
+material/0 = ExtResource( 12 )
+
+[node name="wall022" parent="." index="466"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door010" parent="." index="467"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="roofGableDetail013" parent="." index="468"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofFlat016" parent="." index="469"]
 material/0 = ExtResource( 3 )
 
-[node name="Cube038" parent="." index="165"]
+[node name="roofFlat013" parent="." index="470"]
 material/0 = ExtResource( 3 )
 
-[node name="Cylinder012" parent="." index="166"]
+[node name="roofGableTop010" parent="." index="471"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableTop009" parent="." index="472"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGable007" parent="." index="473"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofGableDetail012" parent="." index="474"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofFlat014" parent="." index="475"]
 material/0 = ExtResource( 3 )
 
-[node name="Cube036" parent="." index="167"]
+[node name="roofGableDetail011" parent="." index="476"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofFlat012" parent="." index="477"]
 material/0 = ExtResource( 3 )
 
-[node name="Cube035" parent="." index="168"]
+[node name="roofFlat011" parent="." index="478"]
 material/0 = ExtResource( 3 )
 
-[node name="Cube034" parent="." index="169"]
+[node name="roofGable006" parent="." index="479"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofGable005" parent="." index="480"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofGableTop008" parent="." index="481"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+
+[node name="roofGableDetail010" parent="." index="482"]
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
+
+[node name="roofFlat010" parent="." index="483"]
 material/0 = ExtResource( 3 )
 
-[node name="Cube033" parent="." index="170"]
+[node name="roofGableDetail009" parent="." index="484"]
 material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 12 )
+material/3 = ExtResource( 3 )
 
-[node name="Cylinder" parent="." index="171"]
-material/0 = ExtResource( 3 )
+[node name="wall021" parent="." index="485"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube030" parent="." index="172"]
-material/0 = ExtResource( 3 )
+[node name="wallWindowRound014" parent="." index="486"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube029" parent="." index="173"]
-material/0 = ExtResource( 3 )
+[node name="wallWindowRound013" parent="." index="487"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube028" parent="." index="174"]
-material/0 = ExtResource( 3 )
+[node name="door009" parent="." index="488"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube027" parent="." index="175"]
-material/0 = ExtResource( 3 )
+[node name="wall020" parent="." index="489"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube026" parent="." index="176"]
-material/0 = ExtResource( 3 )
+[node name="wallWindowRound012" parent="." index="490"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube025" parent="." index="177"]
-material/0 = ExtResource( 3 )
+[node name="wallWindowRound011" parent="." index="491"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube024" parent="." index="178"]
-material/0 = ExtResource( 3 )
+[node name="wall019" parent="." index="492"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube023" parent="." index="179"]
-material/0 = ExtResource( 3 )
+[node name="door008" parent="." index="493"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
 
-[node name="Cube022" parent="." index="180"]
-material/0 = ExtResource( 3 )
+[node name="wallWindowRound010" parent="." index="494"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
 
-[node name="Cube021" parent="." index="181"]
-material/0 = ExtResource( 3 )
+[node name="wallWindowRound009" parent="." index="495"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall018" parent="." index="496"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door007" parent="." index="497"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound008" parent="." index="498"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door006" parent="." index="499"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wallWindowRound007" parent="." index="500"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound006" parent="." index="501"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall017" parent="." index="502"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall016" parent="." index="503"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall015" parent="." index="504"]
+material/0 = ExtResource( 12 )
+
+[node name="wall014" parent="." index="505"]
+material/0 = ExtResource( 12 )
+
+[node name="wallWindowRound005" parent="." index="506"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall013" parent="." index="507"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall005" parent="." index="508"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound003" parent="." index="509"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door005" parent="." index="510"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall012" parent="." index="511"]
+material/0 = ExtResource( 12 )
+
+[node name="wall011" parent="." index="512"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall010" parent="." index="513"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door004" parent="." index="514"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall009" parent="." index="515"]
+material/0 = ExtResource( 12 )
+
+[node name="wall008" parent="." index="516"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wall007" parent="." index="517"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door003" parent="." index="518"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall006" parent="." index="519"]
+material/0 = ExtResource( 12 )
+
+[node name="wall003" parent="." index="520"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound004" parent="." index="521"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="wallWindowRound002" parent="." index="522"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="door001" parent="." index="523"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+
+[node name="wall002" parent="." index="524"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+
+[node name="building000" parent="." index="525"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+material/3 = ExtResource( 4 )
+material/4 = ExtResource( 12 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
+
+[node name="building008" parent="." index="526"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
+
+[node name="building007" parent="." index="527"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
+
+[node name="building006" parent="." index="528"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
+
+[node name="building005" parent="." index="529"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 4 )
+material/5 = ExtResource( 12 )
+material/6 = ExtResource( 8 )
+
+[node name="building004" parent="." index="530"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
+
+[node name="building001" parent="." index="531"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 8 )
+material/3 = ExtResource( 4 )
+material/4 = ExtResource( 12 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
+
+[node name="building003" parent="." index="532"]
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 12 )
+material/2 = ExtResource( 4 )
+material/3 = ExtResource( 12 )
+material/4 = ExtResource( 8 )
+material/5 = ExtResource( 4 )
+material/6 = ExtResource( 12 )
 
 [node name="StaticBody" type="StaticBody" parent="Ground" index="0" groups=[
 "nohide",
@@ -653,7 +2371,7 @@ material/0 = ExtResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody" index="0"]
 shape = SubResource( 1 )
 
-[node name="River" parent="." index="183"]
+[node name="River" parent="." index="534"]
 transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -9.87, -0.1, 21.516 )
 
 [node name="StaticBody" type="StaticBody" parent="River" index="0" groups=[
@@ -664,18 +2382,18 @@ transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, -9.87, -0.1, 21.516 )
 transform = Transform( 1, 0, 0, 0, 32, 0, 0, 0, 1, 0, 31.3385, 0 )
 shape = SubResource( 2 )
 
-[node name="gate" parent="." index="185" groups=[
+[node name="gate" parent="." index="535" groups=[
 "gate",
 "nohide",
 ]]
 material/0 = ExtResource( 6 )
-material/1 = ExtResource( 8 )
+material/1 = ExtResource( 4 )
 script = ExtResource( 9 )
 
 [node name="gate_open" type="AudioStreamPlayer" parent="gate" index="0"]
 stream = ExtResource( 10 )
 
-[node name="wall" parent="." index="186" groups=[
+[node name="wall" parent="." index="536" groups=[
 "nohide",
 ]]
 material/0 = ExtResource( 6 )

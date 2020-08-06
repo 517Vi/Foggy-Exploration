@@ -105,7 +105,7 @@ transform = Transform( 0.722569, 0, -0.691299, 0, 1, 0, 0.691299, 0, 0.722569, 6
 lit = true
 
 [node name="lamp_post10" parent="lamp_posts" instance=ExtResource( 2 )]
-transform = Transform( -0.689266, 0, 0.724509, 0, 1, 0, -0.724509, 0, -0.689266, 19.5333, 0, 32.2298 )
+transform = Transform( 0.707909, 0, 0.706305, 0, 1, 0, -0.706305, 0, 0.707909, 17.7499, 0, 28.4151 )
 lit = true
 
 [node name="lamp_post11" parent="lamp_posts" instance=ExtResource( 2 )]
@@ -229,7 +229,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3857, 4.76837e-07, -53.7691
 dialog_script = ExtResource( 12 )
 
 [node name="grid_hint" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7533, 1.90735e-06, 32.155 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2644, 1.90735e-06, 29.566 )
 dialog_script = ExtResource( 17 )
 
 [node name="puzzles" type="Spatial" parent="."]
@@ -249,7 +249,7 @@ transform = Transform( 0.928447, 0, 0.371465, 0, 1, 0, -0.371465, 0, 0.928447, 4
 transform = Transform( -0.194371, 0, -0.980928, 0, 1, 0, 0.980928, 0, -0.194371, 54.416, 0.250001, -7.89481 )
 
 [node name="grid" parent="puzzles" instance=ExtResource( 15 )]
-transform = Transform( 0.915677, 0, 0.401916, 0, 1, 0, -0.401916, 0, 0.915677, 30.5249, 0.245147, 32.0827 )
+transform = Transform( 0.901486, 0, 0.43281, 0, 1, 0, -0.43281, 0, 0.901486, 22.9167, 0.245147, 36.3696 )
 
 [node name="the_light" parent="." groups=[
 "the_light",
