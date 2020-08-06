@@ -19,38 +19,38 @@ margin_right = 13.7595
 margin_bottom = 3.43982
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
-margin_left = 43.0
-margin_top = 37.0
-margin_right = 1236.0
-margin_bottom = 682.0
+margin_left = 62.0
+margin_top = 42.0
+margin_right = 1217.0
+margin_bottom = 687.0
 
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
-margin_right = 1193.0
+margin_right = 1155.0
 text = "How To Play"
 align = 1
 
 [node name="info\\" type="Label" parent="CenterContainer/VBoxContainer" index="1"]
 margin_top = 68.0
-margin_right = 1193.0
+margin_right = 1155.0
 margin_bottom = 611.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Controls: - WASD to move.
 - Left and Right to move camera.
-- E to interact
+- E to interact (speak to NPCs, light lamps)
+- F to toggle fog quality (use if the game is lagging!)
 
-After collecting the lantern, 
-the fuel in it depletes over time and if it runs out, 
-the fog envelopes you and you return to the last checkpoint.
+The fuel in your lantern depletes over time, and if it runs
+it runs out, the fog envelopes you and you return to the
+last lamp post you lit.
 
 You can relight a street lamp to serve as a checkpoint.
-You can also refuel your lantern at any street lamp.
+You can also refuel your lantern at any lit street lamp.
 
-Collect the 4 elements and return to the gate to unlock it 
-and escape."
+Collect the 4 elements and return to the gate to escape."
 
 [node name="Button" parent="CenterContainer/VBoxContainer" index="2"]
-margin_top = 615.0
-margin_right = 1193.0
+margin_top = 629.0
+margin_right = 1155.0
 margin_bottom = 645.0

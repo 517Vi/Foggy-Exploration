@@ -114,6 +114,12 @@ transform = Transform( 0.154314, 0, 0.988022, 0, 1, 0, -0.988022, 0, 0.154314, 5
 [node name="lamp_post12" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.629714, 0, 0.776827, 0, 1, 0, -0.776827, 0, -0.629714, 76.1235, 0, -15.2454 )
 
+[node name="lamp_post13" parent="lamp_posts" instance=ExtResource( 2 )]
+transform = Transform( 0.973821, 0, 0.227314, 0, 1, 0, -0.227314, 0, 0.973821, 29.7327, 4.76837e-07, -63.1271 )
+
+[node name="lamp_post14" parent="lamp_posts" instance=ExtResource( 2 )]
+transform = Transform( 0.781433, 0, 0.623989, 0, 1, 0, -0.623989, 0, 0.781433, 69.1784, 9.53674e-07, 9.29008 )
+
 [node name="zones" type="Spatial" parent="."]
 
 [node name="gate_0" parent="zones" instance=ExtResource( 4 )]

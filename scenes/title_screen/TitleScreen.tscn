@@ -73,18 +73,19 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
-margin_top = 28.0
+margin_top = 68.0
 margin_right = 1050.0
-margin_bottom = 88.0
+margin_bottom = 128.0
 scene_to_load = ExtResource( 9 )
 
 [node name="HowToPlayButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
-margin_top = 108.0
+margin_top = 148.0
 margin_right = 1050.0
-margin_bottom = 168.0
+margin_bottom = 208.0
 scene_to_load = ExtResource( 10 )
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+visible = false
 margin_top = 188.0
 margin_right = 1050.0
 margin_bottom = 248.0

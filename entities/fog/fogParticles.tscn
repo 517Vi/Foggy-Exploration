@@ -207,6 +207,7 @@ void vertex() {
 }
 
 "
+custom_defines = ""
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 1.4013e-45, 0.384837, 0.71881 )
