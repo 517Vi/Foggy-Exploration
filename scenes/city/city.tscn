@@ -239,6 +239,7 @@ dialog_script = ExtResource( 17 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66185, 1.85962, -1.04505 )
 billboard = 1
 texture = ExtResource( 10 )
+script = ExtResource( 16 )
 
 [node name="gravestones" parent="puzzles" instance=ExtResource( 11 )]
 transform = Transform( 0.928447, 0, 0.371465, 0, 1, 0, -0.371465, 0, 0.928447, 49.8739, 0.249999, -46.6361 )
