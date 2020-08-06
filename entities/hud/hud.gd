@@ -21,3 +21,14 @@ func _dialog_timeout():
 
 func update_has_next_prompt():
 	$dialog/has_next.rect_position.x = $dialog.get_combined_minimum_size().x + 15
+
+func show_element(el):
+	match el:
+		"fire":
+			$elements/fire.show()
+		"water":
+			$elements/water.show()
+		"earth":
+			$elements/earth.show()
+		"wind":
+			$elements/wind.show()

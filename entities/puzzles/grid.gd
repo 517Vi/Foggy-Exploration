@@ -1,6 +1,6 @@
 extends Spatial
 
-export var SOLUTION = [2, 4, 5]
+export var SOLUTION = [1, 2, 3, 4, 5, 8, 9, 12, 13, 14, 15, 16]
 var lit = []
 var broken = false
 var solved = false
@@ -11,12 +11,12 @@ func light(num: int):
 	if not num in SOLUTION:
 		broken = true
 	lit.append(num)
-	if lit.size() == 3 and not broken:
+	if lit.size() == 12 and not broken:
 		$solved.play()
 		add_to_group("solved")
-		get_tree().get_nodes_in_group("hud")[0].show_element("wind")
+		get_tree().get_nodes_in_group("hud")[0].show_element("water")
 		solved = true
-	elif lit.size() >= 5:
+	elif lit.size() >= 12:
 		lit = []
 		broken = false
 		extinguish_lamps()

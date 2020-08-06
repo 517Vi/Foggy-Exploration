@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/city/city_buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/lamp_post/lamp_post.tscn" type="PackedScene" id=2]
@@ -14,44 +14,46 @@
 [ext_resource path="res://scenes/city/dialog/gravestones_hint.gd" type="Script" id=12]
 [ext_resource path="res://entities/puzzles/brightness.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/the_light/the_light.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/puzzles/grid.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/city/scripts/tutorial_interact.gd" type="Script" id=16]
+[ext_resource path="res://scenes/city/dialog/grid_hint.gd" type="Script" id=17]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.57473, 1, 15.6495 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=2]
 extents = Vector3( 4.61877, 1, 5.06417 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 10.4246, 1, 1 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 7.11634, 1, 1 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=5]
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 30.4839, 1, 1 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 30.5156, 1, 1 )
 
-[sub_resource type="BoxShape" id=10]
+[sub_resource type="BoxShape" id=8]
 extents = Vector3( 5.76733, 1, 1 )
 
-[sub_resource type="BoxShape" id=11]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 28.994, 1, 1 )
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=10]
 extents = Vector3( 1, 1, 3.74367 )
 
-[sub_resource type="BoxShape" id=13]
+[sub_resource type="BoxShape" id=11]
 extents = Vector3( 2.15384, 1, 3.8244 )
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=12]
 extents = Vector3( 2.67145, 1, 2.8875 )
 
-[sub_resource type="BoxShape" id=15]
+[sub_resource type="BoxShape" id=13]
 extents = Vector3( 6.5861, 1, 1 )
 
 [node name="Spatial" type="Spatial"]
@@ -83,10 +85,10 @@ lit = true
 
 [node name="lamp_post4" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.811971, 0, -0.583697, 0, 1, 0, 0.583697, 0, -0.811971, 36.9095, -1.90735e-06, 2.56171 )
-lit = true
 
 [node name="lamp_post5" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.776377, 0, -0.630269, 0, 1, 0, 0.630269, 0, -0.776377, 56.7163, -9.53674e-07, -1.59211 )
+lit = true
 
 [node name="lamp_post6" parent="lamp_posts" instance=ExtResource( 2 )]
 transform = Transform( -0.730747, 0, 0.682649, 0, 1, 0, -0.682649, 0, -0.730747, 44.0421, 9.53674e-07, -32.3515 )
@@ -101,6 +103,16 @@ transform = Transform( -0.570857, 0, 0.821049, 0, 1, 0, -0.821049, 0, -0.570857,
 transform = Transform( 0.722569, 0, -0.691299, 0, 1, 0, 0.691299, 0, 0.722569, 66.6595, 0, -53.1918 )
 lit = true
 
+[node name="lamp_post10" parent="lamp_posts" instance=ExtResource( 2 )]
+transform = Transform( -0.689266, 0, 0.724509, 0, 1, 0, -0.724509, 0, -0.689266, 19.5333, 0, 32.2298 )
+lit = true
+
+[node name="lamp_post11" parent="lamp_posts" instance=ExtResource( 2 )]
+transform = Transform( 0.154314, 0, 0.988022, 0, 1, 0, -0.988022, 0, 0.154314, 53.2703, 1.43051e-06, 31.4108 )
+
+[node name="lamp_post12" parent="lamp_posts" instance=ExtResource( 2 )]
+transform = Transform( -0.629714, 0, 0.776827, 0, 1, 0, -0.776827, 0, -0.629714, 76.1235, 0, -15.2454 )
+
 [node name="zones" type="Spatial" parent="."]
 
 [node name="gate_0" parent="zones" instance=ExtResource( 4 )]
@@ -108,7 +120,7 @@ transform = Transform( 0.980368, 0, -0.197178, 0, 1, 0, 0.197178, 0, 0.980368, 2
 zone_name = "Gate District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/gate_0"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="gate_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.476913, 0, 0.87895, 0, 1, 0, -0.87895, 0, 0.476913, -11.434, 1, -36.755 )
@@ -116,56 +128,56 @@ zone_name = "Gate District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/gate_1"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="graveyard_0" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.955268, 0, -0.295741, 0, 1, 0, 0.295741, 0, 0.955268, 59.2551, 1, -29.2761 )
 zone_name = "Graveyard"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/graveyard_0"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="graveyard_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.999565, 0, -0.0295092, 0, 1, 0, 0.0295092, 0, 0.999565, 37.3463, 1, -39.7093 )
 zone_name = "Graveyard"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/graveyard_1"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="graveyard_3" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.67, 1, -46.9859 )
 zone_name = "Graveyard"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/graveyard_3"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="east_0" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.95206, 0, -0.305911, 0, 1, 0, 0.305911, 0, 0.95206, 58.7301, 1, -25.5225 )
 zone_name = "East District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/east_0"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="east_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.522796, 0, -0.852458, 0, 1, 0, 0.852458, 0, 0.522796, 44.485, 1, 5.266 )
 zone_name = "East District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/east_1"]
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="east_2" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.756892, 0, -0.65354, 0, 1, 0, 0.65354, 0, 0.756892, 30.5903, 1, -14.1446 )
 zone_name = "East District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/east_2"]
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 
 [node name="south_0" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.53752, 0, -0.843251, 0, 1, 0, 0.843251, 0, 0.53752, 47.3279, 1, 15.9853 )
 zone_name = "South District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/south_0"]
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="south_1" parent="zones" instance=ExtResource( 4 )]
 transform = Transform( 0.596547, 0, 0.802578, 0, 1, 0, -0.802578, 0, 0.596547, 28.0627, 0.999998, -11.6291 )
@@ -173,7 +185,7 @@ zone_name = "South District"
 
 [node name="CollisionShape" type="CollisionShape" parent="zones/south_1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.479065, 0, 0.0290432 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="tutorial" type="Spatial" parent="."]
 
@@ -181,13 +193,13 @@ shape = SubResource( 12 )
 transform = Transform( 0.81821, 0, -0.57492, 0, 1, 0, 0.57492, 0, 0.81821, -3.97228, 1, -50.3573 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tutorial/movement"]
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="camera" type="Area" parent="tutorial"]
 transform = Transform( 0.862681, 0, -0.505748, 0, 1, 0, 0.505748, 0, 0.862681, -9.62727, 1, -42.1456 )
 
 [node name="CollisionShape" type="CollisionShape" parent="tutorial/camera"]
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="npcs" type="Spatial" parent="."]
 
@@ -208,12 +220,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.62969, -4.76837e-07, -13.214
 dialog_script = ExtResource( 6 )
 
 [node name="brightness_hint" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5753, -4.76837e-07, 3.30418 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3816, -4.76837e-07, -2.9607 )
 dialog_script = ExtResource( 7 )
 
 [node name="gravestone_hint" parent="npcs" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3857, 4.76837e-07, -53.7691 )
 dialog_script = ExtResource( 12 )
+
+[node name="grid_hint" parent="npcs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7533, 1.90735e-06, 32.155 )
+dialog_script = ExtResource( 17 )
 
 [node name="puzzles" type="Spatial" parent="."]
 
@@ -228,7 +244,10 @@ texture = ExtResource( 10 )
 transform = Transform( 0.928447, 0, 0.371465, 0, 1, 0, -0.371465, 0, 0.928447, 49.8739, 0.249999, -46.6361 )
 
 [node name="brightness" parent="puzzles" instance=ExtResource( 13 )]
-transform = Transform( -0.5359, 0, -0.844281, 0, 1, 0, 0.844281, 0, -0.5359, 34.486, 0.250001, 8.4539 )
+transform = Transform( -0.194371, 0, -0.980928, 0, 1, 0, 0.980928, 0, -0.194371, 54.416, 0.250001, -7.89481 )
+
+[node name="grid" parent="puzzles" instance=ExtResource( 15 )]
+transform = Transform( 0.915677, 0, 0.401916, 0, 1, 0, -0.401916, 0, 0.915677, 30.5249, 0.245147, 32.0827 )
 
 [node name="the_light" parent="." groups=[
 "the_light",
@@ -241,13 +260,13 @@ target_scene = "res://scenes/title_screen/TitleScreen.tscn"
 transform = Transform( -0.0267876, 0, -0.999642, 0, 1, 0, 0.999642, 0, -0.0267876, 2.58296, 0, -11.2743 )
 
 [node name="CollisionShape" type="CollisionShape" parent="the_light/invis_wall"]
-shape = SubResource( 15 )
+shape = SubResource( 13 )
 
 [node name="invis_wall2" type="StaticBody" parent="the_light"]
 transform = Transform( -0.0267876, 0, -0.999642, 0, 1, 0, 0.999642, 0, -0.0267876, -3.03889, 0, -11.178 )
 
 [node name="CollisionShape" type="CollisionShape" parent="the_light/invis_wall2"]
-shape = SubResource( 15 )
+shape = SubResource( 13 )
 [connection signal="body_entered" from="tutorial/movement" to="character" method="show_movement_controls"]
 [connection signal="body_exited" from="tutorial/movement" to="character" method="hide_movement_controls"]
 [connection signal="body_entered" from="tutorial/camera" to="character" method="show_camera_controls"]

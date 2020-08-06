@@ -1,6 +1,6 @@
 extends MeshInstance
 
-export var puzzles = 3
+export var puzzles = 4
 var open = false
 
 func _process(delta):

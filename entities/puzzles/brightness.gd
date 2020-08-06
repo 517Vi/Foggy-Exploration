@@ -8,6 +8,7 @@ func light(num: int):
 	if pattern == SOLUTION:
 		$solved.play()
 		add_to_group("solved")
+		get_tree().get_nodes_in_group("hud")[0].show_element("earth")
 	elif pattern.size() >= 3:
 		pattern = []
 		extinguish_lamps()

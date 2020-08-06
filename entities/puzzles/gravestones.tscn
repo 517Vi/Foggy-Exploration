@@ -28,3 +28,4 @@ lamp_number = 5
 [node name="solved" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -6.0
+bus = "sfx"
