@@ -90,9 +90,9 @@ func _process(delta):
 			add_child(fake_puzzle.duplicate())
 	# Rotate through fog quality settings
 	if Input.is_action_just_pressed("fog_scroll"):
-		if $fog.quality <= 0.2:
-			$fog.quality = 1.2
-		$fog.set_quality($fog.quality - 0.2)
+		if $fog.quality <= 0.5:
+			$fog.quality = 2.0
+		$fog.set_quality($fog.quality - 0.5)
 
 func _physics_process(delta):
 	## Camera movement ##

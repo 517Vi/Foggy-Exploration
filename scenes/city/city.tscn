@@ -213,7 +213,7 @@ shape = SubResource( 12 )
 [node name="gate_backstory" parent="npcs" groups=[
 "gate_npc",
 ] instance=ExtResource( 5 )]
-transform = Transform( 0.722569, 0, -0.691299, 0, 1, 0, 0.691299, 0, 0.722569, -9.22673, 4.76837e-07, -34.687 )
+transform = Transform( 0.370622, 0, -0.928784, 0, 1, 0, 0.928784, 0, 0.370622, -9.22673, 4.76837e-07, -34.687 )
 dialog_script = ExtResource( 8 )
 
 [node name="tutorial_interact" type="Sprite3D" parent="npcs/gate_backstory"]
@@ -223,19 +223,19 @@ texture = ExtResource( 10 )
 script = ExtResource( 16 )
 
 [node name="clock_hint" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.62969, -4.76837e-07, -13.2141 )
+transform = Transform( -0.238889, 0, 0.971047, 0, 1, 0, -0.971047, 0, -0.238889, 6.62969, -4.76837e-07, -13.2141 )
 dialog_script = ExtResource( 6 )
 
 [node name="brightness_hint" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.3816, -4.76837e-07, -2.9607 )
+transform = Transform( -0.772911, 0, -0.634515, 0, 1, 0, 0.634515, 0, -0.772911, 57.3816, -4.76837e-07, -2.9607 )
 dialog_script = ExtResource( 7 )
 
 [node name="gravestone_hint" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3857, 4.76837e-07, -53.7691 )
+transform = Transform( 0.994996, 0, -0.0999102, 0, 1, 0, 0.0999102, 0, 0.994996, 64.3857, 4.76837e-07, -53.7691 )
 dialog_script = ExtResource( 12 )
 
 [node name="grid_hint" parent="npcs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2644, 1.90735e-06, 29.566 )
+transform = Transform( 0.439908, 0, 0.898043, 0, 1, 0, -0.898043, 0, 0.439908, 17.2644, 1.90735e-06, 29.566 )
 dialog_script = ExtResource( 17 )
 
 [node name="puzzles" type="Spatial" parent="."]

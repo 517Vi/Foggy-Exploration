@@ -2,5 +2,8 @@
 
 [resource]
 resource_name = "woodDark.002"
+flags_vertex_lighting = true
 params_cull_mode = 2
 albedo_color = Color( 0.321569, 0.184314, 0.113725, 1 )
+metallic = 0.64
+metallic_specular = 0.0

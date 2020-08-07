@@ -1,6 +1,21 @@
-[gd_resource type="SpatialMaterial" format=2]
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 11
+octaves = 9
+period = 184.6
+persistence = 0.846
+lacunarity = 3.8
+
+[sub_resource type="NoiseTexture" id=2]
+seamless = true
+noise = SubResource( 1 )
 
 [resource]
 resource_name = "wood.006"
 params_cull_mode = 2
 albedo_color = Color( 0.39, 0.23283, 0.1482, 1 )
+metallic = 1.0
+metallic_specular = 0.0
+metallic_texture = SubResource( 2 )
+uv1_scale = Vector3( 0.2, 0.1, 1 )

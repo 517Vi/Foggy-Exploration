@@ -1,6 +1,13 @@
-[gd_resource type="SpatialMaterial" format=2]
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://scenes/city/materials/wallnoisetexture.tres" type="Texture" id=1]
 
 [resource]
 resource_name = "stone.002"
 params_cull_mode = 2
 albedo_color = Color( 0.3003, 0.37206, 0.39, 1 )
+metallic = 0.42
+metallic_specular = 0.2
+metallic_texture = ExtResource( 1 )
+roughness = 0.95
+uv1_triplanar = true
