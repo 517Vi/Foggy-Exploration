@@ -1,3 +1,3 @@
 extends Button
 
-export(PackedScene) var scene_to_load
+export(String, FILE) var scene_to_load
